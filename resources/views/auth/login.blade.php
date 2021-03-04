@@ -1,216 +1,244 @@
 <!DOCTYPE html>
+<html lang="fr">
 
-<html class="loading" lang="en" data-textdirection="ltr">
-   <!-- BEGIN: Head-->
-   <head>
-      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-      <meta name="description" content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
-      <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
-      <meta name="author" content="PIXINVENT">
-      <title>Login Page - RequestManager</title>
-      <link rel="apple-touch-icon" href="{{asset('assets/app-assets/images/ico/apple-icon-120.html') }}">
-      <link rel="shortcut icon" type="image/x-icon" href="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/app-assets/images/ico/favicon.ico">
-      <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
-      <!-- BEGIN: Vendor CSS-->
-      <link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/vendors/css/vendors.min.css') }}">
-      <!-- END: Vendor CSS-->
-      <!-- BEGIN: Theme CSS-->
-      <link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/css/bootstrap.min.css') }}">
-      <link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/css/bootstrap-extended.min.css') }}">
-      <link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/css/colors.min.css') }}">
-      <link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/css/components.min.css') }}">
-      <link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/css/themes/dark-layout.min.css') }}">
-      <link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/css/themes/bordered-layout.min.css') }}">
-      <link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/css/themes/semi-dark-layout.min.css') }}">
-      <!-- BEGIN: Page CSS-->
-      <link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/css/core/menu/menu-types/vertical-menu.min.css') }}">
-      <link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/css/plugins/forms/form-validation.css') }}">
-      <link rel="stylesheet" type="text/css" href="{{asset('assets/app-assets/css/pages/page-auth.min.css') }}">
-      <!-- END: Page CSS-->
-      <!-- BEGIN: Custom CSS-->
-      <link rel="stylesheet" type="text/css" href="{{asset('assets/assets/css/style.css') }}">
-      <!-- END: Custom CSS-->
-   </head>
-   <!-- END: Head-->
-   <!-- BEGIN: Body-->
-   <body class="vertical-layout vertical-menu-modern blank-page navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="blank-page">
-      <!-- BEGIN: Content-->
-      <div class="app-content content ">
-         <div class="content-overlay"></div>
-         <div class="header-navbar-shadow"></div>
-         <div class="content-wrapper">
-            <div class="content-header row">
-            </div>
-            <div class="content-body">
-               <div class="auth-wrapper auth-v1 px-2">
-                  <div class="auth-inner py-2">
-                     <!-- Login v1 -->
-                     <div class="card mb-0">
-                        <div class="card-body">
-                           <a href="javascript:void(0);" class="brand-logo">
-                              <svg
-                                 viewbox="0 0 139 95"
-                                 version="1.1"
-                                 xmlns="http://www.w3.org/2000/svg"
-                                 xmlns:xlink="http://www.w3.org/1999/xlink"
-                                 height="28"
-                                 >
-                                 <defs>
-                                    <lineargradient id="linearGradient-1" x1="100%" y1="10.5120544%" x2="50%" y2="89.4879456%">
-                                       <stop stop-color="#000000" offset="0%"></stop>
-                                       <stop stop-color="#FFFFFF" offset="100%"></stop>
-                                    </lineargradient>
-                                    <lineargradient id="linearGradient-2" x1="64.0437835%" y1="46.3276743%" x2="37.373316%" y2="100%">
-                                       <stop stop-color="#EEEEEE" stop-opacity="0" offset="0%"></stop>
-                                       <stop stop-color="#FFFFFF" offset="100%"></stop>
-                                    </lineargradient>
-                                 </defs>
-                                 <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <g id="Artboard" transform="translate(-400.000000, -178.000000)">
-                                       <g id="Group" transform="translate(400.000000, 178.000000)">
-                                          <path
-                                             class="text-primary"
-                                             id="Path"
-                                             d="M-5.68434189e-14,2.84217094e-14 L39.1816085,2.84217094e-14 L69.3453773,32.2519224 L101.428699,2.84217094e-14 L138.784583,2.84217094e-14 L138.784199,29.8015838 C137.958931,37.3510206 135.784352,42.5567762 132.260463,45.4188507 C128.736573,48.2809251 112.33867,64.5239941 83.0667527,94.1480575 L56.2750821,94.1480575 L6.71554594,44.4188507 C2.46876683,39.9813776 0.345377275,35.1089553 0.345377275,29.8015838 C0.345377275,24.4942122 0.230251516,14.560351 -5.68434189e-14,2.84217094e-14 Z"
-                                             style="fill: currentColor"
-                                             ></path>
-                                          <path
-                                             id="Path1"
-                                             d="M69.3453773,32.2519224 L101.428699,1.42108547e-14 L138.784583,1.42108547e-14 L138.784199,29.8015838 C137.958931,37.3510206 135.784352,42.5567762 132.260463,45.4188507 C128.736573,48.2809251 112.33867,64.5239941 83.0667527,94.1480575 L56.2750821,94.1480575 L32.8435758,70.5039241 L69.3453773,32.2519224 Z"
-                                             fill="url(#linearGradient-1)"
-                                             opacity="0.2"
-                                             ></path>
-                                          <polygon
-                                             id="Path-2"
-                                             fill="#000000"
-                                             opacity="0.049999997"
-                                             points="69.3922914 32.4202615 32.8435758 70.5039241 54.0490008 16.1851325"
-                                             ></polygon>
-                                          <polygon
-                                             id="Path-21"
-                                             fill="#000000"
-                                             opacity="0.099999994"
-                                             points="69.3922914 32.4202615 32.8435758 70.5039241 58.3683556 20.7402338"
-                                             ></polygon>
-                                          <polygon
-                                             id="Path-3"
-                                             fill="url(#linearGradient-2)"
-                                             opacity="0.099999994"
-                                             points="101.428699 0 83.0667527 94.1480575 130.378721 47.0740288"
-                                             ></polygon>
-                                       </g>
-                                    </g>
-                                 </g>
-                              </svg>
-                              <h2 class="brand-text text-primary ml-1">Request Manager</h2>
-                           </a>
-                           <h4 class="card-title mb-1">Welcome to Request Manager! 👋</h4>
-                           <p class="card-text mb-2">Please sign-in to your account and start the adventure</p>
+<head>
+	<title>Request Manager | Connexion</title>
+	<!-- HTML5 Shim and Respond.js IE11 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 11]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	<!-- Meta -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="description" content="Request Manager Application."/>
+	<meta name="keywords" content="Request Manager Application"/>
+	<meta name="author" content="Request Manager"/>
 
-                           <form method="POST" action="{{ route('login') }}">
-                            @csrf 
-                            <div class="form-group">
-                                 <label for="email" class="form-label">Email</label>
-                                 <input id="email" type="email" tabindex="1" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+	<!-- Favicon icon -->
+	<link rel="icon" href="{{asset('assets/images/favicon.svg') }}" type="image/x-icon">
 
-                                    @error('email')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                              </div>
+	<!-- font css -->
+	<link rel="stylesheet" href="{{asset('assets/fonts/feather.css') }}">
+	<link rel="stylesheet" href="{{asset('assets/fonts/fontawesome.css') }}">
+	<link rel="stylesheet" href="{{asset('assets/fonts/material.css') }}">
 
-                              <div class="form-group">
-                                 <div class="d-flex justify-content-between">
-                                    <label for="password">Password</label>
+	<!-- vendor css -->
+	<link rel="stylesheet" href="{{asset('assets/css/style.css') }}" id="main-style-link">
+	<link rel="stylesheet" href="{{asset('assets/css/customizer.css') }}">
+	
 
-                                    @if (Route::has('password.request'))
-                                        <a href="{{ route('password.request') }}">
-                                        <small>Forgot Password?</small>
-                                    @endif
-                                    </a>
-                                 </div>
 
-                                 <div class="input-group input-group-merge form-password-toggle">
-                                   
-                                    <input id="password" type="password" tabindex="2" class="form-control form-control-merge @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+</head>
 
-                                    <div class="input-group-append">
-                                       <span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span>
-                                    </div>
-
-                                    @error('password')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-
-                                 </div>
-                              </div>
-
-                              <div class="form-group">
-                                 <div class="custom-control custom-checkbox">
-                                    <input class="custom-control-input" type="checkbox" name="remember" id="remember-me" tabindex="3" {{ old('remember') ? 'checked' : '' }}/>
-                                    <label class="custom-control-label" for="remember-me"> Remember Me </label>
-                                 </div>
-                              </div>
-
-                              <button type="submit" class="btn btn-primary btn-block" tabindex="4">Sign in</button>
-                           </form>
-                          <!-- <p class="text-center mt-2">
-                              <span>New on our platform?</span>
-                              <a href="page-auth-register-v1.html">
-                              <span>Create an account</span>
-                              </a>
-                           </p>
-                           <div class="divider my-2">
-                              <div class="divider-text">or</div>
-                           </div>
-                           <div class="auth-footer-btn d-flex justify-content-center">
-                              <a href="javascript:void(0)" class="btn btn-facebook">
-                              <i data-feather="facebook"></i>
-                              </a>
-                              <a href="javascript:void(0)" class="btn btn-twitter white">
-                              <i data-feather="twitter"></i>
-                              </a>
-                              <a href="javascript:void(0)" class="btn btn-google">
-                              <i data-feather="mail"></i>
-                              </a>
-                              <a href="javascript:void(0)" class="btn btn-github">
-                              <i data-feather="github"></i>
-                              </a>
-                           </div>-->
-                        </div>
-                     </div>
-                     <!-- /Login v1 -->
-                  </div>
-               </div>
-            </div>
-         </div>
+<!-- [ signin-img ] start -->
+<div class="auth-wrapper align-items-stretch aut-bg-img">
+	<div class="flex-grow-1">
+		<div class="h-100 d-lg-flex align-items-end auth-side-img">
+			<div class="col-sm-10 auth-content w-auto">
+				<img src="{{asset('assets/images/logo.svg') }}" alt="" class="img-fluid">
+				<h1 class="text-white my-4">Bienvenue!</h1>
+				<h4 class="text-white font-weight-normal">Veuillez entrer vos identifiants pour vous connectez à l'application</h4>
+			</div>
       </div>
-      <!-- END: Content-->
-      <!-- BEGIN: Vendor JS-->
-      <script src="{{asset('assets/app-assets/vendors/js/vendors.min.js') }}"></script>
-      <!-- BEGIN Vendor JS-->
-      <!-- BEGIN: Page Vendor JS-->
-      <script src="{{asset('assets/app-assets/vendors/js/forms/validation/jquery.validate.min.js') }}"></script>
-      <!-- END: Page Vendor JS-->
-      <!-- BEGIN: Theme JS-->
-      <script src="{{asset('assets/app-assets/js/core/app-menu.min.js') }}"></script>
-      <script src="{{asset('assets/app-assets/js/core/app.min.js') }}"></script>
-      <!-- END: Theme JS-->
-      <!-- BEGIN: Page JS-->
-      <script src="{{asset('assets/app-assets/js/scripts/pages/page-auth-login.js') }}"></script>
-      <!-- END: Page JS-->
-      <script>
-         $(window).on('load',  function(){
-           if (feather) {
-             feather.replace({ width: 14, height: 14 });
-           }
-         })
-      </script>
-   </body>
-   <!-- END: Body-->
+      
+		<div class="auth-side-form">
+         <form method="POST" action="{{ route('login') }}">
+            @csrf 
+			<div class=" auth-content">
+				<img src="{{asset('assets/images/auth/auth-logo-dark.html') }}" alt="" class="img-fluid mb-4 d-block d-xl-none d-lg-none">
+            <h3 class="mb-4 f-w-400">Connexion</h3>
+            
+				<div class="input-group mb-3">
+					<span class="input-group-text"><i data-feather="mail"></i></span>
+               <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" required autocomplete="email" autofocus>
+               
+               @error('email')
+                     <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                     </span>
+               @enderror
+            </div>
+            
+				<div class="input-group mb-4">
+					<span class="input-group-text"><i data-feather="lock"></i></span>
+               <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+               
+               @error('password')
+                     <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                     </span>
+               @enderror
+            </div>
+            
+				<div class="form-group  mt-2">
+					<div class="form-check">
+						<input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" {{ old('remember') ? 'checked' : '' }}>
+						<label class="form-check-label" for="flexCheckChecked">
+							Se souvenir
+						</label>
+					</div>
+            </div>
+            
+				<button type="submit" class="btn btn-block btn-primary mb-0">Connexion</button>
+				<div class="text-center">
+					<!--<div class="saprator my-4"><span>OR</span></div>
+					<button class="btn text-white bg-facebook mb-2 me-2  wid-40 px-0 hei-40 rounded-circle"><i class="fab fa-facebook-f"></i></button>
+					<button class="btn text-white bg-googleplus mb-2 me-2 wid-40 px-0 hei-40 rounded-circle"><i class="fab fa-google-plus-g"></i></button>
+					<button class="btn text-white bg-twitter mb-2  wid-40 px-0 hei-40 rounded-circle"><i class="fab fa-twitter"></i></button>-->
+               @if (Route::has('password.request'))
+                  <p class="mb-2 mt-4 text-muted">Mot de passe oublié?
+                     <a href="{{ route('password.request') }}" class="f-w-400">Réinitialisé</a>
+                  </p>
+               @endif
+					<!--<p class="mb-0 text-muted">Don’t have an account? <a href="auth-signup-img-side.html" class="f-w-400">Signup</a></p>-->
+            </div>
+            
+         </form>
+			</div>
+      </div>
+      
+
+	</div>
+</div>
+<!-- [ signin-img ] end -->
+
+<!-- Required Js -->
+<script src="{{asset('assets/js/vendor-all.min.js') }}"></script>
+<script src="{{asset('assets/js/plugins/bootstrap.min.js') }}"></script>
+<script src="{{asset('assets/js/plugins/feather.min.js') }}"></script>
+<script src="{{asset('assets/js/pcoded.min.js') }}"></script>
+
+<div class="pct-customizer">
+    <div class="pct-c-btn">
+        <button class="btn btn-light-danger" id="pct-toggler">
+            <i data-feather="settings"></i>
+        </button>
+        <button class="btn btn-light-primary" data-bs-toggle="tooltip" title="Document" data-placement="left">
+            <i data-feather="book"></i>
+        </button>
+        <button class="btn btn-light-success" data-bs-toggle="tooltip" title="Buy Now" data-placement="left">
+            <i data-feather="shopping-bag"></i>
+        </button>
+        <button class="btn btn-light-info" data-bs-toggle="tooltip" title="Support" data-placement="left">
+            <i data-feather="headphones"></i>
+        </button>
+    </div>
+    <div class="pct-c-content ">
+        <div class="pct-header bg-primary">
+            <h5 class="mb-0 text-white f-w-500">DashboardKit Customizer</h5>
+        </div>
+        <div class="pct-body">
+            <h6 class="mt-2"><i data-feather="credit-card" class="me-2"></i>Header settings</h6>
+            <hr class="my-2">
+            <div class="theme-color header-color">
+                <a href="#!" class="" data-value="bg-default"><span></span><span></span></a>
+                <a href="#!" class="" data-value="bg-primary"><span></span><span></span></a>
+                <a href="#!" class="" data-value="bg-danger"><span></span><span></span></a>
+                <a href="#!" class="" data-value="bg-warning"><span></span><span></span></a>
+                <a href="#!" class="" data-value="bg-info"><span></span><span></span></a>
+                <a href="#!" class="" data-value="bg-success"><span></span><span></span></a>
+                <a href="#!" class="" data-value="bg-dark"><span></span><span></span></a>
+            </div>
+            <h6 class="mt-4"><i data-feather="layout" class="me-2"></i>Sidebar settings</h6>
+            <hr class="my-2">
+            <div class="form-check form-switch">
+                <input type="checkbox" class="form-check-input" id="cust-sidebar">
+                <label class="form-check-label f-w-600 pl-1" for="cust-sidebar">Light Sidebar</label>
+            </div>
+            <div class="form-check form-switch mt-2">
+                <input type="checkbox" class="form-check-input" id="cust-sidebrand">
+                <label class="form-check-label f-w-600 pl-1" for="cust-sidebrand">Color Brand</label>
+            </div>
+            <div class="theme-color brand-color d-none">
+                <a href="#!" class="active" data-value="bg-primary"><span></span><span></span></a>
+                <a href="#!" class="" data-value="bg-danger"><span></span><span></span></a>
+                <a href="#!" class="" data-value="bg-warning"><span></span><span></span></a>
+                <a href="#!" class="" data-value="bg-info"><span></span><span></span></a>
+                <a href="#!" class="" data-value="bg-success"><span></span><span></span></a>
+                <a href="#!" class="" data-value="bg-dark"><span></span><span></span></a>
+            </div>
+            <h6 class="mt-4"><i data-feather="sun" class="me-2"></i>Layout settings</h6>
+            <hr class="my-2">
+            <div class="form-check form-switch mt-2">
+                <input type="checkbox" class="form-check-input" id="cust-darklayout">
+                <label class="form-check-label f-w-600 pl-1" for="cust-darklayout">Dark Layout</label>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('#pct-toggler').on('click', function() {
+        $('.pct-customizer').toggleClass('active');
+    });
+    $('#cust-sidebrand').change(function() {
+        if ($(this).is(":checked")) {
+            $('.theme-color.brand-color').removeClass('d-none');
+            $('.m-header').addClass('bg-dark');
+        } else {
+            $('.m-header').removeClassPrefix('bg-');
+            $('.m-header > .b-brand > .logo-lg').attr('src', 'assets/images/logo-dark.svg');
+            $('.theme-color.brand-color').addClass('d-none');
+        }
+    });
+    $('.brand-color > a').on('click', function() {
+        var temp = $(this).attr('data-value');
+        if (temp == "bg-default") {
+            $('.m-header').removeClassPrefix('bg-');
+        } else {
+            $('.m-header').removeClassPrefix('bg-');
+            $('.m-header > .b-brand > .logo-lg').attr('src', 'assets/images/logo.svg');
+            $('.m-header').addClass(temp);
+        }
+    });
+    $('.header-color > a').on('click', function() {
+        var temp = $(this).attr('data-value');
+        if (temp == "bg-default") {
+            $('.pc-header').removeClassPrefix('bg-');
+        } else {
+            $('.pc-header').removeClassPrefix('bg-');
+            $('.pc-header').addClass(temp);
+        }
+    });
+    $('#cust-sidebar').change(function() {
+        if ($(this).is(":checked")) {
+            $('.pc-sidebar').addClass('light-sidebar');
+            $('.pc-horizontal .topbar').addClass('light-sidebar');
+        } else {
+            $('.pc-sidebar').removeClass('light-sidebar');
+            $('.pc-horizontal .topbar').removeClass('light-sidebar');
+        }
+    });
+    $('#cust-darklayout').change(function() {
+        if ($(this).is(":checked")) {
+            $("#main-style-link").attr("href", "assets/css/style-dark.css");
+        } else {
+            $("#main-style-link").attr("href", "assets/css/style.css");
+        }
+    });
+    $.fn.removeClassPrefix = function(prefix) {
+        this.each(function(i, it) {
+            var classes = it.className.split(" ").map(function(item) {
+                return item.indexOf(prefix) === 0 ? "" : item;
+            });
+            it.className = classes.join(" ");
+        });
+        return this;
+    };
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q8H86P6FK7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-Q8H86P6FK7');
+</script>
+<script src="{{asset('assets/js/%c3%a1%c2%b9%c2%adrack.html') }}"></script>
+
+
+</body>
 </html>

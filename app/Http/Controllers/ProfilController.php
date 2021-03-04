@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\MedicalStaff;
-use App\Models\HealthInstitution;
+use App\Models\Ressource;
+use App\Models\Partner;
+use App\Models\Operator;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Auth;
@@ -30,15 +31,21 @@ class ProfilController extends Controller
 
         if($user->role_id == 2){
 
-            $staff = MedicalStaff::where('user_id', auth()->user()->id)->first();
+            $staff = Partenaire::where('user_id', auth()->user()->id)->first();
 
             return view('profils.index', compact('staff', 'user'));
 
         }elseif($user->role_id == 3){
 
-            $institustion = HealthInstitution::where('user_id', auth()->user()->id)->first();
+            $institustion = Operator::where('user_id', auth()->user()->id)->first();
 
             return view('profils.index', compact('institustion', 'user'));
+
+        }elseif($user->role_id == 4){
+
+            $ressource = Ressource::where('user_id', auth()->user()->id)->first();
+
+            return view('profils.index', compact('ressource', 'user'));
 
         }
 
@@ -73,7 +80,6 @@ class ProfilController extends Controller
      */
     public function store(Request $request)
     {
-
         $user_id = auth()->user()->id;
 
         $user = User::findOrFail($user_id);
@@ -107,7 +113,6 @@ class ProfilController extends Controller
             $fileNameToStore = 'noimage.jpg';
         }
 
-
         $name = $request->input('name');
         $firstname = $request->input('firstname');
         $email = $request->input('email');
@@ -116,7 +121,7 @@ class ProfilController extends Controller
 
         if($user->role_id == 2){
 
-            $staff = MedicalStaff::where('user_id', $user->id)->first();
+            $staff = Partner::where('user_id', $user->id)->first();
             $user->name = $name;
             $user->firstname = $firstname;
             $user->email = $email;
@@ -138,7 +143,7 @@ class ProfilController extends Controller
             $staff->save();
         }else if($user->role_id == 3){
 
-            $institustion = HealthInstitution::where('user_id', $user->id)->first();
+            $institustion = Operator::where('user_id', $user->id)->first();
             $user->name = $name;
             $user->email = $email;
             $user->address = $address;
@@ -156,6 +161,26 @@ class ProfilController extends Controller
             }
             $user->save();
             $institustion->save();
+        }else if($user->role_id == 4){
+
+            $ressource = Ressource::where('user_id', $user->id)->first();
+            $user->name = $name;
+            $user->email = $email;
+            $user->address = $address;
+            $user->phone_number = $phone_number;
+            if ($request->hasfile('profile_picture')) {
+                $user->profile_picture = $fileNameToStore;
+            }
+
+            $ressource->name = $name;
+            $ressource->email = $email;
+            $ressource->address = $address;
+            $ressource->phone_number = $phone_number;
+            if ($request->hasfile('profile_picture')) {
+                $ressource->profile_picture = $fileNameToStore;
+            }
+            $user->save();
+            $ressource->save();
         } else{
 
             $user->name = $name;

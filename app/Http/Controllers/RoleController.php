@@ -25,9 +25,7 @@ class RoleController extends Controller
 
         $permissions = Permission::all(); //Get all permissions
 
-        return view('admin.roles.index', ['permissions' => $permissions, 'roles' => $roles]);
-
-        //return view('roles.index')->with('roles', $roles);
+        return view('roles.index', ['permissions' => $permissions, 'roles' => $roles]);
     }
 
     /**
@@ -39,7 +37,7 @@ class RoleController extends Controller
     {
         $permissions = Permission::all(); //Get all permissions
 
-        return view('admin.roles.create', ['permissions' => $permissions]);
+        return view('roles.create', ['permissions' => $permissions]);
     }
 
     /**
@@ -99,7 +97,7 @@ class RoleController extends Controller
         $role = Role::findOrFail($id);
         $permissions = Permission::all();
 
-        return view('admin.roles.edit', compact('role', 'permissions'));
+        return view('roles.edit', compact('role', 'permissions'));
     }
 
     /**

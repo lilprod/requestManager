@@ -33,7 +33,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        $roles = Role::whereNotIn('id', array(2,3))->get();
+        $roles = Role::whereNotIn('id', array(2,3,4))->get();
 
         return view('admins.create', ['roles' => $roles]);
     }
@@ -85,7 +85,7 @@ class AdminController extends Controller
         $user->profile_picture = $fileNameToStore;
         $user->phone_number = $request->input('phone_number');
         $user->address = $request->input('address');
-        $user->role_id = 2;
+        $user->role_id = 1;
 
         $user->save();
 
@@ -124,7 +124,7 @@ class AdminController extends Controller
     {
         $user = User::findOrFail($id); //Get user with specified id
         
-        $roles = Role::whereNotIn('id', array(2,3))->get();
+        $roles = Role::whereNotIn('id', array(2,3,4))->get();
 
         return view('admins.edit', compact('user', 'roles')); //pass user and roles data to view
     }

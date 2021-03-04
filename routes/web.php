@@ -50,6 +50,10 @@ Route::name('admin.')->group(function () {
     });
 });
 
+Route::resource('profils', 'ProfilController');
+
+Route::post('/updatepassword', 'ProfilController@updatePassword')->name('updatepassword');
+
 /*Route::get('/create_role_permission', function () {
     $role = Role::create(['name' => 'Admin']);
     $permission = Permission::create(['name' => 'Admin Permissions']);
