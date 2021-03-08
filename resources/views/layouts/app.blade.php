@@ -12,11 +12,11 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-      <meta name="description" content="Allo Medic Assistance Administration."/>
-      <meta name="keywords" content="Allo Medic Assistance, Admin"/>
-      <meta name="author" content="Allo Medic Assistance"/>
+      <meta name="description" content="Request Manager Administration."/>
+      <meta name="keywords" content="Request Manager, Admin"/>
+      <meta name="author" content="Request Manager"/>
       <!-- Favicon icon -->
-      <link rel="icon" href="{{asset('assets/images/favicon.svg') }}" type="image/x-icon">
+      <link rel="icon" href="{{asset('assets/images/favicon.ico') }}" type="image/x-icon">
       <!-- data tables css -->
       <link rel="stylesheet" href="{{asset('assets/css/plugins/dataTables.bootstrap4.min.css') }}">
       <link rel="stylesheet" href="{{asset('assets/fonts/cryptofont.css') }}">
@@ -54,7 +54,7 @@
       <!-- [ Mobile header ] start -->
       <div class="pc-mob-header pc-header">
          <div class="pcm-logo">
-            <img src="{{asset('assets/images/logo.svg') }}" alt="" class="logo logo-lg">
+            <img src="{{asset('assets/images/moovafrica.png') }}" alt="" class="logo logo-lg">
          </div>
          <div class="pcm-toolbar">
             <a href="#!" class="pc-head-link" id="mobile-collapse">
@@ -81,7 +81,7 @@
             <div class="m-header">
                <a href="{{route('dashboard')}}" class="b-brand">
                   <!-- ========   change your logo hear   ============ -->
-                  <img src="{{asset('assets/images/logo.svg') }}" alt="" class="logo logo-lg">
+                  <img src="{{asset('assets/images/moovafrica.png') }}" alt="" class="logo logo-lg">
                   <img src="{{asset('assets/images/logo-sm.svg') }}" alt="" class="logo logo-sm">
                </a>
             </div>
@@ -293,14 +293,14 @@
       <!-- Ckeditor js -->
       <script src="{{asset('assets/js/plugins/ckeditor.js') }}"></script>
       <script type="text/javascript">
-         $(window).on('load', function() {
+        /* $(window).on('load', function() {
             $(function() {
                   ClassicEditor.create(document.querySelector('#classic-editor'))
                      .catch(error => {
                         console.error(error);
                      });
             });
-         });
+         });*/
       </script>
 
 
@@ -418,7 +418,7 @@
                  $('.m-header').addClass('bg-dark');
              } else {
                  $('.m-header').removeClassPrefix('bg-');
-                 $('.m-header > .b-brand > .logo-lg').attr('src', 'assets/images/logo-dark.svg');
+                 $('.m-header > .b-brand > .logo-lg').attr('src', '{{asset('assets/images/logo-dark.svg') }}');
                  $('.theme-color.brand-color').addClass('d-none');
              }
          });
@@ -428,7 +428,7 @@
                  $('.m-header').removeClassPrefix('bg-');
              } else {
                  $('.m-header').removeClassPrefix('bg-');
-                 $('.m-header > .b-brand > .logo-lg').attr('src', 'assets/images/logo.svg');
+                 $('.m-header > .b-brand > .logo-lg').attr('src', '{{asset('assets/images/logo.svg') }}');
                  $('.m-header').addClass(temp);
              }
          });
@@ -452,9 +452,9 @@
          });
          $('#cust-darklayout').change(function() {
              if ($(this).is(":checked")) {
-                 $("#main-style-link").attr("href", "assets/css/style-dark.css");
+                 $("#main-style-link").attr("href", "{{asset('assets/css/style-dark.css') }}");
              } else {
-                 $("#main-style-link").attr("href", "assets/css/style.css");
+                 $("#main-style-link").attr("href", "{{asset('assets/css/style.css') }}");
              }
          });
          $.fn.removeClassPrefix = function(prefix) {

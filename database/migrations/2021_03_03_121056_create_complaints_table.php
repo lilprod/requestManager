@@ -21,6 +21,11 @@ class CreateComplaintsTable extends Migration
             $table->date('closing_date')->nullable();
             $table->mediumText('description')->nullable();
             $table->integer('status')->default(0);
+            $table->integer('user_id')->nullable();
+            $table->integer('partner_id')->nullable();
+            $table->integer('operator_id')->nullable();
+            $table->integer('ressource_id')->nullable();
+            $table->integer('approuved_by')->nullable();
             $table->timestamps();
         });
     }

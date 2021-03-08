@@ -18,7 +18,7 @@
 	<meta name="author" content="Request Manager"/>
 
 	<!-- Favicon icon -->
-	<link rel="icon" href="{{asset('assets/images/favicon.svg') }}" type="image/x-icon">
+	<link rel="icon" href="{{asset('assets/images/favicon.ico') }}" type="image/x-icon">
 
 	<!-- font css -->
 	<link rel="stylesheet" href="{{asset('assets/fonts/feather.css') }}">
@@ -38,7 +38,7 @@
 	<div class="flex-grow-1">
 		<div class="h-100 d-lg-flex align-items-end auth-side-img">
 			<div class="col-sm-10 auth-content w-auto">
-				<img src="{{asset('assets/images/logo.svg') }}" alt="" class="img-fluid">
+				<img src="{{asset('assets/images/moovafrica.png') }}" alt="" class="img-fluid">
 				<h1 class="text-white my-4">Bienvenue!</h1>
 				<h4 class="text-white font-weight-normal">Veuillez entrer vos identifiants pour vous connectez à l'application</h4>
 			</div>
@@ -48,7 +48,7 @@
          <form method="POST" action="{{ route('login') }}">
             @csrf 
 			<div class=" auth-content">
-				<img src="{{asset('assets/images/auth/auth-logo-dark.html') }}" alt="" class="img-fluid mb-4 d-block d-xl-none d-lg-none">
+				<img src="{{asset('assets/images/espace-pro.jpg') }}" alt="" class="img-fluid mb-4 d-block d-xl-none d-lg-none">
             <h3 class="mb-4 f-w-400">Connexion</h3>
             
 				<div class="input-group mb-3">
@@ -180,7 +180,7 @@
             $('.m-header').addClass('bg-dark');
         } else {
             $('.m-header').removeClassPrefix('bg-');
-            $('.m-header > .b-brand > .logo-lg').attr('src', 'assets/images/logo-dark.svg');
+            $('.m-header > .b-brand > .logo-lg').attr('src', '{{asset('assets/images/logo-dark.svg') }}');
             $('.theme-color.brand-color').addClass('d-none');
         }
     });
@@ -190,7 +190,7 @@
             $('.m-header').removeClassPrefix('bg-');
         } else {
             $('.m-header').removeClassPrefix('bg-');
-            $('.m-header > .b-brand > .logo-lg').attr('src', 'assets/images/logo.svg');
+            $('.m-header > .b-brand > .logo-lg').attr('src', '{{asset('assets/images/logo.svg') }}');
             $('.m-header').addClass(temp);
         }
     });
@@ -214,9 +214,9 @@
     });
     $('#cust-darklayout').change(function() {
         if ($(this).is(":checked")) {
-            $("#main-style-link").attr("href", "assets/css/style-dark.css");
+            $("#main-style-link").attr("href", "{{asset('assets/css/style-dark.css') }}");
         } else {
-            $("#main-style-link").attr("href", "assets/css/style.css");
+            $("#main-style-link").attr("href", "{{asset('assets/css/style.css') }}");
         }
     });
     $.fn.removeClassPrefix = function(prefix) {

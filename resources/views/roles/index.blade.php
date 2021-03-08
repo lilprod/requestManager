@@ -35,7 +35,7 @@
                     </div>
                     <div class="col-sm-6 text-end">
                         <!--<button class="btn btn-success btn-sm mb-3 btn-round" data-bs-toggle="modal" data-bs-target="#modal-report"><i class="feather icon-plus"></i> Ajouter Permission</button>-->
-                        <a href="{{ route('admin.roles.create') }}" class="btn btn-success btn-sm mb-3 btn-round" data-toggle="" data-target=""> <i class="fa fa-plus"></i>
+                        <a href="{{ route('admin.roles.create') }}" class="btn btn-primary btn-sm mb-3 btn-round" data-toggle="" data-target=""> <i class="fa fa-plus"></i>
                             Ajouter Rôle</a>
                     </div>
                 </div>

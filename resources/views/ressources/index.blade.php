@@ -35,7 +35,7 @@
                     <div class="col-sm-6">
                     </div>
                     <div class="col-sm-6 text-end">
-                        <a href="{{ route('admin.ressources.create') }}" class="btn btn-success btn-sm mb-3 btn-round"> <i class="fa fa-plus"></i>
+                        <a href="{{ route('admin.ressources.create') }}" class="btn btn-primary btn-sm mb-3 btn-round"> <i class="fa fa-plus"></i>
                             Ajouter Personnel
                         </a>
                     </div>

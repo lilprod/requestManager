@@ -35,7 +35,7 @@
                     <div class="col-sm-6">
                     </div>
                     <div class="col-sm-6 text-end">
-                        <a href="{{ route('admin.admins.create') }}" class="btn btn-success btn-sm mb-3 btn-round" data-toggle="" data-target=""> <i class="fa fa-plus"></i>
+                        <a href="{{ route('admin.admins.create') }}" class="btn btn-primary btn-sm mb-3 btn-round" data-toggle="" data-target=""> <i class="fa fa-plus"></i>
                             Ajouter Admin
                         </a>
                     </div>
