@@ -78,7 +78,7 @@
 
 @endsection
 
-@push('institution')
+@push('partner')
 <script>
     function deleteData(id)
     {

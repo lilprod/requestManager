@@ -49,6 +49,51 @@ class ComplaintController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'title' => 'required|max:120',
+            'body' => 'required',
+            ],
+
+            $messages = [
+                'required' => 'The :attribute field is required.',
+            ]
+        );
+
+        $complaint = new Complaint();
+        $complaint->title = $request->input('title');
+        $complaint->body = $request->input('body');
+
+        $partner = Partner::where('user_id', auth()->user()->id)->first();
+        $complaint->operator = 1;
+        $complaint->partner_id = $partner->id;
+        $complaint->user_id = auth()->user()->id;
+
+        if($request->input('category_id') == ''){
+            $complaint->type_id = 4;
+        }else{
+            $complaint->type_id = $request->input('category_id');
+        }
+
+        //$complaint->username = auth()->user()->name.' '.auth()->user()->firstname;
+
+        /*$historique = new Historique();
+        $historique->action = 'Create';
+        $historique->table = 'Complaint';
+        $historique->user_id = auth()->user()->id;*/
+
+        $complaint->save();
+
+        //$historique->save();
+        /*if($post->status == 1){
+            return redirect()->route('admin.posts.index')
+            ->with('success',
+             'Offre publiée avec succès.');
+
+        }else{
+            return redirect()->route('doctor_pending_posts')
+            ->with('success',
+             'Post is pending.');
+        }*/
         return redirect()->route('admin.complaints.index')
             ->with('success',
              'Requête enregistrée avec succès.');
@@ -95,9 +140,51 @@ class ComplaintController extends Controller
     {
         $complaint = Complaint::findOrFail($id);
 
-        return redirect()->route('admin.complaints.index')
-            ->with('success',
-             'Requête éditée avec succès.');
+        $partner = Partner::where('user_id', auth()->user()->id)->first();
+
+        $this->validate($request, [
+            'title' => 'required|max:120',
+            'body' => 'required',
+            ],
+
+            $messages = [
+                'required' => 'The :attribute field is required.',
+            ]
+        );
+
+        if($complaint->status == 0){
+
+            $complaint->title = $request->input('title');
+            $complaint->body = $request->input('body');
+            //$complaint->status = $request->input('status');
+            $complaint->user_id = auth()->user()->id;
+            $complaint->operator = 1;
+            $complaint->partner_id = $partner->id;
+
+            if($request->input('category_id') == ''){
+                $complaint->type_id = 1;
+            }else{
+                $complaint->type_id = $request->input('category_id');
+            }
+
+            //$complaint->username = auth()->user()->name.' '.auth()->user()->firstname;
+
+            /*$historique = new Historique();
+            $historique->action = 'Create';
+            $historique->table = 'Complaint';
+            $historique->user_id = auth()->user()->id;*/
+
+            $complaint->save();
+
+            return redirect()->route('admin.complaints.index')
+                ->with('success',
+                'Requête éditée avec succès.');
+
+        }
+
+            return redirect()->route('admin.complaints.index')
+                ->with('error',
+                'Requête déjà traité.');
     }
 
     /**

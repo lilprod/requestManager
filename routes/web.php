@@ -50,6 +50,29 @@ Route::name('admin.')->group(function () {
     });
 });
 
+Route::name('partner.')->group(function () {
+
+    Route::group(['prefix' => 'partner'], function () {  
+
+        Route::get('pending/complaints', 'PartnerManagerController@pendingComplaints')->name('partner_pending_complaints');
+
+        Route::get('archived/complaints', 'PartnerManagerController@archivedComplaints')->name('partner_archived_complaints');
+    });
+});
+
+Route::name('ressource.')->group(function () {
+
+    Route::group(['prefix' => 'ressource'], function () { 
+        
+        Route::get('pending/complaints', 'RessourceManagerController@pendingComplaints')->name('ressource_pending_complaints');
+
+        Route::get('processed/complaints', 'RessourceManagerController@processedComplaints')->name('myprocessed_complaints');
+
+        Route::patch('complaint/update/{id}', 'RessourceManagerController@update')->name('ressource_complaints_update');
+
+    });
+});
+
 Route::resource('profils', 'ProfilController');
 
 Route::post('/updatepassword', 'ProfilController@updatePassword')->name('updatepassword');

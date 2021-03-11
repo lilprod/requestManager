@@ -23,4 +23,9 @@ class TypeComplaint extends Model
             ]
         ];
     }
+
+    public function complaints()
+    {
+        return $this->hasMany('App\Models\Complaint');
+    }
 }

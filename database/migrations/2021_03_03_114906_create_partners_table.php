@@ -29,6 +29,7 @@ class CreatePartnersTable extends Migration
             $table->string('postal_code')->nullable();
             $table->integer('user_id')->nullable();
             $table->integer('type_id')->nullable();
+            $table->integer('operator_id')->nullable();
             $table->datetime('last_visit')->nullable();
             $table->boolean('status')->default(0);
             $table->timestamps();

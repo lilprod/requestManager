@@ -9,6 +9,10 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Traits\HasRoles;
+use App\Models\Ressource;
+use App\Models\Operator;
+use App\Models\Partner;
+use App\Models\Complaint;
 
 class User extends Authenticatable
 {
@@ -61,4 +65,25 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function partnerPendingComplaints()
+    {
+        return Complaint::where('user_id', $this->id)
+                          ->where('status', 0)
+                          ->first();
+    }
+
+    public function partnerArchivedComplaints()
+    {
+        return Complaint::where('user_id', $this->id)
+                          ->where('status', 1)
+                          ->first();
+    }
+
+    public function myprocessedComplaints()
+    {
+        return Complaint::where('approuved_by', $this->id)
+                          ->where('status', 1)
+                          ->first();
+    }
 }

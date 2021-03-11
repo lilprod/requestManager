@@ -39,6 +39,7 @@ class CreateRessourcesTable extends Migration
             $table->string('postal_code')->nullable();
             $table->integer('user_id')->nullable();
             $table->datetime('last_visit')->nullable();
+            $table->integer('operator_id')->nullable();
             $table->timestamps();
         });
     }

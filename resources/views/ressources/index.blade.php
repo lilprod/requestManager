@@ -78,7 +78,7 @@
 
 @endsection
 
-@push('staff')
+@push('ressource')
 <script>
     function deleteData(id)
     {

@@ -76,7 +76,7 @@
 
 @endsection
 
-@push('user')
+@push('admin')
 <script>
     function deleteData(id)
     {

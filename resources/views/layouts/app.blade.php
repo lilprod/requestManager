@@ -82,7 +82,7 @@
                <a href="{{route('dashboard')}}" class="b-brand">
                   <!-- ========   change your logo hear   ============ -->
                   <img src="{{asset('assets/images/moovafrica.png') }}" alt="" class="logo logo-lg">
-                  <img src="{{asset('assets/images/logo-sm.svg') }}" alt="" class="logo logo-sm">
+                  <img src="{{asset('assets/images/moovafrica.png') }}" alt="" class="logo logo-sm">
                </a>
             </div>
             <div class="navbar-content">
@@ -93,7 +93,54 @@
 
                   <li class="pc-item"><a href="{{route('dashboard')}}" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">home</i></span><span class="pc-mtext">Dashboard</span></a></li>
 
-                
+                  <!-- Operator-->
+                  @can('Operator Permissions')
+
+
+                  @endcan
+
+                  <!-- /Operator-->
+
+                  <!-- Partners-->
+
+                  @can('Partner Permissions')
+
+                  <li class="pc-item pc-caption">
+                     <label>Rêquetes</label>
+                  </li>
+
+                  <li class="pc-item pc-hasmenu">
+                     <a href="#!" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">library_add_check</i></span><span class="pc-mtext">Mes Requêtes</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+                     <ul class="pc-submenu">
+                        <li class="pc-item"><a class="pc-link" href="{{route('partner.partner_pending_complaints')}}">Requêtes en attente</a></li>
+                        <li class="pc-item"><a class="pc-link" href="{{route('partner.partner_archived_complaints')}}">Requêtes archivés</a></li>
+                     </ul>
+                  </li>
+                  @endcan
+
+               <!-- /Partners-->
+
+               <!-- Ressources-->
+                  @can('Ressource Permissions')
+
+                  <li class="pc-item pc-caption">
+                     <label>Rêquetes</label>
+                  </li>
+
+                  <li class="pc-item pc-hasmenu">
+                     <a href="#!" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">library_add_check</i></span><span class="pc-mtext">Mes Requêtes</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+                     <ul class="pc-submenu">
+                        <li class="pc-item"><a class="pc-link" href="{{route('ressource.ressource_pending_complaints')}}">Requêtes en attente</a></li>
+                        <li class="pc-item"><a class="pc-link" href="{{route('ressource.myprocessed_complaints')}}">Mes Requêtes traités</a></li>
+                     </ul>
+                  </li>
+                  @endcan
+
+               <!-- /Ressources-->
+
+               <!-- Admin -->
+                  
+                  @can('Admin Permissions')
                   
                   <li class="pc-item pc-hasmenu">
                      <a href="#!" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">https</i></span><span class="pc-mtext">Permissions</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
@@ -143,22 +190,25 @@
                   </ul>
                </li>
 
+               <li class="pc-item pc-hasmenu">
+                  <a href="#!" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">portrait</i></span><span class="pc-mtext">Personnels</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+                  <ul class="pc-submenu">
+                     <li class="pc-item"><a class="pc-link" href="{{route('admin.ressources.index')}}">Liste</a></li>
+                     <li class="pc-item"><a class="pc-link" href="{{route('admin.ressources.create')}}">Ajouter</a></li>
+                  </ul>
+               </li>
 
-                 <li class="pc-item pc-hasmenu">
-                    <a href="#!" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">portrait</i></span><span class="pc-mtext">Personnels</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
-                    <ul class="pc-submenu">
-                       <li class="pc-item"><a class="pc-link" href="{{route('admin.ressources.index')}}">Liste</a></li>
-                       <li class="pc-item"><a class="pc-link" href="{{route('admin.ressources.create')}}">Ajouter</a></li>
-                    </ul>
-                 </li>
+               <li class="pc-item pc-hasmenu">
+                  <a href="#!" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">healing</i></span><span class="pc-mtext">Opérateurs</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+                  <ul class="pc-submenu">
+                     <li class="pc-item"><a class="pc-link" href="{{route('admin.operators.index')}}">Liste</a></li>
+                     <li class="pc-item"><a class="pc-link" href="{{route('admin.operators.create')}}">Ajouter</a></li>
+                  </ul>
+               </li>
 
-                 <li class="pc-item pc-hasmenu">
-                    <a href="#!" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">healing</i></span><span class="pc-mtext">Opérateurs</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
-                    <ul class="pc-submenu">
-                       <li class="pc-item"><a class="pc-link" href="{{route('admin.operators.index')}}">Liste</a></li>
-                       <li class="pc-item"><a class="pc-link" href="{{route('admin.operators.create')}}">Ajouter</a></li>
-                    </ul>
-                 </li>
+                 @endcan
+
+                 <!-- /Admin-->
 
                 </ul>
             </div>
@@ -293,14 +343,14 @@
       <!-- Ckeditor js -->
       <script src="{{asset('assets/js/plugins/ckeditor.js') }}"></script>
       <script type="text/javascript">
-        /* $(window).on('load', function() {
+        $(window).on('load', function() {
             $(function() {
                   ClassicEditor.create(document.querySelector('#classic-editor'))
                      .catch(error => {
                         console.error(error);
                      });
             });
-         });*/
+         });
       </script>
 
 
@@ -338,15 +388,12 @@
       @stack('role')
       @stack('permission')
       @stack('admin')
-      @stack('offer')
-      @stack('institution')
-      @stack('staff')
-      @stack('category')
-      @stack('service')
-      @stack('structure')
-      @stack('speciality')
-      @stack('scripts')
-      @stack('slug')
+      @stack('complaint')
+      @stack('typecomplaint')
+      @stack('operator')
+      @stack('ressource')
+      @stack('admin')
+      @stack('partner')
       <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script> -->
       <!-- <script src="assets/js/plugins/clipboard.min.js"></script> -->
       <!-- <script src="assets/js/uikit.min.js"></script> -->

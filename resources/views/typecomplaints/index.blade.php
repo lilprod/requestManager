@@ -94,7 +94,7 @@
 
 @endsection
 
-@push('category')
+@push('typecomplaint')
 <script>
      function deleteData(id)
      {

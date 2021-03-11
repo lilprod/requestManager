@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Operator extends Model
 {
     use HasFactory;
+
+    public function partners()
+    {
+        return $this->hasMany('App\Models\Partner');
+    }
+
+    public function ressources()
+    {
+        return $this->hasMany('App\Models\Ressource');
+    }
 }
