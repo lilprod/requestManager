@@ -15,7 +15,7 @@ class ComplaintController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth', 'isAdmin','partner','operator', 'ressource']); //supAdmin middleware lets only users with a //specific permission permission to access these resources
+        $this->middleware(['auth', 'isAdmin', 'partner', 'operator', 'ressource']); //supAdmin middleware lets only users with a //specific permission permission to access these resources
     }
     /**
      * Display a listing of the resource.
@@ -69,9 +69,9 @@ class ComplaintController extends Controller
         $complaint->user_id = auth()->user()->id;
 
         if($request->input('category_id') == ''){
-            $complaint->type_id = 4;
+            $complaint->type_complaint_id = 4;
         }else{
-            $complaint->type_id = $request->input('category_id');
+            $complaint->type_complaint_id = $request->input('category_id');
         }
 
         //$complaint->username = auth()->user()->name.' '.auth()->user()->firstname;
@@ -94,7 +94,7 @@ class ComplaintController extends Controller
             ->with('success',
              'Post is pending.');
         }*/
-        return redirect()->route('admin.complaints.index')
+        return redirect()->route('complaints.index')
             ->with('success',
              'Requête enregistrée avec succès.');
     }
@@ -162,9 +162,9 @@ class ComplaintController extends Controller
             $complaint->partner_id = $partner->id;
 
             if($request->input('category_id') == ''){
-                $complaint->type_id = 1;
+                $complaint->type_complaint_id = 1;
             }else{
-                $complaint->type_id = $request->input('category_id');
+                $complaint->type_complaint_id = $request->input('category_id');
             }
 
             //$complaint->username = auth()->user()->name.' '.auth()->user()->firstname;
@@ -176,13 +176,13 @@ class ComplaintController extends Controller
 
             $complaint->save();
 
-            return redirect()->route('admin.complaints.index')
+            return redirect()->route('complaints.index')
                 ->with('success',
                 'Requête éditée avec succès.');
 
         }
 
-            return redirect()->route('admin.complaints.index')
+            return redirect()->route('complaints.index')
                 ->with('error',
                 'Requête déjà traité.');
     }
@@ -199,7 +199,7 @@ class ComplaintController extends Controller
 
         $complaint->delete();
 
-        return redirect()->route('admin.complaints.index')
+        return redirect()->route('complaints.index')
             ->with('success',
              'Requête supprimée avec succès.');
     }

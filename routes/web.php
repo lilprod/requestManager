@@ -27,6 +27,8 @@ Auth::routes();
 
 Route::get('/', 'DashboardController@index')->name('dashboard');
 
+Route::resource('complaints', 'ComplaintController');
+
 Route::name('admin.')->group(function () {
 
     Route::group(['prefix' => 'admin'], function () {  
@@ -38,8 +40,6 @@ Route::name('admin.')->group(function () {
         Route::resource('ressources', 'RessourceController');
 
         Route::resource('typecomplaints', 'TypeComplaintController');
-
-        Route::resource('complaints', 'ComplaintController');
 
         Route::resource('admins', 'AdminController');
 

@@ -25,6 +25,7 @@
 <div class="row">
     <!-- subscribe start -->
     <div class="col-sm-12">
+        @include('inc.messages')
         <div class="card">
             <div class="card-header">
                 <h5>Nouvel administrateur </h5>
@@ -56,20 +57,24 @@
                       </div>
                   </div>
 
-
                   <div class="col-md-6 pr-0">
-                      <div class="form-group">
-                        {{ Form::label('phone_number', 'Phone number') }}
-                        {{ Form::text('phone_number', '', array('class' => 'form-control')) }}
-                      </div>
+                    <label>Téléphone <span class="text-danger">*</span></label>
+                    <input id="output" type="hidden" name="phone_number" value=""/>
+                    <input type="tel" id="phone" name="" class="form-control @error('phone_number') is-invalid @enderror" value="{{ old('phone_number') }}" required autocomplete="phone_number">
+
+                    @error('phone_number')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                   </div>
 
                   <div class="col-md-6 pr-0">
-                      <div class="form-group">
-                            {{ Form::label('password', 'Password') }}<br>
-                            {{ Form::password('password', array('class' => 'form-control')) }}
-                      </div>
-                  </div>
+                    <div class="form-group">
+                          {{ Form::label('password', 'Mot de passe') }}<br>
+                          {{ Form::password('password', array('class' => 'form-control')) }}
+                    </div>
+                </div>
 
                   <div class="col-md-6 pr-0">
                       <div class="form-group">

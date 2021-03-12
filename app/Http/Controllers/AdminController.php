@@ -19,9 +19,9 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $users = User::where('role_id', 3)->get();
+        $users = User::where('role_id', 1)->get();
 
-        $roles = Role::whereNotIn('id', array(1,2))->get();
+        $roles = Role::whereNotIn('id', array(2,3,4))->get();
 
         return view('admins.index', ['roles' => $roles, 'users' => $users]);
     }
@@ -145,8 +145,8 @@ class AdminController extends Controller
             'name' => 'required|max:120',
             'firstname' => 'required|max:120',
             'email' => 'required|email|unique:users,email,'.$id,
-            'password' => 'required|min:6|confirmed',
-            'phone_number' => 'required',
+            //'password' => 'required|min:6|confirmed',
+            'phone_number' => 'nullable',
             'address' => 'nullable',
             'profile_picture' => 'image|nullable',
         ]);
@@ -173,8 +173,11 @@ class AdminController extends Controller
         $user->name = $request->input('name');
         $user->firstname = $request->input('firstname');
         $user->email = $request->input('email');
-        $user->password = $request->input('password');
-        $user->phone_number = $request->input('phone_number');
+        //$user->password = $request->input('password');
+        if($request->phone_number){
+            $user->phone_number = $request->input('phone_number');
+        }
+        
         $user->address = $request->input('address');
         if ($request->hasfile('profile_picture')) {
             $user->profile_picture = $fileNameToStore;

@@ -31,7 +31,7 @@
                 <h5>Nouvelle Réclamation </h5>
             </div>
 
-            <form method="POST" enctype="multipart/form-data" autocomplete="off" id="store_complaint" action="{{ route('admin.complaints.store') }}">
+            <form method="POST" enctype="multipart/form-data" autocomplete="off" id="store_complaint" action="{{ route('complaints.store') }}">
                 {{csrf_field()}}
 
                 <div class="card-body">

@@ -54,7 +54,6 @@ class OperatorController extends Controller
     {
         //Validate these fields
         $this->validate($request, [
-            'structure_id' => 'required',
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'phone_number' => 'required|string|min:8',
@@ -96,7 +95,7 @@ class OperatorController extends Controller
             'profile_picture' => $fileNameToStore,
         ]);
 
-        $user->assignRole('Operator');
+        $user->assignRole('Operateur');
 
         $institution = new Operator();
 
@@ -173,9 +172,8 @@ class OperatorController extends Controller
 
         //Validate these fields
         $this->validate($request, [
-            'structure_id' => 'required',
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'email' => 'required|email|unique:users,email,'.$institution->user_id,
             'phone_number' => 'nullable|string|min:8',
             'address' => 'required',
             'city' => 'required',
@@ -210,7 +208,9 @@ class OperatorController extends Controller
 
         $institution->email = $request['email'];
 
-        $institution->phone_number = $request['phone_number'];
+        if($request->phone_number != ''){
+            $institution->phone_number = $request['phone_number'];
+        }
 
         $institution->address = $request['address'];
 
@@ -236,7 +236,9 @@ class OperatorController extends Controller
 
         $user->postal_code = $request['postal_code'];
 
-        $user->phone_number = $request['phone_number'];
+        if($request->phone_number != ''){
+            $user->phone_number = $request['phone_number'];
+        }
 
         if ($request->hasfile('profile_picture')) {
             $user->profile_picture = $fileNameToStore;

@@ -54,7 +54,6 @@ class PartnerController extends Controller
     {
         //Validate these fields
         $this->validate($request, [
-            'structure_id' => 'required',
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'phone_number' => 'required|string|min:8',
@@ -95,7 +94,7 @@ class PartnerController extends Controller
             'profile_picture' => $fileNameToStore,
         ]);
 
-        $user->assignRole('Partner');
+        $user->assignRole('Partenaire');
 
         $institution = new Partner();
 
@@ -173,7 +172,6 @@ class PartnerController extends Controller
 
         //Validate these fields
         $this->validate($request, [
-            'structure_id' => 'required',
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'phone_number' => 'nullable|string|min:8',

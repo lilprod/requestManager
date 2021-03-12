@@ -4877,7 +4877,7 @@ textarea.form-control-lg {
 .page-link {
     position: relative;
     display: block;
-    color: #7267EF;
+    color: #005ba4;
     background-color: #ffffff;
     border: 1px solid #dee2e6;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -4891,7 +4891,7 @@ textarea.form-control-lg {
 
 .page-link:hover {
     z-index: 2;
-    color: #7267EF;
+    color: #005ba4;
     text-decoration: none;
     background-color: #f0f2f8;
     border-color: #dee2e6;
@@ -4899,7 +4899,7 @@ textarea.form-control-lg {
 
 .page-link:focus {
     z-index: 3;
-    color: #7267EF;
+    color: #005ba4;
     background-color: #e9ecef;
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(114, 103, 239, 0.25);
@@ -4912,8 +4912,8 @@ textarea.form-control-lg {
 .page-item.active .page-link {
     z-index: 3;
     color: #ffffff;
-    background-color: #7267EF;
-    border-color: #7267EF;
+    background-color: #005ba4;
+    border-color: #005ba4;
 }
 
 .page-item.disabled .page-link {
@@ -19960,7 +19960,7 @@ select.form-control[data-multiselectsplitter-firstselect-selector], select.form-
 
 /* image varient start */
 .aut-bg-img {
-    background-image: url("../images/auth/img-auth-big.jpg");
+    background-image: url("../images/BG-solutions-internet.jpg");
     background-size: cover;
     background-attachment: fixed;
     background-position: center;

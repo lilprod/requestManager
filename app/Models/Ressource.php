@@ -13,4 +13,9 @@ class Ressource extends Model
     {
         return $this->belongsTo('App\Models\Operator');
     }
+
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
 }

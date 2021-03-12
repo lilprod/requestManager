@@ -31,7 +31,7 @@
                 <h5>Edition Réclamation </h5>
             </div>
 
-            <form method="POST" action="{{ route('admin.complaints.update', $complaint->id) }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('complaints.update', $complaint->id) }}" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 {{ method_field('PATCH') }}
 

@@ -108,7 +108,7 @@
                         <div class="form-group">
                             <label>Téléphone <span class="text-danger">*</span></label>
                             <input id="output" type="hidden" name="phone_number" value=""/>
-                            <input type="tel" id="phone" name="" class="form-control" value="{{ old('phone_number') }}" required>
+                            <input type="tel" id="phone" name="" class="form-control" value="{{ $staff->phone_number }}" required>
                         </div>
                         
                      </div>

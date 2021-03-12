@@ -48,7 +48,7 @@
          <form method="POST" action="{{ route('login') }}">
             @csrf 
 			<div class=" auth-content">
-				<img src="{{asset('assets/images/espace-pro.jpg') }}" alt="" class="img-fluid mb-4 d-block d-xl-none d-lg-none">
+				<!--<img src="{{asset('assets/images/moovafrica.png') }}" alt="" class="img-fluid mb-4 d-block d-xl-none d-lg-none">-->
             <h3 class="mb-4 f-w-400">Connexion</h3>
             
 				<div class="input-group mb-3">

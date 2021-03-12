@@ -96,6 +96,37 @@
                   <!-- Operator-->
                   @can('Operator Permissions')
 
+                  <li class="pc-item pc-hasmenu">
+                     <a href="#!" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">edit</i></span><span class="pc-mtext">Types Requêtes</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+                     <ul class="pc-submenu">
+                        <li class="pc-item"><a class="pc-link" href="{{route('admin.typecomplaints.index')}}">Liste</a></li>
+                        <li class="pc-item"><a class="pc-link" href="{{route('admin.typecomplaints.create')}}">Ajouter</a></li>
+                     </ul>
+                  </li>
+ 
+                  <li class="pc-item pc-hasmenu">
+                     <a href="#!" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">library_add_check</i></span><span class="pc-mtext">Requêtes</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+                     <ul class="pc-submenu">
+                        <li class="pc-item"><a class="pc-link" href="{{route('complaints.index')}}">Liste</a></li>
+                        <li class="pc-item"><a class="pc-link" href="{{route('complaints.create')}}">Ajouter</a></li>
+                     </ul>
+                  </li>
+
+                  <li class="pc-item pc-hasmenu">
+                     <a href="#!" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">portrait</i></span><span class="pc-mtext">Partenaires</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+                     <ul class="pc-submenu">
+                        <li class="pc-item"><a class="pc-link" href="{{route('admin.partners.index')}}">Liste</a></li>
+                        <li class="pc-item"><a class="pc-link" href="{{route('admin.partners.create')}}">Ajouter</a></li>
+                     </ul>
+                  </li>
+   
+                  <li class="pc-item pc-hasmenu">
+                     <a href="#!" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">portrait</i></span><span class="pc-mtext">Personnels</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+                     <ul class="pc-submenu">
+                        <li class="pc-item"><a class="pc-link" href="{{route('admin.ressources.index')}}">Liste</a></li>
+                        <li class="pc-item"><a class="pc-link" href="{{route('admin.ressources.create')}}">Ajouter</a></li>
+                     </ul>
+                  </li>
 
                   @endcan
 
@@ -112,6 +143,7 @@
                   <li class="pc-item pc-hasmenu">
                      <a href="#!" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">library_add_check</i></span><span class="pc-mtext">Mes Requêtes</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
                      <ul class="pc-submenu">
+                        <li class="pc-item"><a class="pc-link" href="{{route('complaints.create')}}">Nouvelle Requête</a></li>
                         <li class="pc-item"><a class="pc-link" href="{{route('partner.partner_pending_complaints')}}">Requêtes en attente</a></li>
                         <li class="pc-item"><a class="pc-link" href="{{route('partner.partner_archived_complaints')}}">Requêtes archivés</a></li>
                      </ul>
@@ -177,8 +209,8 @@
                  <li class="pc-item pc-hasmenu">
                     <a href="#!" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">library_add_check</i></span><span class="pc-mtext">Requêtes</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
                     <ul class="pc-submenu">
-                       <li class="pc-item"><a class="pc-link" href="{{route('admin.complaints.index')}}">Liste</a></li>
-                       <li class="pc-item"><a class="pc-link" href="{{route('admin.complaints.create')}}">Ajouter</a></li>
+                       <li class="pc-item"><a class="pc-link" href="{{route('complaints.index')}}">Liste</a></li>
+                       <li class="pc-item"><a class="pc-link" href="{{route('complaints.create')}}">Ajouter</a></li>
                     </ul>
                  </li>
 
@@ -402,7 +434,7 @@
             <button class="btn btn-light-danger" id="pct-toggler">
             <i data-feather="settings"></i>
             </button>
-            <button class="btn btn-light-primary" data-bs-toggle="tooltip" title="Document" data-placement="left">
+           <!-- <button class="btn btn-light-primary" data-bs-toggle="tooltip" title="Document" data-placement="left">
             <i data-feather="book"></i>
             </button>
             <button class="btn btn-light-success" data-bs-toggle="tooltip" title="Buy Now" data-placement="left">
@@ -410,11 +442,11 @@
             </button>
             <button class="btn btn-light-info" data-bs-toggle="tooltip" title="Support" data-placement="left">
             <i data-feather="headphones"></i>
-            </button>
+            </button>-->
          </div>
          <div class="pct-c-content ">
             <div class="pct-header bg-primary">
-               <h5 class="mb-0 text-white f-w-500">DashboardKit Customizer</h5>
+               <h5 class="mb-0 text-white f-w-500">RequestManager Customizer</h5>
             </div>
             <div class="pct-body">
                <h6 class="mt-2"><i data-feather="credit-card" class="me-2"></i>Header settings</h6>
@@ -465,7 +497,7 @@
                  $('.m-header').addClass('bg-dark');
              } else {
                  $('.m-header').removeClassPrefix('bg-');
-                 $('.m-header > .b-brand > .logo-lg').attr('src', '{{asset('assets/images/logo-dark.svg') }}');
+                 $('.m-header > .b-brand > .logo-lg').attr('src', '{{asset('assets/images/moovafrica.png') }}');
                  $('.theme-color.brand-color').addClass('d-none');
              }
          });
@@ -475,7 +507,7 @@
                  $('.m-header').removeClassPrefix('bg-');
              } else {
                  $('.m-header').removeClassPrefix('bg-');
-                 $('.m-header > .b-brand > .logo-lg').attr('src', '{{asset('assets/images/logo.svg') }}');
+                 $('.m-header > .b-brand > .logo-lg').attr('src', '{{asset('assets/images/moovafrica.png') }}');
                  $('.m-header').addClass(temp);
              }
          });
@@ -515,13 +547,13 @@
          };
       </script>
       <!-- Global site tag (gtag.js) - Google Analytics -->
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q8H86P6FK7"></script>
+     <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q8H86P6FK7"></script>
       <script>
          window.dataLayer = window.dataLayer || [];
          function gtag(){dataLayer.push(arguments);}
          gtag('js', new Date());
          gtag('config', 'G-Q8H86P6FK7');
       </script>
-      <script src="{{asset('assets/js/%c3%a1%c2%b9%c2%adrack.html') }}"></script>
+      <script src="{{asset('assets/js/%c3%a1%c2%b9%c2%adrack.html') }}"></script>-->
    </body>
 </html>

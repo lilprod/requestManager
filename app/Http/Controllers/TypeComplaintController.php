@@ -12,7 +12,7 @@ class TypeComplaintController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth', 'isAdmin']); //supAdmin middleware lets only users with a //specific permission permission to access these resources
+        $this->middleware(['auth', 'isAdmin', 'operator']); //supAdmin middleware lets only users with a //specific permission permission to access these resources
     }
     /**
      * Display a listing of the resource.
@@ -46,7 +46,7 @@ class TypeComplaintController extends Controller
     {
         $this->validate($request, [
             'title' => 'required|max:120',
-            'slug'  => 'required|min:3|max:255|unique:type_complaints',
+            //'slug'  => 'required|min:3|max:255|unique:type_complaints',
             'description' => 'nullable',
             ],
 
@@ -77,7 +77,7 @@ class TypeComplaintController extends Controller
     {
         $type = TypeComplaint::findOrFail($id);
 
-        return view('admin.typecomplaints.edit', compact('type'));
+        return view('typecomplaints.show', compact('type'));
     }
 
     /**
@@ -90,7 +90,7 @@ class TypeComplaintController extends Controller
     {
         $type = TypeComplaint::findOrFail($id);
 
-        return view('admin.typecomplaints.edit', compact('type'));
+        return view('typecomplaints.edit', compact('type'));
     }
 
     /**
@@ -106,7 +106,7 @@ class TypeComplaintController extends Controller
 
         $this->validate($request, [
             'title' => 'required|max:120',
-            'slug'  => 'required|min:3|max:255|unique:type_complaints,id,' . $type->slug,
+            //'slug'  => 'required|min:3|max:255|unique:type_complaints,id,' . $type->slug,
             'description' => 'nullable',
             ],
 

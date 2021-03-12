@@ -18,6 +18,7 @@ class CreateOperatorsTable extends Migration
             $table->string('name')->nullable();
             $table->string('email')->unique();
             $table->string('phone_number')->unique();
+            $table->mediumText('address')->nullable();
             $table->string('nif')->nullable();
             $table->string('logo')->nullable();
             $table->string('profile_picture')->nullable();

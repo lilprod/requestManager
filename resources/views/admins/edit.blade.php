@@ -25,6 +25,7 @@
 <div class="row">
     <!-- subscribe start -->
     <div class="col-sm-12">
+        @include('inc.messages')
         <div class="card">
             <div class="card-header">
                 <h5>Editer administrateur </h5>
@@ -59,25 +60,18 @@
     
                       <div class="col-md-6 pr-0">
                           <div class="form-group">
-                            {{ Form::label('phone_number', 'Numero de téléphone') }}
-                            {{ Form::text('phone_number', null, array('class' => 'form-control')) }}
+                            <label>Téléphone</label>
+                            <input id="output" type="hidden" name="phone_number" value=""/>
+                            <input type="tel" id="phone" name="" class="form-control @error('phone_number') is-invalid @enderror" value="{{ $user->phone_number }}">
+
+                            @error('phone_number')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                           </div>
                       </div>
 
-                      <div class="col-md-6 pr-0">
-                        <div class="form-group">
-                              {{ Form::label('password', 'Mot de passe') }}<br>
-                              {{ Form::password('password', array('class' => 'form-control')) }}
-                        </div>
-                    </div>
-  
-                    <div class="col-md-6 pr-0">
-                        <div class="form-group">
-                              {{ Form::label('password', 'Confirmation du mot de passe') }}<br>
-                              {{ Form::password('password_confirmation', array('class' => 'form-control')) }}
-                        </div>
-                      </div>
-    
                       <div class="col-sm-6">
                           <div class="form-group">
                             {{ Form::label('address', 'Adresse') }}

@@ -25,7 +25,11 @@ class RessourceManagerController extends Controller
 
     public function processedComplaints(){
 
-        $complaints = auth()->user()->myprocessedComplaints();
+        //$complaints = auth()->user()->myprocessedComplaints();
+
+        $complaints = Complaint::where('status', 0)
+                                ->where('approuved_by', auth()->user()->id)
+                                ->first();
 
         return view('ressource.processed', compact('complaints'));
     }
@@ -60,9 +64,9 @@ class RessourceManagerController extends Controller
         $complaint->approuved_by = auth()->user()->id;
 
         if($request->input('category_id') == ''){
-            $complaint->type_id = 1;
+            $complaint->type_complaint_id = 1;
         }else{
-            $complaint->type_id = $request->input('category_id');
+            $complaint->type_complaint_id = $request->input('category_id');
         }
 
         //$complaint->username = auth()->user()->name.' '.auth()->user()->firstname;

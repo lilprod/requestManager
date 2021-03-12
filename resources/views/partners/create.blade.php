@@ -41,7 +41,7 @@
                       <div class="col-lg-6">
                         <div class="form-group">
                             <label>Nom <span class="text-danger">*</span></label>
-                            <input type="text" name="name" class="form-control mb-30" placeholder="Nom de l'établissement" required>
+                            <input type="text" name="name" class="form-control mb-30" placeholder="Nom du partenaire" required>
 
                             @error('name')
                                 <span class="invalid-feedback" role="alert">

@@ -35,8 +35,7 @@
                     <div class="col-sm-6">
                     </div>
                     <div class="col-sm-6 text-end">
-                        <!--<button class="btn btn-success btn-sm mb-3 btn-round" data-bs-toggle="modal" data-bs-target="#modal-report"><i class="feather icon-plus"></i> Ajouter Permission</button>-->
-                        <a href="{{ route('admin.complaints.create') }}" class="btn btn-primary btn-sm mb-3 btn-round" data-toggle="" data-target=""> <i class="fa fa-plus"></i>
+                        <a href="{{ route('complaints.create') }}" class="btn btn-primary btn-sm mb-3 btn-round" data-toggle="" data-target=""> <i class="fa fa-plus"></i>
                             Ajouter Requête</a>
                     </div>
                 </div>
@@ -58,8 +57,8 @@
                                 <td>{{$complaint->type->title}}</td>
                                 <td>{{$complaint->title}}</td>
                                 <td>
-                                    <a href="{{ route('admin.complaints.show', $complaint->id) }}" class="btn btn-info btn-sm">Voir</a>
-                                    <a href="{{ route('admin.complaints.edit', $complaint->id) }}" class="btn btn-info btn-sm">Editer</a>
+                                    <a href="{{ route('complaints.show', $complaint->id) }}" class="btn btn-info btn-sm">Voir</a>
+                                    <a href="{{ route('complaints.edit', $complaint->id) }}" class="btn btn-info btn-sm">Editer</a>
                                     <button class="btn btn-danger btn-sm" data-toggle="modal" onclick="deleteData({{ $complaint->id}})" data-target="#confirm" data-original-title="Supprimer">Supprimer</button>
                                 </td>
                             </tr>
@@ -103,7 +102,7 @@
 	function postData(id)
      {
          var id = id;
-         var url = '{{ route("admin.complaints.destroy", ":id") }}';
+         var url = '{{ route("complaints.destroy", ":id") }}';
          url = url.replace(':id', id);
          $("#InactiveForm").attr('action', url);
      }

@@ -42,7 +42,7 @@
                           <div class="col-lg-6">
                             <div class="form-group">
                                 <label>Nom <span class="text-danger">*</span></label>
-                                <input type="text" name="name" class="form-control mb-30" placeholder="Nom de l'établissement" value="{{$institution->name}}" required>
+                                <input type="text" name="name" class="form-control mb-30" placeholder="Nom du partenaire" value="{{$institution->name}}" required>
     
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -122,7 +122,7 @@
                         <div class="form-group">
                             <label>Téléphone <span class="text-danger">*</span></label>
                             <input id="output" type="hidden" name="phone_number" value=""/>
-                            <input type="tel" id="phone" name="" class="form-control @error('phone_number') is-invalid @enderror" value="{{ $institution->phone_number }}" required autocomplete="phone_number">
+                            <input type="tel" id="phone" name="" class="form-control @error('phone_number') is-invalid @enderror" value="{{ $institution->phone_number }}">
 
                             @error('phone_number')
                                 <span class="invalid-feedback" role="alert">

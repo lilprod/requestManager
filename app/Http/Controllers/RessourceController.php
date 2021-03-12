@@ -15,7 +15,7 @@ class RessourceController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth', 'isAdmin']); //supAdmin middleware lets only users with a //specific permission permission to access these resources
+        $this->middleware(['auth', 'isAdmin', 'operator']); //supAdmin middleware lets only users with a //specific permission permission to access these resources
     }
     /**
      * Display a listing of the resource.
@@ -155,7 +155,7 @@ class RessourceController extends Controller
 
         $roles = Role::whereNotIn('id', array(1,2,3))->get();
 
-        return view('admin.staffs.edit', ['roles' => $roles, 'staff' => $staff]);
+        return view('ressources.edit', ['roles' => $roles, 'staff' => $staff]);
     }
 
     /**
@@ -212,7 +212,9 @@ class RessourceController extends Controller
 
         $staff->email = $request['email'];
 
-        $staff->phone_number = $request['phone_number'];
+        if($request->phone_number != ''){
+            $staff->phone_number = $request['phone_number'];
+        }
 
         $staff->address = $request['address'];
 
@@ -237,12 +239,10 @@ class RessourceController extends Controller
         $user->address = $request['address'];
 
         $user->postal_code = $request['postal_code'];
-        
-        $user->gender = $request['gender'];
 
-        $user->birth_date = $request['birth_date'];
-
-        $user->phone_number = $request['phone_number'];
+        if($request->phone_number != ''){
+            $user->phone_number = $request['phone_number'];
+        }
         
         if ($request->hasfile('profile_picture')) {
             $user->profile_picture = $fileNameToStore;
