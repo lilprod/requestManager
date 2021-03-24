@@ -58,8 +58,8 @@
                                 <td>{{$complaint->title}}</td>
                                 <td>
                                     <a href="{{ route('complaints.show', $complaint->id) }}" class="btn btn-info btn-sm">Voir</a>
-                                    <a href="{{ route('complaints.edit', $complaint->id) }}" class="btn btn-info btn-sm">Editer</a>
-                                    <button class="btn btn-danger btn-sm" data-toggle="modal" onclick="deleteData({{ $complaint->id}})" data-target="#confirm" data-original-title="Supprimer">Supprimer</button>
+                                    <a href="{{ route('complaints.edit', $complaint->id) }}" class="btn btn-primary btn-sm">Editer</a>
+                                    <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#confirm" onclick="deleteData({{ $complaint->id}})" data-original-title="Supprimer">Supprimer</button>
                                 </td>
                             </tr>
                             @endforeach
@@ -73,22 +73,25 @@
 </div>
 <!-- [ Main Content ] end -->
 
-<div class="modal fade" id="exampleModalLive" tabindex="-1" role="dialog" aria-labelledby="exampleModalLiveLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <form action="" id="InactiveForm" method="post">
+<div class="modal fade" id="confirm" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <form action="" id="deleteForm" method="post">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="acc_title">Confirmation de suppression</h5>
+                    <h5 class="modal-title">Confirmation de suppression</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body text-center">
                     {{ csrf_field() }}
-                    {{ method_field('POST') }}
-                    <p id="acc_msg">Etes-vous sûre de vouloir supprimer cette requête?</p>
+                    {{ method_field('DELETE') }}
+                    <img src="{{asset('assets/images/sent.png')}}" alt="" width="50" height="46">
+                    <p>Voulez-vous supprimer cette requête?</p>
+                    
                 </div>
+
                 <div class="modal-footer">
-                    <a href="#" class="btn btn-secondary" data-bs-dismiss="modal">Non, Fermer</a>
-                    <button type="submit" class="btn btn-danger" data-dismiss="modal" onclick="formSubmit()">Oui, Supprimer</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                    <button type="submit" class="btn btn-danger">Supprimer</button>
                 </div>
             </div>
         </form>

@@ -64,7 +64,7 @@ class RessourceManagerController extends Controller
         $complaint->approuved_by = auth()->user()->id;
 
         if($request->input('category_id') == ''){
-            $complaint->type_complaint_id = 1;
+            $complaint->type_complaint_id = 6;
         }else{
             $complaint->type_complaint_id = $request->input('category_id');
         }

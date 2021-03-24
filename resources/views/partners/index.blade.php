@@ -61,7 +61,7 @@
                                 <td>{{ $institution->created_at->format('F d, Y h:ia') }}</td>
                                 <td>{{ $institution->user->roles()->pluck('name')->implode(' ') }}</td>{{-- Retrieve array of roles associated to a user and convert to string --}}
                                 <td>
-                                    <a href="{{ route('admin.partners.edit', $institution->id) }}" class="btn btn-info btn-sm">Editer</a>
+                                    <a href="{{ route('admin.partners.edit', $institution->id) }}" class="btn btn-primary btn-sm">Editer</a>
                                     <button class="btn btn-danger btn-sm" data-toggle="modal" onclick="deleteData({{ $institution->id}})" data-target="#confirm" data-original-title="Supprimer">Supprimer</button>
                                 </td>
                             </tr>
@@ -75,6 +75,31 @@
     <!-- subscribe end -->
 </div>
 <!-- [ Main Content ] end -->
+
+<div class="modal fade" id="confirm" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <form action="" id="deleteForm" method="post">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirmation de suppression</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    {{ csrf_field() }}
+                    {{ method_field('DELETE') }}
+                    <img src="{{asset('assets/images/sent.png')}}" alt="" width="50" height="46">
+                    <p>Voulez-vous supprimer ce partenaire?</p>
+                    
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                    <button type="submit" class="btn btn-danger">Supprimer</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
 
 @endsection
 

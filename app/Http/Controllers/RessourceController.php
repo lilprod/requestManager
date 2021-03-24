@@ -230,8 +230,6 @@ class RessourceController extends Controller
 
         $user->firstname = $request['firstname'];
 
-        $user->firstname = $request['firstname'];
-
         $user->email = $request['email'];
 
         $user->city = $request['city'];

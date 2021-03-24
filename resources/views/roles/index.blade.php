@@ -54,8 +54,8 @@
                                 <td>{{ $role->name }}</td>
                                 <td>{{ str_replace(array('[',']','"'),'', $role->permissions()->pluck('name')) }}</td>{{-- Retrieve array of permissions associated to a role and convert to string --}}
                                 <td>
-                                    <a href="{{ route('admin.roles.edit', $role->id) }}" class="btn btn-info btn-sm">Editer</a>
-                                    <button class="btn btn-danger btn-sm" data-toggle="modal" onclick="deleteData({{ $role->id}})" data-target="#confirm" data-original-title="Supprimer">Supprimer</button>
+                                    <a href="{{ route('admin.roles.edit', $role->id) }}" class="btn btn-primary btn-sm">Editer</a>
+                                    <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#confirm" onclick="deleteData({{ $role->id}})" data-original-title="Supprimer">Supprimer</button>
                                 </td>
                             </tr>
                             @endforeach
@@ -68,6 +68,31 @@
     <!-- subscribe end -->
 </div>
 <!-- [ Main Content ] end -->
+
+<div class="modal fade" id="confirm" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <form action="" id="deleteForm" method="post">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirmation de suppression</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    {{ csrf_field() }}
+                    {{ method_field('DELETE') }}
+                    <img src="{{asset('assets/images/sent.png')}}" alt="" width="50" height="46">
+                    <p>Voulez-vous supprimer ce rôle?</p>
+                    
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                    <button type="submit" class="btn btn-danger">Supprimer</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
 
 @endsection
 

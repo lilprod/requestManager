@@ -74,7 +74,7 @@
                                 <td>{{$complaint->title}}</td>
                                 <td><span class="badge bg-success">Traité</span></td>
                                 <td>
-                                    <a href="{{ route('complaints.show', $complaint->id) }}" class="btn btn-info btn-sm">Voir</a>
+                                    <a href="{{ route('complaints.show', $complaint->id) }}" class="btn btn-primary btn-sm">Voir</a>
                                   </td>
                             </tr>
                             @endforeach

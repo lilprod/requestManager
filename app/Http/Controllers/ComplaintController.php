@@ -69,7 +69,7 @@ class ComplaintController extends Controller
         $complaint->user_id = auth()->user()->id;
 
         if($request->input('category_id') == ''){
-            $complaint->type_complaint_id = 4;
+            $complaint->type_complaint_id = 6;
         }else{
             $complaint->type_complaint_id = $request->input('category_id');
         }
@@ -162,7 +162,7 @@ class ComplaintController extends Controller
             $complaint->partner_id = $partner->id;
 
             if($request->input('category_id') == ''){
-                $complaint->type_complaint_id = 1;
+                $complaint->type_complaint_id = 6;
             }else{
                 $complaint->type_complaint_id = $request->input('category_id');
             }
