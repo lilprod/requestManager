@@ -424,7 +424,6 @@
       @stack('typecomplaint')
       @stack('operator')
       @stack('ressource')
-      @stack('admin')
       @stack('partner')
       <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script> -->
       <!-- <script src="assets/js/plugins/clipboard.min.js"></script> -->
