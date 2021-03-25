@@ -325,6 +325,27 @@
      
       <!-- Required Js -->
       <script src="{{asset('assets/js/vendor-all.min.js') }}"></script>
+      <script>
+         $('#name').keyup(function(){
+            $(this).val($(this).val().toUpperCase());
+      });
+
+      $('#firstname').keyup(function() 
+      {
+            var str = $('#firstname').val();
+         
+            
+            var spart = str.split(" ");
+            for ( var i = 0; i < spart.length; i++ )
+            {
+               var j = spart[i].charAt(0).toUpperCase();
+               spart[i] = j + spart[i].substr(1);
+            }
+
+         $('#firstname').val(spart.join(" "));
+      
+      });
+      </script>
       <script src="{{asset('assets/js/plugins/bootstrap.min.js') }}"></script>
       <script src="{{asset('assets/js/plugins/feather.min.js') }}"></script>
       <script src="{{asset('assets/js/pcoded.min.js') }}"></script>
