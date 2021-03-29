@@ -37,13 +37,20 @@
                 <div class="card-body">
                 <!-- Add Blog -->
             
-
                     <div class="row form-row">
 
                         <div class="col-md-6">
+                            <label>Date de l'incident</label>
+                            <input class="form-control" type="date" name="incident_date" id="incident_date">
+                        </div>
+
+                        <div class="col-md-6">
+                        </div>
+
+                        <div class="col-md-6">
                             <div class="form-group">
-                                <label>Categorie</label>
-                                <select class="form-control select" name="category_id">
+                                <label>Type requête</label>
+                                <select class="form-control select" name="type_complaint_id">
                                     @foreach($types as $type)
                                         <option value="{{$type->id}}">{{$type->title}}</option>
                                     @endforeach
@@ -53,7 +60,7 @@
 
                         <div class="col-md-6">
                             <div class="form-group">
-                                    <label>Title <span class="text-danger">*</span></label>
+                                    <label>Titre <span class="text-danger">*</span></label>
                                 <input class="form-control" type="text" name="title" id="title">
                             </div>
                         </div>
@@ -65,32 +72,12 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label>Texte de la réclamation <span class="text-danger">*</span></label>
+                                <label>Commentaire <span class="text-danger">*</span></label>
                                 <textarea id="classic-editor" class="form-control service-desc" rows="6" name="body"></textarea>
                             </div>
                         </div>
                     </div>
-         
-                   <!-- <div class="col-md-6">
-                        <div class="form-group">
-                            <label class="display-block">Status</label>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="status" id="blog_active" value="1" checked>
-                                <label class="form-check-label" for="blog_active">
-                                Active
-                                </label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="status" id="blog_inactive" value="0">
-                                <label class="form-check-label" for="blog_inactive">
-                                Inactive
-                                </label>
-                            </div>
-                        </div>
-                    </div>-->
-
-                    <div class="col-md-6">
-                    </div>
+      
                 </div>
             <!-- /Add Blog -->
        

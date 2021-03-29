@@ -57,7 +57,11 @@
                                 <td>{{$key+1}}</td>
                                 <td>{{$complaint->type->title}}</td>
                                 <td>{{$complaint->title}}</td>
-                                <td><span class="badge bg-primary">En attente</span></td>
+                                <td><!--<span class="badge bg-primary">En attente</span>-->
+                                    <div class="form-check form-switch custom-switch-v1">
+                                        <input type="checkbox" data-id="{{$complaint->id}}" id="status_{{$key}}" class="form-check-input input-primary check" id="status_{{$key}}" {{ $complaint->status ? 'checked' : '' }}>  
+                                    </div>
+                                </td>
                                 <td>
                                     <a href="{{ route('complaints.show', $complaint->id) }}" class="btn btn-info btn-sm">Voir</a>
                                     <a href="{{ route('complaints.edit', $complaint->id) }}" class="btn btn-info btn-sm">Editer</a>
@@ -104,6 +108,22 @@
 
 @push('complaint')
 <script>
+
+    $('.check').change(function() {
+        var status = $(this).prop('checked') == true ? 1 : 0; 
+        var complaint_id = $(this).data('id'); 
+         
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: '{!!URL::route('changeStatus')!!}',
+            data: {'status': status, 'complaint_id': complaint_id},
+            success: function(data){
+              console.log(data.success)
+            }
+        });
+    })
+
 	function postData(id)
      {
          var id = id;

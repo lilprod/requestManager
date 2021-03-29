@@ -100,7 +100,7 @@
                     
 
 					<div class="col-sm-12">
-	                  	<h5><b>Assign Role</b></h5>
+	                  	<h5><b>Assigner Rôle</b></h5>
 	                    <div class='form-group'>
 	                        @foreach ($roles as $role)
 	                            {{ Form::checkbox('roles[]',  $role->id ,  true, ['class' => 'form-check-input input-primary']) }}

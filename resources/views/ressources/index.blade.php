@@ -61,7 +61,7 @@
                                 <td>{{ $staff->created_at->format('F d, Y h:ia') }}</td>
                                 <td>{{ $staff->user->roles()->pluck('name')->implode(' ') }}</td>{{-- Retrieve array of roles associated to a user and convert to string --}}
                                 <td>
-                                    <a href="{{ route('admin.ressources.edit', $staff->id) }}" class="btn btn-info btn-sm">Editer</a>
+                                    <a href="{{ route('admin.ressources.edit', $staff->id) }}" class="btn btn-primary btn-sm">Editer</a>
                                     <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#confirm" onclick="deleteData({{ $staff->id}})" data-original-title="Supprimer">Supprimer</button>
                                 </td>
                             </tr>

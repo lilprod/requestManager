@@ -15,7 +15,7 @@ class ComplaintController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth', 'isAdmin', 'partner', 'operator', 'ressource']); //supAdmin middleware lets only users with a //specific permission permission to access these resources
+        $this->middleware(['auth', 'isAdmin', 'partner', 'operator', 'ressource', 'chief']); //supAdmin middleware lets only users with a //specific permission permission to access these resources
     }
     /**
      * Display a listing of the resource.
@@ -49,9 +49,10 @@ class ComplaintController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'title' => 'required|max:120',
-            'body' => 'required',
+            $this->validate($request, [
+                'title' => 'required|max:120',
+                'body' => 'required',
+                'incident_date' => 'nullable',
             ],
 
             $messages = [
@@ -62,9 +63,10 @@ class ComplaintController extends Controller
         $complaint = new Complaint();
         $complaint->title = $request->input('title');
         $complaint->body = $request->input('body');
+        $complaint->incident_date = $request->input('incident_date');
 
         $partner = Partner::where('user_id', auth()->user()->id)->first();
-        $complaint->operator = 1;
+        $complaint->operator_id = 1;
         $complaint->partner_id = $partner->id;
         $complaint->user_id = auth()->user()->id;
 
@@ -143,8 +145,9 @@ class ComplaintController extends Controller
         $partner = Partner::where('user_id', auth()->user()->id)->first();
 
         $this->validate($request, [
-            'title' => 'required|max:120',
-            'body' => 'required',
+                'title' => 'required|max:120',
+                'body' => 'required',
+                'incident_date' => 'nullable',
             ],
 
             $messages = [
@@ -156,9 +159,10 @@ class ComplaintController extends Controller
 
             $complaint->title = $request->input('title');
             $complaint->body = $request->input('body');
+            $complaint->incident_date = $request->input('incident_date');
             //$complaint->status = $request->input('status');
             $complaint->user_id = auth()->user()->id;
-            $complaint->operator = 1;
+            $complaint->operator_id = 1;
             $complaint->partner_id = $partner->id;
 
             if($request->input('category_id') == ''){

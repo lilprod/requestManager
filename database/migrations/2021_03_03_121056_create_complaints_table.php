@@ -19,6 +19,7 @@ class CreateComplaintsTable extends Migration
             $table->integer('type_complaint_id')->nullable();
             $table->string('title')->nullable();
             $table->date('closing_date')->nullable();
+            $table->date('incident_date')->nullable();
             $table->mediumText('description')->nullable();
             $table->integer('status')->default(0);
             $table->integer('user_id')->nullable();

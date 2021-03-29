@@ -113,6 +113,17 @@
                         
                      </div>
 
+                     <div class="col-sm-12">
+                        <h5><b>Assigner Rôle</b></h5>
+                        <div class='form-group'>
+                            
+                            @foreach ($roles as $role)
+                            <input class="form-check-input input-primary" name="roles[]" type="checkbox" id= {{$role->name}} value="{{$role->id}}" {{$staff->user->roles()->pluck('name')->implode(' ') == $role->name ? 'checked' : null}} >
+                            <label for="{{$role->name}}">{{$role->name}}</label>
+                            @endforeach
+                        </div>
+                  </div>
+
                    </div>
                 </div>
 

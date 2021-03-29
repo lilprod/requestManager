@@ -166,9 +166,49 @@
                         <li class="pc-item"><a class="pc-link" href="{{route('ressource.myprocessed_complaints')}}">Mes Requêtes traités</a></li>
                      </ul>
                   </li>
+
+                  <li class="pc-item pc-hasmenu">
+                     <a href="#!" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">edit</i></span><span class="pc-mtext">Etats</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+                     <ul class="pc-submenu">
+                        <li class="pc-item"><a class="pc-link" href="{{route('ressource.complaint_partner')}}">Requêtes par Partenaire</a></li>
+                        <li class="pc-item"><a class="pc-link" href="{{route('ressource.complaint_type')}}">Requêtes par Type</a></li>
+                     </ul>
+                  </li>
+
+                  <li class="pc-item"><a href="{{route('ressource.complaint_recap')}}" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">chrome_reader_mode</i></span><span class="pc-mtext">Recap</span></a></li>
+
                   @endcan
 
                <!-- /Ressources-->
+
+               <!-- Chief Service Permissions -->
+
+                  @can('Chief Service Permissions')
+                  
+                  <li class="pc-item pc-caption">
+                     <label>Rêquetes</label>
+                  </li>
+
+                  <li class="pc-item pc-hasmenu">
+                     <a href="#!" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">library_add_check</i></span><span class="pc-mtext">Mes Requêtes</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+                     <ul class="pc-submenu">
+                        <li class="pc-item"><a class="pc-link" href="">Requêtes en attente</a></li>
+                        <li class="pc-item"><a class="pc-link" href="">Requêtes traités</a></li>
+                     </ul>
+                  </li>
+
+                  <li class="pc-item pc-hasmenu">
+                     <a href="#!" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">edit</i></span><span class="pc-mtext">Etats</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+                     <ul class="pc-submenu">
+                        <li class="pc-item"><a class="pc-link" href="{{route('ressource.complaint_partner')}}">Requêtes par Partenaire</a></li>
+                        <li class="pc-item"><a class="pc-link" href="{{route('ressource.complaint_type')}}">Requêtes par Type</a></li>
+                     </ul>
+                  </li>
+
+                  <li class="pc-item"><a href="{{route('ressource.complaint_recap')}}" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">chrome_reader_mode</i></span><span class="pc-mtext">Recap</span></a></li>
+
+                  @endcan
+               <!-- /Chief Service Permissions -->
 
                <!-- Admin -->
                   
@@ -328,23 +368,23 @@
       <script>
          $('#name').keyup(function(){
             $(this).val($(this).val().toUpperCase());
-      });
+         });
 
-      $('#firstname').keyup(function() 
-      {
-            var str = $('#firstname').val();
-         
+         $('#firstname').keyup(function() 
+         {
+               var str = $('#firstname').val();
             
-            var spart = str.split(" ");
-            for ( var i = 0; i < spart.length; i++ )
-            {
-               var j = spart[i].charAt(0).toUpperCase();
-               spart[i] = j + spart[i].substr(1);
-            }
+               
+               var spart = str.split(" ");
+               for ( var i = 0; i < spart.length; i++ )
+               {
+                  var j = spart[i].charAt(0).toUpperCase();
+                  spart[i] = j + spart[i].substr(1);
+               }
 
-         $('#firstname').val(spart.join(" "));
-      
-      });
+            $('#firstname').val(spart.join(" "));
+         
+         });
       </script>
       <script src="{{asset('assets/js/plugins/bootstrap.min.js') }}"></script>
       <script src="{{asset('assets/js/plugins/feather.min.js') }}"></script>

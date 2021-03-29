@@ -70,8 +70,22 @@ Route::name('ressource.')->group(function () {
 
         Route::patch('complaint/update/{id}', 'RessourceManagerController@update')->name('ressource_complaints_update');
 
+        Route::get('/complaint/partner', 'EtatController@partner')->name('complaint_partner');
+
+        Route::get('/complaint/type', 'EtatController@type')->name('complaint_type');
+
+        Route::get('/complaint/recap', 'EtatController@recap')->name('complaint_recap');
+
     });
 });
+
+Route::get('changeStatus', 'RessourceController@ChangeUserStatus')->name('changeStatus');
+
+Route::post('post/complaint/partner', 'EtatController@postPartner')->name('post_complaint_partner');
+
+Route::post('post/complaint/type', 'EtatController@postType')->name('post_complaint_type');
+
+Route::post('post/complaint/recap', 'EtatController@postRecap')->name('post_complaint_recap');
 
 Route::resource('profils', 'ProfilController');
 

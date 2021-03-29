@@ -70,20 +70,20 @@ class User extends Authenticatable
     {
         return Complaint::where('user_id', $this->id)
                           ->where('status', 0)
-                          ->first();
+                          ->get();
     }
 
     public function partnerArchivedComplaints()
     {
         return Complaint::where('user_id', $this->id)
                           ->where('status', 1)
-                          ->first();
+                          ->get();
     }
 
     public function myprocessedComplaints()
     {
         return Complaint::where('approuved_by', $this->id)
                           ->where('status', 1)
-                          ->first();
+                          ->get();
     }
 }

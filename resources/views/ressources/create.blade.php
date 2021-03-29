@@ -158,7 +158,17 @@
                             @enderror
                         </div>
                         
-                     </div>
+                        </div>
+
+                        <div class="col-sm-12">
+                            <h5><b>Assigner Rôle</b></h5>
+                            <div class='form-group'>
+                                @foreach ($roles as $role)
+                                    {{ Form::checkbox('roles[]',  $role->id ,  false, ['class' => 'form-check-input input-primary']) }}
+                                    {{ Form::label($role->name, ucfirst($role->name)) }}
+                                @endforeach
+                            </div>
+                      </div>
 
                    </div>
                 </div>

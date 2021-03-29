@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Models\User;
 use App\Models\Ressource;
 //Importing laravel-permission models
@@ -11,12 +10,13 @@ use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use Illuminate\Support\Facades\Storage;
 
-class RessourceController extends Controller
+class ChiefServiceController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth', 'isAdmin', 'cheif', 'operator']); //supAdmin middleware lets only users with a //specific permission permission to access these resources
+        $this->middleware(['auth', 'isAdmin']); //supAdmin middleware lets only users with a //specific permission permission to access these resources
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -29,7 +29,7 @@ class RessourceController extends Controller
 
         $roles = Role::whereNotIn('id', array(1,2,3))->get();
 
-        return view('ressources.index', ['roles' => $roles, 'staffs' => $staffs]);
+        return view('chiefs.index', ['roles' => $roles, 'staffs' => $staffs]);
     }
 
     /**
@@ -41,7 +41,7 @@ class RessourceController extends Controller
     {
         $roles = Role::whereNotIn('id', array(1,2,3))->get();
 
-        return view('ressources.create', ['roles' => $roles]);
+        return view('chiefs.create', ['roles' => $roles]);
     }
 
     /**
@@ -94,20 +94,11 @@ class RessourceController extends Controller
             'city' => $request['city'],
             'postal_code' => $request['postal_code'],
             'birth_date' => $request['birth_date'],
-            'role_id' => 4,
+            'role_id' => 5,
             'profile_picture' => $fileNameToStore,
         ]);
 
-        //$user->assignRole('Ressource');
-
-        $roles = $request['roles']; //Retrieving the roles field
-        //Checking if a role was selected
-        if (isset($roles)) {
-            foreach ($roles as $role) {
-                $role_r = Role::where('id', '=', $role)->firstOrFail();
-                $user->assignRole($role_r); //Assigning role to user
-            }
-        }
+        $user->assignRole('Chef Service');
 
         $staff = new Ressource();
 
@@ -138,7 +129,7 @@ class RessourceController extends Controller
         $staff->save();
 
         return redirect()->route('admin.ressources.index')
-        ->with('success', 'Personnel ajouté avec succès.');
+        ->with('success', 'Chef Service ajouté avec succès.');
     }
 
     /**
@@ -162,11 +153,9 @@ class RessourceController extends Controller
     {
         $staff = Ressource::findOrFail($id);
 
-        $user = User::where('id', $staff->user_id)->first();
-
         $roles = Role::whereNotIn('id', array(1,2,3))->get();
 
-        return view('ressources.edit', ['roles' => $roles, 'staff' => $staff, 'user' => $user]);
+        return view('ressources.edit', ['roles' => $roles, 'staff' => $staff]);
     }
 
     /**
@@ -259,16 +248,8 @@ class RessourceController extends Controller
 
         $user->save();
 
-        $roles = $request['roles']; //Retreive all roles
-
-        if (isset($roles)) {
-            $user->roles()->sync($roles);  //If one or more role is selected associate user to roles
-        } else {
-            $user->roles()->detach(); //If no role is selected remove exisiting role associated to a user
-        }
-
         return redirect()->route('admin.ressources.index')
-            ->with('success', 'Personnel édité avec succès.');
+            ->with('success', 'Chef Service édité avec succès.');
     }
 
     /**
@@ -292,6 +273,6 @@ class RessourceController extends Controller
         $staff->delete();
 
         return redirect()->route('admin.ressources.index')
-            ->with('success', 'Personnel supprimé avec succès.');
+            ->with('success', 'Chef Service supprimé avec succès.');
     }
 }

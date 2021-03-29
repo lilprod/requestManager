@@ -67,5 +67,6 @@ class Kernel extends HttpKernel
         'operator' => \App\Http\Middleware\OperatorMiddleware::class,
         'partner' => \App\Http\Middleware\PartnerMiddleware::class,
         'ressource' => \App\Http\Middleware\RessourceMiddleware::class,
+        'chief' => \App\Http\Middleware\ChiefServiceMiddleware::class,
     ];
 }
