@@ -23,4 +23,9 @@ class Complaint extends Model
     {
         return $this->belongsTo('App\Models\Partner');
     }
+
+    public function ressource()
+    {
+        return $this->belongsTo('App\Models\Ressource');
+    }
 }

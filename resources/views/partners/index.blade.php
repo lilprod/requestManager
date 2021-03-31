@@ -61,6 +61,8 @@
                                 <td>{{ $institution->created_at->format('F d, Y h:ia') }}</td>
                                 <td>{{ $institution->user->roles()->pluck('name')->implode(' ') }}</td>{{-- Retrieve array of roles associated to a user and convert to string --}}
                                 <td>
+                                    <!--<a href="#" class="btn btn-sm btn-light-success me-1"><i class="feather icon-edit"></i></a>
+                                    <a href="#" class="btn btn-sm btn-light-danger"><i class="feather icon-trash-2"></i></a>-->
                                     <a href="{{ route('admin.partners.edit', $institution->id) }}" class="btn btn-primary btn-sm">Editer</a>
                                     <button class="btn btn-danger btn-sm" data-toggle="modal" onclick="deleteData({{ $institution->id}})" data-target="#confirm" data-original-title="Supprimer">Supprimer</button>
                                 </td>

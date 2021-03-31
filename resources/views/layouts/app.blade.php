@@ -96,12 +96,20 @@
                   <!-- Operator-->
                   @can('Operator Permissions')
 
+                  <li class="pc-item pc-caption">
+                     <label>Types Rêquetes</label>
+                  </li>
+
                   <li class="pc-item pc-hasmenu">
                      <a href="#!" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">edit</i></span><span class="pc-mtext">Types Requêtes</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
                      <ul class="pc-submenu">
                         <li class="pc-item"><a class="pc-link" href="{{route('admin.typecomplaints.index')}}">Liste</a></li>
                         <li class="pc-item"><a class="pc-link" href="{{route('admin.typecomplaints.create')}}">Ajouter</a></li>
                      </ul>
+                  </li>
+
+                  <li class="pc-item pc-caption">
+                     <label>Rêquetes</label>
                   </li>
  
                   <li class="pc-item pc-hasmenu">
@@ -112,12 +120,20 @@
                      </ul>
                   </li>
 
+                  <li class="pc-item pc-caption">
+                     <label>Partenaires</label>
+                  </li>
+
                   <li class="pc-item pc-hasmenu">
                      <a href="#!" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">portrait</i></span><span class="pc-mtext">Partenaires</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
                      <ul class="pc-submenu">
                         <li class="pc-item"><a class="pc-link" href="{{route('admin.partners.index')}}">Liste</a></li>
                         <li class="pc-item"><a class="pc-link" href="{{route('admin.partners.create')}}">Ajouter</a></li>
                      </ul>
+                  </li>
+
+                  <li class="pc-item pc-caption">
+                     <label>Personnels</label>
                   </li>
    
                   <li class="pc-item pc-hasmenu">
@@ -167,6 +183,10 @@
                      </ul>
                   </li>
 
+                  <li class="pc-item pc-caption">
+                     <label>Etats</label>
+                  </li>
+
                   <li class="pc-item pc-hasmenu">
                      <a href="#!" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">edit</i></span><span class="pc-mtext">Etats</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
                      <ul class="pc-submenu">
@@ -175,15 +195,16 @@
                      </ul>
                   </li>
 
+                 <!-- 
                   <li class="pc-item"><a href="{{route('ressource.complaint_recap')}}" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">chrome_reader_mode</i></span><span class="pc-mtext">Recap</span></a></li>
-
-                  @endcan
+                  -->
+               @endcan
 
                <!-- /Ressources-->
 
                <!-- Chief Service Permissions -->
 
-                  @can('Chief Service Permissions')
+               @can('Chief Service Permissions')
                   
                   <li class="pc-item pc-caption">
                      <label>Rêquetes</label>
@@ -192,9 +213,13 @@
                   <li class="pc-item pc-hasmenu">
                      <a href="#!" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">library_add_check</i></span><span class="pc-mtext">Mes Requêtes</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
                      <ul class="pc-submenu">
-                        <li class="pc-item"><a class="pc-link" href="">Requêtes en attente</a></li>
-                        <li class="pc-item"><a class="pc-link" href="">Requêtes traités</a></li>
+                        <li class="pc-item"><a class="pc-link" href="{{route('chief.ressource.ressource_pending_complaints')}}">Requêtes en attente</a></li>
+                        <li class="pc-item"><a class="pc-link" href="{{route('chief.ressource.myprocessed_complaints')}}">Requêtes traités</a></li>
                      </ul>
+                  </li>
+
+                  <li class="pc-item pc-caption">
+                     <label>Etats</label>
                   </li>
 
                   <li class="pc-item pc-hasmenu">
@@ -202,17 +227,31 @@
                      <ul class="pc-submenu">
                         <li class="pc-item"><a class="pc-link" href="{{route('ressource.complaint_partner')}}">Requêtes par Partenaire</a></li>
                         <li class="pc-item"><a class="pc-link" href="{{route('ressource.complaint_type')}}">Requêtes par Type</a></li>
+                        <li class="pc-item"><a class="pc-link" href="{{route('chief.ressource.recap')}}">Traitement par Agent/Période</a></li>
                      </ul>
                   </li>
 
+                  <!-- 
                   <li class="pc-item"><a href="{{route('ressource.complaint_recap')}}" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">chrome_reader_mode</i></span><span class="pc-mtext">Recap</span></a></li>
-
-                  @endcan
+                  -->
+               @endcan
                <!-- /Chief Service Permissions -->
 
                <!-- Admin -->
                   
                   @can('Admin Permissions')
+
+                  <li class="pc-item pc-caption">
+                     <label>Administration</label>
+                  </li>
+
+                  <li class="pc-item pc-hasmenu">
+                     <a href="#!" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">account_circle</i></span><span class="pc-mtext">Administrateurs</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+                     <ul class="pc-submenu">
+                        <li class="pc-item"><a class="pc-link" href="{{route('admin.admins.index')}}">Administrateurs</a></li>
+                        <li class="pc-item"><a class="pc-link" href="{{route('admin.admins.create')}}">Ajouter</a></li>
+                     </ul>
+                  </li>
                   
                   <li class="pc-item pc-hasmenu">
                      <a href="#!" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">https</i></span><span class="pc-mtext">Permissions</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
@@ -229,13 +268,9 @@
                        <li class="pc-item"><a class="pc-link" href="{{route('admin.roles.create')}}">Ajouter</a></li>
                     </ul>
                  </li>
-                 
-                 <li class="pc-item pc-hasmenu">
-                    <a href="#!" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">account_circle</i></span><span class="pc-mtext">Administrateurs</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
-                    <ul class="pc-submenu">
-                       <li class="pc-item"><a class="pc-link" href="{{route('admin.admins.index')}}">Administrateurs</a></li>
-                       <li class="pc-item"><a class="pc-link" href="{{route('admin.admins.create')}}">Ajouter</a></li>
-                    </ul>
+
+                 <li class="pc-item pc-caption">
+                  <label>Types Rêquetes</label>
                  </li>
 
                  <li class="pc-item pc-hasmenu">
@@ -246,6 +281,10 @@
                     </ul>
                  </li>
 
+                 <li class="pc-item pc-caption">
+                   <label>Rêquetes</label>
+                 </li>
+
                  <li class="pc-item pc-hasmenu">
                     <a href="#!" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">library_add_check</i></span><span class="pc-mtext">Requêtes</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
                     <ul class="pc-submenu">
@@ -254,12 +293,20 @@
                     </ul>
                  </li>
 
+                 <li class="pc-item pc-caption">
+                  <label>Partenaires</label>
+                 </li>
+
                  <li class="pc-item pc-hasmenu">
                   <a href="#!" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">portrait</i></span><span class="pc-mtext">Partenaires</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
                   <ul class="pc-submenu">
                      <li class="pc-item"><a class="pc-link" href="{{route('admin.partners.index')}}">Liste</a></li>
                      <li class="pc-item"><a class="pc-link" href="{{route('admin.partners.create')}}">Ajouter</a></li>
                   </ul>
+                </li>
+
+               <li class="pc-item pc-caption">
+                  <label>Personnels</label>
                </li>
 
                <li class="pc-item pc-hasmenu">
@@ -268,6 +315,10 @@
                      <li class="pc-item"><a class="pc-link" href="{{route('admin.ressources.index')}}">Liste</a></li>
                      <li class="pc-item"><a class="pc-link" href="{{route('admin.ressources.create')}}">Ajouter</a></li>
                   </ul>
+               </li>
+
+               <li class="pc-item pc-caption">
+                  <label>Opérateurs</label>
                </li>
 
                <li class="pc-item pc-hasmenu">

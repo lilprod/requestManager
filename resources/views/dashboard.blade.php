@@ -85,7 +85,106 @@
             </div>
         @endcan
 
+        @can('Chief Service Permissions')
+
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row align-items-center m-l-0">
+                        <div class="col-auto">
+                            <i class="fas fa-clock f-36 text-info"></i>
+                        </div>
+                        <div class="col-auto">
+                            <h6 class="text-muted m-b-10">Total Requêtes en attente</h6>
+                            <h2 class="m-b-0">45</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row align-items-center m-l-0">
+                        <div class="col-auto">
+                            <i class="fas fa-book-open f-36 text-danger"></i>
+                        </div>
+                        <div class="col-auto">
+                            <h6 class="text-muted m-b-10">Total Requêtes traitées</h6>
+                            <h2 class="m-b-0">9</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row align-items-center m-l-0">
+                        <div class="col-auto">
+                            <i class="fas fa-clock f-36 text-success"></i>
+                        </div>
+                        <div class="col-auto">
+                            <h6 class="text-muted m-b-10">Requêtes de la journée</h6>
+                            <h2 class="m-b-0">5</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row align-items-center m-l-0">
+                        <div class="col-auto">
+                            <i class="fas fa-book-open f-36 text-primary"></i>
+                        </div>
+                        <div class="col-auto">
+                            <h6 class="text-muted m-b-10">Requêtes traitées dans la journée</h6>
+                            <h2 class="m-b-0">25</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endcan
+
         @can('Ressource Permissions')
+
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row align-items-center m-l-0">
+                        <div class="col-auto">
+                            <i class="fas fa-clock f-36 text-primary"></i>
+                        </div>
+                        <div class="col-auto">
+                            <h6 class="text-muted m-b-10">Mes Requêtes en attente</h6>
+                            <h2 class="m-b-0">45</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row align-items-center m-l-0">
+                        <div class="col-auto">
+                            <i class="fas fa-book-open f-36 text-success"></i>
+                        </div>
+                        <div class="col-auto">
+                            <h6 class="text-muted m-b-10">Mes Requêtes traitées</h6>
+                            <h2 class="m-b-0">9</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         @endcan
 

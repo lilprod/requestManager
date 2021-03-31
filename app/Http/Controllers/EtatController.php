@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\User;
+use App\Models\Ressource;
 use App\Models\TypeComplaint;
 use App\Models\Complaint;
 use App\Models\Partner;
@@ -22,6 +23,44 @@ class EtatController extends Controller
         $complaints = [];
 
         return view('stats.recap', compact('complaints'));
+
+    }
+
+    public function chiefRecap()
+    {
+        $complaints = [];
+
+        //$agents = Ressource::all();
+        $agents = Ressource::where('user_id', '!=', auth()->user()->id)
+                            ->get();
+
+        return view('stats.chief_recap', compact('complaints', 'agents'));
+
+    }
+
+    public function postChiefRecap(Request $request)
+    {
+        $this->validate($request, [
+                'ressource_id' => 'required',
+                'from_date' => 'nullable',
+                'to_date' => 'nullable',
+            ],
+
+            $messages = [
+                'required' => 'La :attribute est un champ obliagatoire.',
+            ]
+        );
+
+        $complaints = Complaint::where('ressource_id', $request->ressource_id)
+                                ->where('status', 1)
+                                ->get();
+
+        //$agents = Ressource::all();
+
+        $agents = Ressource::where('user_id', '!=', auth()->user()->id)
+                            ->get();
+
+        return view('stats.chief_recap', compact('complaints', 'agents'));
 
     }
 

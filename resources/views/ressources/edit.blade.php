@@ -42,14 +42,14 @@
                       <div class="col-md-6">
                         <div class="form-group">
                             <label>Nom <span class="text-danger">*</span></label>
-                            <input type="text" name="name" class="form-control" placeholder="Nom" value="{{ $staff->name }}" required autofocus>
+                            <input type="text" name="name" id="name" class="form-control" placeholder="Nom" value="{{ $staff->name }}" required autofocus>
                         </div>
                       </div>
 
                       <div class="col-md-6">
                         <div class="form-group">
                             <label>Prénom(s) <span class="text-danger">*</span></label>
-                            <input type="text" name="firstname" class="form-control" placeholder=" Prénom(s)" value="{{ $staff->firstname}}" required>
+                            <input type="text" name="firstname" id="firstname" class="form-control" placeholder=" Prénom(s)" value="{{ $staff->firstname}}" required>
                         </div> 
                       </div>
                       

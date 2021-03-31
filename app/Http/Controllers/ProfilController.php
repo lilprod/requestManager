@@ -31,7 +31,7 @@ class ProfilController extends Controller
 
         if($user->role_id == 2){
 
-            $staff = Partenaire::where('user_id', auth()->user()->id)->first();
+            $staff = Partner::where('user_id', auth()->user()->id)->first();
 
             return view('profils.index', compact('staff', 'user'));
 

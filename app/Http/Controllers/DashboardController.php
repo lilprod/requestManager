@@ -8,6 +8,7 @@ use App\Models\Ressource;
 use App\Models\Operator;
 use App\Models\Partner;
 use App\Models\User;
+use Carbon\Carbon;
 
 class DashboardController extends Controller
 {
@@ -30,6 +31,10 @@ class DashboardController extends Controller
     {
         $pendingcomplaints = 0;
 
+        $todaypendingcomplaints = 0;
+
+        $todayproceedcomplaints = 0;
+
         $archivedcomplaints = 0;
 
         $admins = 0;
@@ -46,7 +51,7 @@ class DashboardController extends Controller
 
             $archivedcomplaints = auth()->user()->partnerArchivedComplaints()->count();
 
-            return view('dashboard', compact('pendingcomplaints', 'archivedcomplaints', 'admins', 'partners', 'ressources', 'operators'));
+            return view('dashboard', compact('todaypendingcomplaints', 'todayproceedcomplaints', 'pendingcomplaints', 'archivedcomplaints', 'admins', 'partners', 'ressources', 'operators'));
         }
 
         if(auth()->user()->role_id == 1){
@@ -59,10 +64,30 @@ class DashboardController extends Controller
 
             $operators = Operator::all()->count();
 
-            return view('dashboard', compact('pendingcomplaints', 'archivedcomplaints', 'admins', 'partners', 'ressources', 'operators'));
+            return view('dashboard', compact('todaypendingcomplaints', 'todayproceedcomplaints', 'pendingcomplaints', 'archivedcomplaints', 'admins', 'partners', 'ressources', 'operators'));
 
         }
 
-        return view('dashboard', compact('pendingcomplaints', 'archivedcomplaints', 'admins', 'partners', 'ressources', 'operators'));
+        if(auth()->user()->role_id == 4){
+
+            $today = Carbon::now()->toDateString();
+
+            $pendingcomplaints = Complaint::where('status', 0)->get();
+
+            $archivedcomplaints = Complaint::where('status', 1)->get();
+
+            $todaypendingcomplaints = Complaint::where('created_at', '=', $today)
+                                                ->where('status', 0)
+                                                ->get();
+
+            $todayproceedcomplaints = Complaint::where('closing_date', '=', $today)
+                                                ->where('status', 1)
+                                                ->get();
+
+            return view('dashboard', compact('todaypendingcomplaints', 'todayproceedcomplaints', 'pendingcomplaints', 'archivedcomplaints', 'admins', 'partners', 'ressources', 'operators'));
+
+        }
+
+        return view('dashboard', compact('todaypendingcomplaints', 'todayproceedcomplaints', 'pendingcomplaints', 'archivedcomplaints', 'admins', 'partners', 'ressources', 'operators'));
     }
 }

@@ -79,6 +79,28 @@ Route::name('ressource.')->group(function () {
     });
 });
 
+Route::name('chief.')->group(function () {
+
+    Route::group(['prefix' => 'chief'], function () { 
+
+        Route::name('ressource.')->group(function () {
+
+            Route::group(['prefix' => 'ressource'], function () { 
+                
+                Route::get('pending/complaints', 'RessourceManagerController@pendingComplaints')->name('ressource_pending_complaints');
+
+                Route::get('processed/complaints', 'RessourceManagerController@processedComplaints')->name('myprocessed_complaints');
+
+                Route::get('recap', 'EtatController@chiefRecap')->name('recap');
+
+                Route::post('post/recap', 'EtatController@postChiefRecap')->name('post_recap');
+            });
+        });
+
+    });
+});
+
+
 Route::get('changeStatus', 'RessourceController@ChangeUserStatus')->name('changeStatus');
 
 Route::post('post/complaint/partner', 'EtatController@postPartner')->name('post_complaint_partner');

@@ -38,10 +38,11 @@
                 <!-- Add Blog -->
             
                     <div class="row form-row">
-
                         <div class="col-md-6">
-                            <label>Date de l'incident</label>
-                            <input class="form-control" type="date" name="incident_date" id="incident_date">
+                            <div class="form-group">
+                                <label>Date de l'incident</label>
+                                <input class="form-control" type="date" name="incident_date" id="incident_date">
+                            </div>
                         </div>
 
                         <div class="col-md-6">
@@ -64,11 +65,10 @@
                                 <input class="form-control" type="text" name="title" id="title">
                             </div>
                         </div>
-
                     </div>
 
                     <!-- /Basic Information -->
-                    <br><br>
+          
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
@@ -82,13 +82,13 @@
             <!-- /Add Blog -->
        
 
-            <div class="card-footer">
-                <div class="submit-section">
-                    <button class="btn btn-primary btn-lg" type="submit" name="form_submit">Enregister</button>
+                <div class="card-footer">
+                    <div class="submit-section">
+                        <button class="btn btn-primary btn-lg" type="submit" name="form_submit">Enregister</button>
+                    </div>
                 </div>
-            </div>
 
-        </form>
+            </form>
         </div>
     </div>
 

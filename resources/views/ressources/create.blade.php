@@ -41,7 +41,7 @@
                       <div class="col-md-6">
                         <div class="form-group">
                             <label>Nom <span class="text-danger">*</span></label>
-                            <input type="text" name="name" class="form-control  @error('name') is-invalid @enderror" placeholder="Nom" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                            <input type="text" name="name" id="name" class="form-control  @error('name') is-invalid @enderror" placeholder="Nom" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                             @error('name')
                                 <span class="invalid-feedback" role="alert">
@@ -54,7 +54,7 @@
                       <div class="col-md-6">
                         <div class="form-group">
                             <label>Prénom(s) <span class="text-danger">*</span></label>
-                            <input type="text" name="firstname" class="form-control @error('firstname') is-invalid @enderror" placeholder=" Prénom(s)" value="{{ old('firstname') }}" required autocomplete="firstname">
+                            <input type="text" name="firstname" id="firstname" class="form-control @error('firstname') is-invalid @enderror" placeholder=" Prénom(s)" value="{{ old('firstname') }}" required autocomplete="firstname">
                             
                             @error('firstname')
                                 <span class="invalid-feedback" role="alert">

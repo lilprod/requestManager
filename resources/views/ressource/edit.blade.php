@@ -41,9 +41,11 @@
                     <div class="row form-row">
 
                         <div class="col-md-6">
-                            <label>Date de l'incident</label>
-                            <input class="form-control" type="date" name="incident_date" id="incident_date" value="{{$complaint->incident_date}}">
-                          </div>
+                            <div class="form-group">
+                                <label>Date de l'incident</label>
+                                <input class="form-control" type="date" name="incident_date" id="incident_date" value="{{$complaint->incident_date}}">
+                            </div>
+                        </div>
 
                         <div class="col-md-6">
                         </div>
@@ -69,7 +71,7 @@
                     </div>
 
                     <!-- /Basic Information -->
-                    <br><br>
+       
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
@@ -78,10 +80,8 @@
                             </div>
                         </div>
                     </div>
-                    <br><br>
-
+ 
                     <div class="row">
-
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="display-block">Status</label>
