@@ -28,4 +28,10 @@ class Complaint extends Model
     {
         return $this->belongsTo('App\Models\Ressource');
     }
+
+    public function approuved_by()
+    {
+        return $this->belongsTo('App\Models\ressource');
+    }
+
 }

@@ -10,6 +10,7 @@ use App\Models\TypeComplaint;
 use App\Models\Complaint;
 use App\Models\Partner;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class EtatController extends Controller
 {
@@ -51,7 +52,12 @@ class EtatController extends Controller
             ]
         );
 
+        $from_date = Carbon::parse($request->input('from_date'));
+        $to_date = Carbon::parse($request->input('to_date'));
+
         $complaints = Complaint::where('ressource_id', $request->ressource_id)
+                                ->whereDate('closing_date', '>=' , $from_date)
+                                ->whereDate('closing_date', '<=' , $to_date)
                                 ->where('status', 1)
                                 ->get();
 

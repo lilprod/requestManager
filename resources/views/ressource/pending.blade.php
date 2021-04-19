@@ -64,7 +64,7 @@
                                 </td>
                                 <td>
                                     <a href="{{ route('complaints.show', $complaint->id) }}" class="btn btn-info btn-sm">Voir</a>
-                                    <a href="{{ route('complaints.edit', $complaint->id) }}" class="btn btn-info btn-sm">Editer</a>
+                                    <a href="{{ route('ressource.edit', $complaint->id) }}" class="btn btn-info btn-sm">Editer</a>
                                     <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#confirm" onclick="deleteData({{ $complaint->id}})" data-original-title="Supprimer">Supprimer</button>
                                 </td>
                             </tr>

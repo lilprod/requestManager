@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('layouts.app')
 
 @section('content')
 
@@ -41,8 +41,8 @@
                         
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Date de l'incident</label>
-                                <input class="form-control" type="date" name="incident_date" id="incident_date" value="{{$complaint->incident_date}}">
+                                <label>Date de l'incident <span class="text-danger">*</span></label>
+                                <input class="form-control" type="date" name="incident_date" id="incident_date" value="{{$complaint->incident_date}}" required>
                             </div>
                         </div>
 
@@ -51,10 +51,10 @@
 
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Type requête</label>
+                                <label>Type requête <span class="text-danger">*</span></label>
                                 <select class="form-control select" name="type_complaint_id">
                                     @foreach($types as $type)
-                                        <option value="{{$type->id}}" {{ ($complaint->type_id === $type->id) ? 'selected' : '' }}>{{$type->title}}</option>
+                                        <option value="{{$type->id}}" {{ ($complaint->type_complaint_id === $type->id) ? 'selected' : '' }}>{{$type->title}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -75,7 +75,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Commentaire <span class="text-danger">*</span></label>
-                                <textarea id="classic-editor" class="form-control service-desc" rows="6" name="body">{{$complaint->body}}</textarea>
+                                <textarea id="classic-editor" class="form-control service-desc" rows="6" name="body">{{$complaint->description}}</textarea>
                             </div>
                         </div>
                     </div>
@@ -88,7 +88,7 @@
                     </div>
                 </div>
 
-        </form>
+            </form>
         </div>
     </div>
 </div>

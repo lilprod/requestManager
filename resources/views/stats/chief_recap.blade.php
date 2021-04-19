@@ -59,7 +59,7 @@
                             <div class="col-md-3 mb-3">
                                 <div class="input-group">
                                     <span class="input-group-text" id="inputGroupPrepend">à</span>
-                                    <input type="date" class="form-control" name="to_date" id="to_date" aria-describedby="inputGroupPrepend">
+                                    <input type="date" class="form-control" name="to_date" id="to_date" aria-describedby="inputGroupPrepend" onchange="setCorrect(this, 'to_date');">
                                 </div>
                             </div>
 
@@ -113,3 +113,61 @@
 <!-- [ Main Content ] end -->
     
 @endsection
+
+@push('range')
+<script type="text/javascript">
+    var to_date = new Date();
+    var from_date = new Date();
+    from_date.setDate(from_date.getDate()-8);
+    document.getElementById('from_date').valueAsDate = from_date;
+    document.getElementById('to_date').valueAsDate = to_date;
+
+
+    //function to convert enterd date to any format
+    function setCorrect(xObj,xTarget){
+    var today = new Date();	 
+        var date = new Date(xObj.value);
+        var month = date.getMonth() + 1;
+        var day = date.getDate();
+        var year = date.getFullYear();
+        var monthd = today.getMonth() + 1;
+        var dayd = today.getDate();
+        var yeard = today.getFullYear();
+        console.log(day+' '+ month +' '+year+'\n');
+        console.log(dayd+' '+ monthd +' '+yeard);
+
+        if(year<yeard){
+                console.log("modif1");
+                if (dayd<10) {
+                    document.getElementById(xTarget).value=yeard+"-"+monthd+"-0"+dayd;
+                }else {
+                    document.getElementById(xTarget).value=yeard+"-"+monthd+"-"+dayd;
+                }
+        }else if(year=yeard) {
+            if(month<monthd){
+            console.log("modif2");
+            if (dayd<10) {
+                document.getElementById(xTarget).value=yeard+"-"+monthd+"-0"+dayd;
+            }else {
+                document.getElementById(xTarget).value=yeard+"-"+monthd+"-"+dayd;
+            }
+            }else if(month==monthd) {
+                if(day<dayd){
+                    console.log("modif3");
+                    if (dayd<10) {
+                        document.getElementById(xTarget).value=yeard+"-"+monthd+"-0"+dayd;
+                    }else {
+                        document.getElementById(xTarget).value=yeard+"-"+monthd+"-"+dayd;
+                    }
+                }
+            }
+        }
+        /*if(day<dayd && month<monthd && year<yeard){
+
+                console.log("success");
+        }else {
+            console.log("fucked");
+        }*/
+    }
+ </script>
+@endpush

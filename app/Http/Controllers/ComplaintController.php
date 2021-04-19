@@ -52,17 +52,17 @@ class ComplaintController extends Controller
             $this->validate($request, [
                 'title' => 'required|max:120',
                 'body' => 'required',
-                'incident_date' => 'nullable',
+                'incident_date' => 'required',
             ],
 
             $messages = [
-                'required' => 'The :attribute field is required.',
+                'required' => 'The :attribute est un champ obligatoire.',
             ]
         );
 
         $complaint = new Complaint();
         $complaint->title = $request->input('title');
-        $complaint->body = $request->input('body');
+        $complaint->description = $request->input('body');
         $complaint->incident_date = $request->input('incident_date');
 
         $partner = Partner::where('user_id', auth()->user()->id)->first();
@@ -70,10 +70,10 @@ class ComplaintController extends Controller
         $complaint->partner_id = $partner->id;
         $complaint->user_id = auth()->user()->id;
 
-        if($request->input('category_id') == ''){
+        if($request->input('type_complaint_id') == ''){
             $complaint->type_complaint_id = 6;
         }else{
-            $complaint->type_complaint_id = $request->input('category_id');
+            $complaint->type_complaint_id = $request->input('type_complaint_id');
         }
 
         //$complaint->username = auth()->user()->name.' '.auth()->user()->firstname;
@@ -96,7 +96,7 @@ class ComplaintController extends Controller
             ->with('success',
              'Post is pending.');
         }*/
-        return redirect()->route('complaints.index')
+        return redirect()->route('partner.partner_pending_complaints')
             ->with('success',
              'Requête enregistrée avec succès.');
     }
@@ -147,28 +147,28 @@ class ComplaintController extends Controller
         $this->validate($request, [
                 'title' => 'required|max:120',
                 'body' => 'required',
-                'incident_date' => 'nullable',
+                'incident_date' => 'required',
             ],
 
             $messages = [
-                'required' => 'The :attribute field is required.',
+                'required' => 'The :attribute est un champ obligatoire',
             ]
         );
 
         if($complaint->status == 0){
 
             $complaint->title = $request->input('title');
-            $complaint->body = $request->input('body');
+            $complaint->description = $request->input('body');
             $complaint->incident_date = $request->input('incident_date');
             //$complaint->status = $request->input('status');
             $complaint->user_id = auth()->user()->id;
             $complaint->operator_id = 1;
             $complaint->partner_id = $partner->id;
 
-            if($request->input('category_id') == ''){
+            if($request->input('type_complaint_id') == ''){
                 $complaint->type_complaint_id = 6;
             }else{
-                $complaint->type_complaint_id = $request->input('category_id');
+                $complaint->type_complaint_id = $request->input('type_complaint_id');
             }
 
             //$complaint->username = auth()->user()->name.' '.auth()->user()->firstname;
@@ -180,13 +180,13 @@ class ComplaintController extends Controller
 
             $complaint->save();
 
-            return redirect()->route('complaints.index')
+            return redirect()->route('partner.partner_pending_complaints')
                 ->with('success',
                 'Requête éditée avec succès.');
 
         }
 
-            return redirect()->route('complaints.index')
+            return redirect()->route('partner_archived_complaints')
                 ->with('error',
                 'Requête déjà traité.');
     }
@@ -203,7 +203,7 @@ class ComplaintController extends Controller
 
         $complaint->delete();
 
-        return redirect()->route('complaints.index')
+        return redirect()->route('partner.partner_pending_complaints')
             ->with('success',
              'Requête supprimée avec succès.');
     }

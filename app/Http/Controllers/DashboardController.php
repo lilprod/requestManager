@@ -8,7 +8,9 @@ use App\Models\Ressource;
 use App\Models\Operator;
 use App\Models\Partner;
 use App\Models\User;
+use App\Models\Complaint;
 use Carbon\Carbon;
+use LaravelDaily\LaravelCharts\Classes\LaravelChart;
 
 class DashboardController extends Controller
 {
@@ -45,13 +47,24 @@ class DashboardController extends Controller
 
         $operators = 0;
 
+        $chart_options = [
+            'chart_title' => 'Requêtes par mois',
+            'report_type' => 'group_by_date',
+            'model' => 'App\Models\Complaint',
+            'group_by_field' => 'created_at',
+            'group_by_period' => 'month',
+            'chart_type' => 'bar',
+        ];
+
+        $chart1 = new LaravelChart($chart_options);
+
         if(auth()->user()->role_id == 2){
 
             $pendingcomplaints = auth()->user()->partnerPendingComplaints()->count();
 
             $archivedcomplaints = auth()->user()->partnerArchivedComplaints()->count();
 
-            return view('dashboard', compact('todaypendingcomplaints', 'todayproceedcomplaints', 'pendingcomplaints', 'archivedcomplaints', 'admins', 'partners', 'ressources', 'operators'));
+            return view('dashboard', compact('chart1','todaypendingcomplaints', 'todayproceedcomplaints', 'pendingcomplaints', 'archivedcomplaints', 'admins', 'partners', 'ressources', 'operators'));
         }
 
         if(auth()->user()->role_id == 1){
@@ -64,7 +77,7 @@ class DashboardController extends Controller
 
             $operators = Operator::all()->count();
 
-            return view('dashboard', compact('todaypendingcomplaints', 'todayproceedcomplaints', 'pendingcomplaints', 'archivedcomplaints', 'admins', 'partners', 'ressources', 'operators'));
+            return view('dashboard', compact('chart1', 'todaypendingcomplaints', 'todayproceedcomplaints', 'pendingcomplaints', 'archivedcomplaints', 'admins', 'partners', 'ressources', 'operators'));
 
         }
 
@@ -72,22 +85,22 @@ class DashboardController extends Controller
 
             $today = Carbon::now()->toDateString();
 
-            $pendingcomplaints = Complaint::where('status', 0)->get();
+            $pendingcomplaints = Complaint::where('status', 0)->get()->count();
 
-            $archivedcomplaints = Complaint::where('status', 1)->get();
+            $archivedcomplaints = Complaint::where('status', 1)->get()->count();
 
             $todaypendingcomplaints = Complaint::where('created_at', '=', $today)
                                                 ->where('status', 0)
-                                                ->get();
+                                                ->get()->count();
 
             $todayproceedcomplaints = Complaint::where('closing_date', '=', $today)
                                                 ->where('status', 1)
-                                                ->get();
+                                                ->get()->count();
 
-            return view('dashboard', compact('todaypendingcomplaints', 'todayproceedcomplaints', 'pendingcomplaints', 'archivedcomplaints', 'admins', 'partners', 'ressources', 'operators'));
+            return view('dashboard', compact('chart1', 'todaypendingcomplaints', 'todayproceedcomplaints', 'pendingcomplaints', 'archivedcomplaints', 'admins', 'partners', 'ressources', 'operators'));
 
         }
 
-        return view('dashboard', compact('todaypendingcomplaints', 'todayproceedcomplaints', 'pendingcomplaints', 'archivedcomplaints', 'admins', 'partners', 'ressources', 'operators'));
+        return view('dashboard', compact('chart1', 'todaypendingcomplaints', 'todayproceedcomplaints', 'pendingcomplaints', 'archivedcomplaints', 'admins', 'partners', 'ressources', 'operators'));
     }
 }

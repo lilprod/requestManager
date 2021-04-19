@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\TypeComplaint;
 use App\Models\Complaint;
 use App\Models\Ressource;
 use App\Models\Partner;
@@ -57,6 +58,21 @@ class RessourceManagerController extends Controller
     }
 
     /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $types = TypeComplaint::all(); //Get all types
+
+        $complaint = Complaint::findOrFail($id);
+
+        return view('ressource.edit', compact('types', 'complaint'));
+    }
+
+    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -72,26 +88,26 @@ class RessourceManagerController extends Controller
             $this->validate($request, [
                 'title' => 'required|max:120',
                 'body' => 'required',
-                'incident_date' => 'nullable',
+                'incident_date' => 'required',
             ],
 
             $messages = [
-                'required' => 'The :attribute field is required.',
+                'required' => 'The :attribute est un champ obligatoire.',
             ]
         );
 
         $complaint->title = $request->input('title');
-        $complaint->body = $request->input('body');
+        $complaint->description = $request->input('body');
         $complaint->incident_date = $request->input('incident_date');
         $complaint->status = $request->input('status');
         $complaint->ressource_id = $ressource->id;
         $complaint->approuved_by = auth()->user()->id;
         $complaint->closing_date = Carbon::now();
 
-        if($request->input('category_id') == ''){
+        if($request->input('type_complaint_id') == ''){
             $complaint->type_complaint_id = 6;
         }else{
-            $complaint->type_complaint_id = $request->input('category_id');
+            $complaint->type_complaint_id = $request->input('type_complaint_id');
         }
 
         //$complaint->username = auth()->user()->name.' '.auth()->user()->firstname;
@@ -103,7 +119,7 @@ class RessourceManagerController extends Controller
 
         $complaint->save();
 
-        return redirect()->route('admin.complaints.index')
+        return redirect()->route('ressource.myprocessed_complaints')
             ->with('success',
              'Requête éditée avec succès.');
     }

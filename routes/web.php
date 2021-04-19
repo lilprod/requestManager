@@ -68,7 +68,9 @@ Route::name('ressource.')->group(function () {
 
         Route::get('processed/complaints', 'RessourceManagerController@processedComplaints')->name('myprocessed_complaints');
 
-        Route::patch('complaint/update/{id}', 'RessourceManagerController@update')->name('ressource_complaints_update');
+        Route::get('/complaints/edit/{id}', 'RessourceManagerController@edit')->name('edit');
+
+        Route::patch('complaint/update/{id}', 'RessourceManagerController@update')->name('complaints_update');
 
         Route::get('/complaint/partner', 'EtatController@partner')->name('complaint_partner');
 

@@ -46,6 +46,7 @@
                                 <th>N°</th>
                                 <th>Types Requêtes</th>
                                 <th>Requêtes</th>
+                                <th>Statuts</th>
                                 <th style="width: 10%">Actions</th>
                             </tr>
                         </thead>
@@ -56,6 +57,12 @@
                                 <td>{{$key+1}}</td>
                                 <td>{{$complaint->type->title}}</td>
                                 <td>{{$complaint->title}}</td>
+                                <td>@if($complaint->status)
+                                        <span class="badge bg-success">Traité</span>
+                                    @else
+                                        <span class="badge bg-warning">En attente</span>
+                                    @endif
+                                </td>
                                 <td>
                                     <a href="{{ route('complaints.show', $complaint->id) }}" class="btn btn-info btn-sm">Voir</a>
                                     <a href="{{ route('complaints.edit', $complaint->id) }}" class="btn btn-primary btn-sm">Editer</a>

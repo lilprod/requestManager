@@ -40,8 +40,8 @@
                     <div class="row form-row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Date de l'incident</label>
-                                <input class="form-control" type="date" name="incident_date" id="incident_date">
+                                <label>Date de l'incident <span class="text-danger">*</span></label>
+                                <input class="form-control" type="date" name="incident_date" id="incident_date" required>
                             </div>
                         </div>
 
@@ -50,7 +50,7 @@
 
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Type requête</label>
+                                <label>Type requête <span class="text-danger">*</span></label>
                                 <select class="form-control select" name="type_complaint_id">
                                     @foreach($types as $type)
                                         <option value="{{$type->id}}">{{$type->title}}</option>

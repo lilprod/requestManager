@@ -41,7 +41,7 @@
 			</div>
       </div>
       
-		<div class="auth-side-form">
+	  <div class="auth-side-form">
          <form method="POST" action="{{ route('login') }}">
             @csrf 
 			<div class=" auth-content">
@@ -50,25 +50,25 @@
             
 				<div class="input-group mb-3">
 					<span class="input-group-text"><i data-feather="mail"></i></span>
-               <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" required autocomplete="email" autofocus>
-               
-               @error('email')
-                     <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                     </span>
-               @enderror
-            </div>
+                    <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                    
+                    @error('email')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                    @enderror
+                </div>
             
 				<div class="input-group mb-4">
 					<span class="input-group-text"><i data-feather="lock"></i></span>
-               <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-               
-               @error('password')
-                     <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                     </span>
-               @enderror
-            </div>
+                    <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                    
+                    @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                    @enderror
+                </div>
             
 				<div class="form-group  mt-2">
 					<div class="form-check">
@@ -77,7 +77,7 @@
 							Se souvenir
 						</label>
 					</div>
-            </div>
+                </div>
             
 				<button type="submit" class="btn btn-block btn-primary mb-0">Connexion</button>
 				<div class="text-center">
@@ -85,20 +85,19 @@
 					<button class="btn text-white bg-facebook mb-2 me-2  wid-40 px-0 hei-40 rounded-circle"><i class="fab fa-facebook-f"></i></button>
 					<button class="btn text-white bg-googleplus mb-2 me-2 wid-40 px-0 hei-40 rounded-circle"><i class="fab fa-google-plus-g"></i></button>
 					<button class="btn text-white bg-twitter mb-2  wid-40 px-0 hei-40 rounded-circle"><i class="fab fa-twitter"></i></button>-->
-               {{--@if (Route::has('password.request'))
-                  <p class="mb-2 mt-4 text-muted">Mot de passe oublié?
-                     <a href="{{ route('password.request') }}" class="f-w-400">Réinitialisé</a>
-                  </p>
-               @endif--}}
+                    @if (Route::has('password.request'))
+                        <p class="mb-2 mt-4 text-muted">Mot de passe oublié?
+                            <a href="{{ route('password.request') }}" class="f-w-400">Réinitialiser</a>
+                        </p>
+                    @endif
 					<!--<p class="mb-0 text-muted">Don’t have an account? <a href="auth-signup-img-side.html" class="f-w-400">Signup</a></p>-->
-            </div>
-            
-         </form>
-			</div>
-      </div>
-      
+                </div>
 
-	</div>
+			  </div>
+            
+            </form>
+        </div>
+    </div>
 </div>
 <!-- [ signin-img ] end -->
 

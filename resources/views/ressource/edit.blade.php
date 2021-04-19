@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('layouts.app')
 
 @section('content')
 
@@ -31,7 +31,7 @@
                 <h5>Traiter Réclamation </h5>
             </div>
 
-            <form method="POST" action="{{ route('ressource_complaints_update', $complaint->id) }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('ressource.complaints_update', $complaint->id) }}" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 {{ method_field('PATCH') }}
 
@@ -55,7 +55,7 @@
                                 <label>Type requête</label>
                                 <select class="form-control select" name="type_complaint_id">
                                     @foreach($types as $type)
-                                        <option value="{{$type->id}}" {{ ($complaint->type_id === $type->id) ? 'selected' : '' }}>{{$type->title}}</option>
+                                        <option value="{{$type->id}}" {{ ($complaint->type_complaint_id === $type->id) ? 'selected' : '' }}>{{$type->title}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -76,7 +76,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Commentaire <span class="text-danger">*</span></label>
-                                <textarea id="classic-editor" class="form-control service-desc" rows="6" name="body">{{$complaint->body}}</textarea>
+                                <textarea id="classic-editor" class="form-control service-desc" rows="6" name="body">{{$complaint->description}}</textarea>
                             </div>
                         </div>
                     </div>
@@ -105,16 +105,17 @@
                     </div>
 
                 </div>
-            <!-- /Add Blog -->
-            </div>
+                <!-- /Add Blog -->
 
-            <div class="card-footer">
-                <div class="submit-section">
-                    <button class="btn btn-primary btn-lg" type="submit" name="form_submit">Modifier</button>
+                <div class="card-footer">
+                    <div class="submit-section">
+                        <button class="btn btn-primary btn-lg" type="submit" name="form_submit">Modifier</button>
+                    </div>
                 </div>
-            </div>
 
-        </form>
+            </form>
+        </div>
+        
         </div>
     </div>
 </div>

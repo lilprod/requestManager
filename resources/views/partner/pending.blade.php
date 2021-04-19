@@ -73,7 +73,7 @@
                                 <td>{{$key+1}}</td>
                                 <td>{{$complaint->type->title}}</td>
                                 <td>{{$complaint->title}}</td>
-                                <td><span class="badge bg-primary">En attente</span></td>
+                                <td><span class="badge bg-warning">En attente</span></td>
                                 <td>
                                     <a href="{{ route('complaints.show', $complaint->id) }}" class="btn btn-info btn-sm">Voir</a>
                                     <a href="{{ route('complaints.edit', $complaint->id) }}" class="btn btn-primary btn-sm">Editer</a>
