@@ -87,11 +87,16 @@ class ProfilController extends Controller
         //Validate name, email and password fields
         $this->validate($request, [
             'name' => 'required|max:120',
-            'firstname' => 'required|max:120',
+            'firstname' => 'nullable|max:120',
             'email' => 'required|email|unique:users,email,'.$user_id,
             'address' => 'required',
             'phone_number' => 'required',
             'profile_picture' => 'image|nullable',
+            'birth_date' => 'nullable',
+            'gender' => 'nullable',
+            'address' => 'nullable',
+            'city' => 'required',
+            'postal_code' => 'required',
         ]);
 
         if ($request->hasfile('profile_picture')) {
@@ -131,6 +136,14 @@ class ProfilController extends Controller
                 $user->profile_picture = $fileNameToStore;
             }
 
+            if ($request['city'] != '') {
+                $user->city = $request['city'];
+            }
+
+            if ($request['postal_code'] != '') {
+                $user->postal_code = $request['postal_code'];
+            }
+
             $staff->name = $name;
             $staff->firstname = $firstname;
             $staff->email = $email;
@@ -148,6 +161,14 @@ class ProfilController extends Controller
             $user->email = $email;
             $user->address = $address;
             $user->phone_number = $phone_number;
+
+            if ($request['city'] != '') {
+                $user->city = $request['city'];
+            }
+
+            if ($request['postal_code'] != '') {
+                $user->postal_code = $request['postal_code'];
+            }
             if ($request->hasfile('profile_picture')) {
                 $user->profile_picture = $fileNameToStore;
             }
@@ -173,11 +194,33 @@ class ProfilController extends Controller
             }
 
             $ressource->name = $name;
+            if ($request['firstname'] != '') {
+                $ressource->name = $request['firstname'];
+                $user->firstname = $request['firstname'];
+            }
             $ressource->email = $email;
             $ressource->address = $address;
             $ressource->phone_number = $phone_number;
             if ($request->hasfile('profile_picture')) {
                 $ressource->profile_picture = $fileNameToStore;
+            }
+
+            if ($request['gender'] != '') {
+                $ressource->gender = $request['gender'];
+            }
+
+            if ($request['birth_date'] != '') {
+                $ressource->birth_date = $request['birth_date'];
+            }
+
+            if ($request['city'] != '') {
+                $ressource->city = $request['city'];
+                $user->city = $request['city'];
+            }
+
+            if ($request['postal_code'] != '') {
+                $ressource->postal_code = $request['postal_code'];
+                $user->postal_code = $request['postal_code'];
             }
             $user->save();
             $ressource->save();
@@ -188,6 +231,14 @@ class ProfilController extends Controller
             $user->email = $email;
             $user->address = $address;
             $user->phone_number = $phone_number;
+
+            if ($request['city'] != '') {
+                $user->city = $request['city'];
+            }
+
+            if ($request['postal_code'] != '') {
+                $user->postal_code = $request['postal_code'];
+            }
             if ($request->hasfile('profile_picture')) {
                 $user->profile_picture = $fileNameToStore;
             }
