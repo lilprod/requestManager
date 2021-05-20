@@ -55,7 +55,8 @@
             <!-- /.box-body -->
 
             <div class="card-footer">
-				{{ Form::submit('Ajouter Rôle', array('class' => 'btn btn-primary btn-block')) }}
+                {{ Form::submit('Ajouter Rôle', array('class' => 'btn btn-primary btn-block')) }}
+                <button class="btn btn-outline-dark ms-2" type="reset">Annuler</button>
 			</div>
             {{ Form::close() }}
             <!-- form end -->

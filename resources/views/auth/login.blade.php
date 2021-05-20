@@ -37,7 +37,7 @@
 			<div class="col-sm-10 auth-content w-auto">
 				<img src="{{asset('assets/images/moovafrica.png') }}" alt="" class="img-fluid">
 				<h1 class="text-white my-4">Bienvenue!</h1>
-				<h4 class="text-white font-weight-normal">Veuillez entrer vos identifiants pour vous connectez à l'application</h4>
+				<h4 class="text-white font-weight-normal">Veuillez entrer vos identifiants pour vous connecter à l'application</h4>
 			</div>
       </div>
       

@@ -45,7 +45,7 @@
     
                       <div class="col-md-6 pr-0">
                           <div class="form-group">
-                            {{ Form::label('firstname', 'Prénoms') }}
+                            {{ Form::label('firstname', 'Prénom(s)') }}
                             {{ Form::text('firstname', null, array('class' => 'form-control form-control-capitalize', 'id' => 'firstname')) }}
                           </div>
                       </div>
@@ -101,7 +101,8 @@
             </div>
 
             <div class="card-footer">
-				{{ Form::submit('Editer Administrateur', array('class' => 'btn btn-primary btn-block')) }}
+                {{ Form::submit('Editer Administrateur', array('class' => 'btn btn-primary btn-block')) }}
+                <button class="btn btn-outline-dark ms-2" type="reset">Annuler</button>
 			</div>
 		    {{ Form::close() }}
         </div>

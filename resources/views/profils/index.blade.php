@@ -75,6 +75,9 @@
     
             </div>
             <div class="col-lg-8">
+
+                @include('inc.messages')
+                
                 <div class="tab-content" id="user-set-tabContent">
                     <div class="tab-pane fade show active" id="user-set-profile" role="tabpanel" aria-labelledby="user-set-profile-tab">
                    
@@ -293,36 +296,31 @@
                                 <h5><i data-feather="lock" class="icon-svg-primary wid-20"></i><span class="p-l-5">Changement de mot de passe</span></h5>
                             </div>
 
-                            <form method="POST" action="{{ route('updatepassword') }}">
+                            <form method="POST" action="{{ route('verif_email') }}">
                                 @csrf
                                 <div class="card-body">
+
+                                    <div class="col-sm-12">
+                                        <div class="alert alert-info alert-dismissible fade show" role="alert">
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                            <strong>Note!</strong> Avant de procéder au changement de mot de passe, vous devez confirmer votre 
+                                            <a href="#" class="alert-link">adresse email</a> pour vérifier votre compte. 
+                                        </div>
+                                    </div>
+
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="form-group">
-                                                <label class="form-label">Mot de passe actuel <span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" placeholder="Entrer votre mot de passe actuel" name="old_password">
-                                                <!--<small class="form-text text-muted">Mot de passe oublié? <a href="#!">Cliquer ici</a></small>-->
+                                                <label>Entrer votre adresse email</label>
+                                                <input type="email" class="form-control" name="email" required>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <label class="form-label">Nouveau mot de passe <span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" placeholder="Entrer Nouveau mot de passe" name="new_password">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <label class="form-label">Confirmation de mot de passe <span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" placeholder="Entrer votre nouveau mot de passe de nouveau" name="confirm_password">
-                                            </div>
-                                        </div>
-                                    </div>
+                    
                                 </div>
                             
                             <div class="card-footer text-end">
-                                <button class="btn btn-danger" type="submit">Changer mot de passe</button>
+                                <button class="btn btn-danger" type="submit">Valider</button>
                                 <button class="btn btn-outline-dark ms-2" type="reset">Annuler</button>
                             </div>
                         </form>

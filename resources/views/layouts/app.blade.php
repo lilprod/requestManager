@@ -91,7 +91,7 @@
                      <label>Navigation</label>
                   </li>
 
-                  <li class="pc-item"><a href="{{route('dashboard')}}" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">home</i></span><span class="pc-mtext">Dashboard</span></a></li>
+                  <li class="pc-item"><a href="{{route('dashboard')}}" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">home</i></span><span class="pc-mtext">Tableau de bord</span></a></li>
 
                   <!-- Operator-->
                   @can('Operator Permissions')
@@ -270,6 +270,18 @@
                  </li>
 
                  <li class="pc-item pc-caption">
+                  <label>Villes</label>
+                 </li>
+
+                 <li class="pc-item pc-hasmenu">
+                    <a href="#!" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">map</i></span><span class="pc-mtext">Villes</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+                    <ul class="pc-submenu">
+                       <li class="pc-item"><a class="pc-link" href="{{route('admin.villes.index')}}">Liste</a></li>
+                       <li class="pc-item"><a class="pc-link" href="{{route('admin.villes.create')}}">Ajouter</a></li>
+                    </ul>
+                 </li>
+
+                 <li class="pc-item pc-caption">
                   <label>Types Rêquetes</label>
                  </li>
 
@@ -378,7 +390,7 @@
                         </div>-->
                         <a href="{{ route('profils.index') }}" class="dropdown-item">
                         <i class="material-icons-two-tone">account_circle</i>
-                        <span>Profile</span>
+                        <span>Profil</span>
                         </a>
 
                         <!--<a href="#" class="dropdown-item">
@@ -388,7 +400,7 @@
                         <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
                         <i class="material-icons-two-tone">chrome_reader_mode</i>
-                        <span>Logout</span>
+                        <span>Déconnexion</span>
                         </a>
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -418,6 +430,10 @@
       <script src="{{asset('assets/js/vendor-all.min.js') }}"></script>
       <script>
          $('#name').keyup(function(){
+            $(this).val($(this).val().toUpperCase());
+         });
+
+         $('#nif').keyup(function(){
             $(this).val($(this).val().toUpperCase());
          });
 
@@ -523,12 +539,24 @@
                "sNext":"Suivant",
                "sPrevious":"Précédent"
              },
-             //"sInfo" : "Afficher START à END des TOTAL lignes",
-             "sInfoEmpty" : "Afficher 0 à 0 des 0 données",
-             //"sInfoFiltered" : "Trié de MAX lignes totales",
-             "sEmptyTable" : "Pas de données disponible dans la table",
-             //"sLengthMenu" : "Afficher MENU lignes",
-             "sZeroRecords" : "Aucune donnée correspondante trouvée"
+               "sInfo" : "Afficher _START_ à _END_ des _TOTAL_ lignes",
+               "sInfoEmpty" : "Afficher 0 à 0 des 0 données",
+               "sInfoFiltered" : "Trié de _MAX_ lignes totales",
+               "sEmptyTable" : "Pas de données disponible dans la table",
+               "sLengthMenu" : "Afficher _MENU_ lignes",
+               "sZeroRecords" : "Aucune donnée correspondante trouvée",
+               "sProcessing": "Traitement en cours ...",
+               "oAria": {
+                     "sSortAscending":  ": Activer pour trier la colonne par ordre croissant ",
+                     "sSortDescending": ": Activer pour trier la colonne par ordre décroissant"
+               },
+               "select": {
+                  "rows": {
+                     "_": "%d lignes sélectionnées",
+                     "0": "Aucune ligne sélectionnée",
+                     "1": "1 ligne sélectionnée"
+                  }
+               }
            }
          });
  

@@ -47,6 +47,8 @@ Route::name('admin.')->group(function () {
 
         Route::resource('permissions', 'PermissionController');
 
+        Route::resource('villes', 'VilleController');
+
     });
 });
 
@@ -112,6 +114,12 @@ Route::post('post/complaint/type', 'EtatController@postType')->name('post_compla
 Route::post('post/complaint/recap', 'EtatController@postRecap')->name('post_complaint_recap');
 
 Route::resource('profils', 'ProfilController');
+
+Route::get('/profil/verify/{token}', 'ProfilController@verifyUser')->name('verif_token');
+
+Route::post('/profil/verif_email', 'ProfilController@postEmail')->name('verif_email');
+
+Route::get('/profil/confirm_change_password', 'ProfilController@changePassword')->name('confirm_change_password');
 
 Route::post('/updatepassword', 'ProfilController@updatePassword')->name('updatepassword');
 

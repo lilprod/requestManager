@@ -38,14 +38,14 @@
 
 				<div class="col-md-6 pr-0">
 					<div class="form-group">
-                        {{ Form::label('name', 'Name') }}
+                        {{ Form::label('name', 'Nom') }}
                         {{ Form::text('name', '', array('class' => 'form-control form-control-uppercase')) }}
                       </div>
                   </div>
 
                   <div class="col-md-6 pr-0">
                       <div class="form-group">
-                        {{ Form::label('firstname', 'Firstname') }}
+                        {{ Form::label('firstname', 'Prénom(s)') }}
                         {{ Form::text('firstname', '', array('class' => 'form-control form-control-capitalize', 'id' => 'firstname')) }}
                       </div>
                   </div>
@@ -78,14 +78,14 @@
 
                   <div class="col-md-6 pr-0">
                       <div class="form-group">
-                            {{ Form::label('password', 'Confirmation Password') }}<br>
+                            {{ Form::label('password', 'Confirmation du mot de passe') }}<br>
                             {{ Form::password('password_confirmation', array('class' => 'form-control')) }}
                       </div>
                     </div>
 
                     <div class="col-sm-6 pr-0">
                       <div class="form-group">
-                        {{ Form::label('address', 'Address') }}
+                        {{ Form::label('address', 'Adresse') }}
                         {{ Form::text('address', '' , array('class' => 'form-control', 'id' => 'address')) }}
                       </div>
                     </div>
@@ -113,7 +113,8 @@
 			</div>
 
 			<div class="card-footer">
-				{{ Form::submit('Ajouter Administrateur', array('class' => 'btn btn-primary btn-block')) }}
+                {{ Form::submit('Ajouter Administrateur', array('class' => 'btn btn-primary btn-block')) }}
+                <button class="btn btn-outline-dark ms-2" type="reset">Annuler</button>
 			</div>
 		    {{ Form::close() }}
         </div>

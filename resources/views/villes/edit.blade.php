@@ -8,11 +8,11 @@
         <div class="row align-items-center">
             <div class="col-md-12">
                 <div class="page-header-title">
-                    <h5 class="m-b-10">Types Requêtes</h5>
+                    <h5 class="m-b-10">Villes</h5>
                 </div>
                 <ul class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="#!">Types Requêtes</a></li>
+                    <li class="breadcrumb-item"><a href="#!">Villes</a></li>
                     <li class="breadcrumb-item">Edition</li>
                 </ul>
             </div>
@@ -30,10 +30,10 @@
 
         <div class="card">
             <div class="card-header">
-                <h5>Editer Type Requête </h5>
+                <h5>Editer Ville </h5>
             </div>
 
-            <form method="POST" action="{{ route('admin.typecomplaints.update', $type->id) }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('admin.villes.update', $ville->id) }}" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 {{ method_field('PATCH') }}
 
@@ -42,15 +42,15 @@
                     <div class="row form-row">
                         <div class="col-12 col-sm-12">
                             <div class="form-group">
-                                <label>Type Requête </label>
-                                <input class="form-control" type="text" name="title" value="{{$type->title}}" id="title">
+                                <label>Titre </label>
+                                <input class="form-control" type="text" name="title" value="{{$ville->title}}" id="title">
                             </div>
                         </div>
                     
                         <div class="col-12 col-sm-12">
                             <div class="form-group">
                                 <label>Description</label>
-                                <textarea cols="30" rows="4" class="form-control" name="description">{{$type->description}}</textarea>
+                                <textarea cols="30" rows="4" class="form-control" name="description">{{$ville->description}}</textarea>
                             </div>
                         </div>
         
@@ -59,7 +59,7 @@
                 </div>
 
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-primary btn-block">Editer Type Requête</button>
+                    <button type="submit" class="btn btn-primary btn-block">Editer ville</button>
                     <button class="btn btn-outline-dark ms-2" type="reset">Annuler</button>
                 </div>
 

@@ -39,6 +39,7 @@ class User extends Authenticatable
         'role_id',
         'firebase_token',
         'lang', 
+        'token',
         'is_activated',
     ];
 

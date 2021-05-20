@@ -55,7 +55,7 @@
                           <div class="col-lg-6">
                             <div class="form-group">
                                 <label>NIF <span class="text-danger">*</span></label>
-                                <input type="text" name="nif" class="form-control mb-30" placeholder="NIF" value="{{$institution->nif}}" required>
+                                <input type="text" name="nif" id="nif" class="form-control mb-30" placeholder="NIF" value="{{$institution->nif}}" required>
     
                                 @error('nif')
                                     <span class="invalid-feedback" role="alert">

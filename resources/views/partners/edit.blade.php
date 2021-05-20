@@ -55,7 +55,7 @@
                           <div class="col-lg-6">
                             <div class="form-group">
                                 <label>NIF <span class="text-danger">*</span></label>
-                                <input type="text" name="nif" class="form-control mb-30" placeholder="NIF" value="{{$institution->nif}}" required>
+                                <input type="text" name="nif" id="nif" class="form-control mb-30" placeholder="NIF" value="{{$institution->nif}}" required>
     
                                 @error('nif')
                                     <span class="invalid-feedback" role="alert">
@@ -138,6 +138,7 @@
 
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary btn-block" id="submit">Editer Partenaire</button>
+                    <button class="btn btn-outline-dark ms-2" type="reset">Annuler</button>
                 </div>
 
             </form>

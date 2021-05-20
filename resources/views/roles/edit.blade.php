@@ -49,7 +49,8 @@
             </div>
 
             <div class="card-footer">
-				{{ Form::submit('Editer Rôle', array('class' => 'btn btn-primary btn-block')) }}
+                {{ Form::submit('Editer Rôle', array('class' => 'btn btn-primary btn-block')) }}
+                <button class="btn btn-outline-dark ms-2" type="reset">Annuler</button>
 			</div>
 		    {{ Form::close() }}
         </div>

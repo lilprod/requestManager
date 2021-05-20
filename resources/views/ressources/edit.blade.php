@@ -129,6 +129,7 @@
 
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary btn-block" id="submit">Editer Personnel</button>
+                    <button class="btn btn-outline-dark ms-2" type="reset">Annuler</button>
                 </div>
 
             </form>

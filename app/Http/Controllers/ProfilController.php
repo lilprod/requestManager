@@ -7,8 +7,13 @@ use App\Models\Partner;
 use App\Models\Operator;
 use Illuminate\Http\Request;
 use App\Models\User;
-use Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendPassChangeCode;
+use App\Mail\VerifyMail;
 
 class ProfilController extends Controller
 {
@@ -259,6 +264,7 @@ class ProfilController extends Controller
      */
     public function show($id)
     {
+        //
     }
 
     /**
@@ -270,6 +276,66 @@ class ProfilController extends Controller
      */
     public function edit($id)
     {
+        //
+    }
+
+    public function unique_code($limit)
+    {
+        return substr(base_convert(sha1(uniqid(mt_rand())), 16, 36), 0, $limit);
+    }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function changePassword(){
+
+    	return view('profils.setting');
+    }
+
+    public function postEmail(Request $request)
+    {
+        //Validate email field
+        $this->validate($request, [
+            'email' => 'required',
+        ]);
+
+        $user = User::where('email', $request->email)->first();
+
+        if($user){
+
+            $user->token = sha1(time());
+
+            $user->save();
+            
+            Mail::to($user->email)->send(new VerifyMail($user));
+
+            return redirect()->back()->with('success', 'Nous vous avons envoyé un code d\'activation. 
+            Vérifiez votre email et cliquez sur le lien pour vérification de votre compte.');
+
+        } else {
+            return redirect()->back()->with('error', "Désolé, votre adresse email ne peut pas être identifié!");
+        }
+
+    }
+
+    public function verifyUser($token)
+    {
+        $user = User::where('token', $token)->first();
+
+        if($user){
+
+            $status = "Votre e-mail a été vérifié. Vous pouvez à présent procéder à la modification de votre mot de passe.";
+
+            return redirect()->route('confirm_change_password')->with('success', $status);
+            
+        } else {
+
+            return redirect('profils')->with('error', "Désolé, votre adresse email ne peut pas être identifié!");
+        }
+
+        
     }
 
     public function updatePassword(Request $request)

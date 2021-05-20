@@ -85,6 +85,7 @@
                 <div class="card-footer">
                     <div class="submit-section">
                         <button class="btn btn-primary btn-lg" type="submit" name="form_submit">Modifier</button>
+                        <button class="btn btn-outline-dark ms-2" type="reset">Annuler</button>
                     </div>
                 </div>
 
