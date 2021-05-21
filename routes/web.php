@@ -123,6 +123,10 @@ Route::get('/profil/confirm_change_password', 'ProfilController@changePassword')
 
 Route::post('/updatepassword', 'ProfilController@updatePassword')->name('updatepassword');
 
+Route::post('admin/api/city','AutoCompleteController@getAutocompleteData')->name('api_cities');
+
+Route::get('/getCities', 'AutoCompleteController@search')->name('getCities');
+
 /*Route::get('/create_role_permission', function () {
     $role = Role::create(['name' => 'Admin']);
     $permission = Permission::create(['name' => 'Admin Permissions']);

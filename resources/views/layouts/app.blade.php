@@ -10,6 +10,7 @@
       <![endif]-->
       <!-- Meta -->
       <meta charset="utf-8">
+      <meta name="csrf-token" content="{{ csrf_token() }}">
       <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
       <meta name="description" content="Request Manager Administration."/>
@@ -28,6 +29,12 @@
       <link rel="stylesheet" href="{{asset('assets/css/style.css') }}" id="main-style-link">
       <link rel="stylesheet" href="{{asset('assets/css/customizer.css') }}">
       <link rel="stylesheet" href="{{asset('css/intlTelInput.css') }}">
+      {{-- <!-- Jquery css -->
+      <link rel="stylesheet" href="{{asset('css/jquery-ui.css') }}">
+      
+      <!-- Jquery Script -->
+      <script src="{{asset('js/jquery.js') }}"></script>
+      <script src="{{asset('js/jquery-ui.min.js') }}"></script> --}}
 
       <style>
         .iti { width: 100%; }
@@ -427,7 +434,85 @@
       <!-- [ Main Content ] end -->
      
       <!-- Required Js -->
-      <script src="{{asset('assets/js/vendor-all.min.js') }}"></script>
+      <script src="{{asset('assets/js/vendor-all.min.js') }}"></script> 
+
+      <script>
+         /* // CSRF Token
+         var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+
+         $(function () {
+            $('#city').autocomplete({
+               source:function(request,response){
+                  
+                     // Fetch data
+                     $.ajax({
+                        url:"{{route('api_cities')}}",
+                        type: 'post',
+                        dataType: "json",
+                        data: {
+                           _token: CSRF_TOKEN,
+                           search: request.term
+                        },
+                        success: function( data ) {
+                           response( data );
+                        }
+                     });
+               },
+               minLength:1,
+               delay:500,
+               select:function(event,ui){
+                    // $('#city').val(ui.item.title)
+                     // Set selection
+                     $('#city').val(ui.item.label); // display the selected text
+                     $('#city').val(ui.item.label); // save selected id to input
+                     //$('#city').val(ui.item.value); // save selected id to input
+                     return false;
+               }
+            })
+         }) */
+
+         // keyup function looks at the keys typed on the search box
+         $('#city').on('keyup',function() {
+            // the text typed in the input field is assigned to a variable 
+            var query = $(this).val();
+            // call to an ajax function
+            if(query ==''){
+
+               $('#city_list').html("");
+               $('#city').val() = '';
+            }else{
+
+               $.ajax({
+                  // assign a controller function to perform search action - route name is search
+                  url:"{{ route('getCities') }}",
+                  // since we are getting data methos is assigned as GET
+                  type:"GET",
+                  // data are sent the server
+                  data:{'ville':query},
+                  // if search is succcessfully done, this callback function is called
+                  success:function (data) {
+                     // print the search results in the div called country_list(id)
+                     $('#city_list').html(data);
+                  }
+               })
+               // end of ajax call
+            }
+         });
+
+
+         // initiate a click function on each search result
+         $(document).on('click', 'li', function(){
+            // declare the value in the input field to a variable
+            var value = $(this).text();
+            // assign the value to the search box
+            $('#city').val($(this).attr('data-id'))
+            //console.log($('#city').val());
+           // $('#collector').val(value);
+            // after click is done, search results segment is made empty
+            $('#city_list').html("");
+         });
+
+      </script>
       <script>
          $('#name').keyup(function(){
             $(this).val($(this).val().toUpperCase());

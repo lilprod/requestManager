@@ -82,14 +82,16 @@
                       <div class="col-md-4">
                         <div class="form-group">
                             <label>Ville <span class="text-danger">*</span></label>
-                            <input type="text" name="city" class="form-control @error('city') is-invalid @enderror" placeholder="Ville" value="{{ old('city') }}" required autocomplete="city">
-
+                            <input type="text" name="city" id="city" class="form-control @error('city') is-invalid @enderror" required>
+                            <div id="city_list"></div> 
                             @error('city')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
-                        </div>  
+                        </div>
+                        
+                        
                       </div>
 
                       <div class="col-md-4">
@@ -150,3 +152,49 @@
 <!-- [ Main Content ] end -->
 
 @endsection
+
+
+{{-- @push('add_partner')
+    <!-- Jquery css -->
+    <link rel="stylesheet" href="{{asset('css/jquery-ui.css') }}">
+      
+    <!-- Jquery Script -->
+    <script src="{{asset('js/jquery.js') }}"></script>
+    <script src="{{asset('js/jquery-ui.min.js') }}"></script>
+
+    <script>
+        // CSRF Token
+        var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+
+        $(function () {
+           $('#city').autocomplete({
+              source:function(request,response){
+                 
+                    // Fetch data
+                    $.ajax({
+                       url:"{{route('api_cities')}}",
+                       type: 'post',
+                       dataType: "json",
+                       data: {
+                          _token: CSRF_TOKEN,
+                          search: request.term
+                       },
+                       success: function( data ) {
+                          response( data );
+                       }
+                    });
+              },
+              minLength:1,
+              delay:500,
+              select:function(event,ui){
+                   // $('#city').val(ui.item.title)
+                    // Set selection
+                    $('#city').val(ui.item.label); // display the selected text
+                    $('#city').val(ui.item.label); // save selected id to input
+                    //$('#city').val(ui.item.value); // save selected id to input
+                    return false;
+              }
+           })
+        })
+     </script>
+@endpush --}}
