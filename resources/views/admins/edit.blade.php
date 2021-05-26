@@ -102,7 +102,8 @@
 
             <div class="card-footer">
                 {{ Form::submit('Editer Administrateur', array('class' => 'btn btn-primary btn-block')) }}
-                <button class="btn btn-outline-dark ms-2" type="reset">Annuler</button>
+                <button class="btn btn-danger ms-2" type="reset">Effacer</button>
+                <a class="btn btn-primary btn-block ms-2" href="{{url()->previous()}}"> Retour </a>
 			</div>
 		    {{ Form::close() }}
         </div>

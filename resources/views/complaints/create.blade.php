@@ -85,7 +85,8 @@
                 <div class="card-footer">
                     <div class="submit-section">
                         <button class="btn btn-primary btn-lg" type="submit" name="form_submit">Enregister</button>
-                        <button class="btn btn-outline-dark ms-2" type="reset">Annuler</button>
+                        <button class="btn btn-danger ms-2" type="reset">Effacer</button>
+                        <a class="btn btn-primary btn-block ms-2" href="{{url()->previous()}}"> Retour </a>
                     </div>
                 </div>
 

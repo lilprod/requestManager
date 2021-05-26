@@ -138,7 +138,9 @@
                 </div>
 
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-primary btn-block" id="submit">Ajouter Opérateur</button>
+                    <button type="submit" class="btn btn-primary btn-block" id="submit">Ajouter opérateur</button>
+                    <button class="btn btn-danger ms-2" type="reset">Effacer</button>
+                    <a class="btn btn-primary btn-block ms-2" href="{{url()->previous()}}"> Retour </a>
                 </div>
 
             </form>

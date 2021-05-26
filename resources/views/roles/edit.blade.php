@@ -24,7 +24,7 @@
 <!-- [ Main Content ] start -->
 <div class="row">
     <!-- subscribe start -->
-    <div class="col-lg-4 col-lg-offset-4">
+    <div class="col-lg-5 col-lg-offset-4">
 
         @include('inc.messages')
 
@@ -49,8 +49,9 @@
             </div>
 
             <div class="card-footer">
-                {{ Form::submit('Editer Rôle', array('class' => 'btn btn-primary btn-block')) }}
-                <button class="btn btn-outline-dark ms-2" type="reset">Annuler</button>
+                {{ Form::submit('Editer rôle', array('class' => 'btn btn-primary btn-block')) }}
+                <button class="btn btn-danger ms-2" type="reset">Effacer</button>
+                <a class="btn btn-primary btn-block ms-2" href="{{url()->previous()}}"> Retour </a>
 			</div>
 		    {{ Form::close() }}
         </div>

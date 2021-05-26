@@ -140,8 +140,9 @@
                 </div>
 
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-primary btn-block" id="submit">Ajouter Partenaire</button>
-                    <button class="btn btn-outline-dark ms-2" type="reset">Annuler</button>
+                    <button type="submit" class="btn btn-primary btn-block" id="submit">Ajouter partenaire</button>
+                    <button class="btn btn-danger ms-2" type="reset">Effacer</button>
+                    <a class="btn btn-primary btn-block ms-2" href="{{url()->previous()}}"> Retour </a>
                 </div>
 
             </form>

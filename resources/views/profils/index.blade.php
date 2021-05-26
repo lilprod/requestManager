@@ -283,7 +283,8 @@
                             
                             <div class="card-footer text-end">
                                 <button class="btn btn-primary" type="submit">Modifier Profil</button>
-                                <button class="btn btn-outline-dark ms-2" type="reset">Effacer</button>
+                                <button class="btn btn-danger ms-2" type="reset">Effacer</button>
+                                <a class="btn btn-primary btn-block ms-2" href="{{url()->previous()}}"> Retour </a>
                             </div>
                         </form>
                         </div>
@@ -321,7 +322,8 @@
                             
                             <div class="card-footer text-end">
                                 <button class="btn btn-danger" type="submit">Valider</button>
-                                <button class="btn btn-outline-dark ms-2" type="reset">Annuler</button>
+                                <button class="btn btn-danger ms-2" type="reset">Effacer</button>
+                                <a class="btn btn-primary btn-block ms-2" href="{{url()->previous()}}"> Retour </a>
                             </div>
                         </form>
                         </div>
