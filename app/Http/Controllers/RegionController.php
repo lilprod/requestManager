@@ -47,7 +47,7 @@ class RegionController extends Controller
             ],
 
             $messages = [
-                'required' => 'The :attribute field is required.',
+                'title.required' => 'Le Titre est un champ obligatoire.',
             ]
         );
 
@@ -106,7 +106,7 @@ class RegionController extends Controller
             ],
 
             $messages = [
-                'required' => 'The :attribute field is required.',
+                'title.required' => 'Le Titre est un champ obligatoire.',
             ]
         );
 

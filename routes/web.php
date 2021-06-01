@@ -104,6 +104,9 @@ Route::name('chief.')->group(function () {
     });
 });
 
+Route::get('first/change/{id}/password', 'Auth\RegisterController@firstChangePassword')->name('change_password');
+
+Route::post('post/first/change/password', 'Auth\RegisterController@postFirstChangePassword')->name('post_change_password');
 
 Route::get('changeStatus', 'RessourceController@ChangeUserStatus')->name('changeStatus');
 
@@ -116,6 +119,8 @@ Route::post('post/complaint/recap', 'EtatController@postRecap')->name('post_comp
 Route::resource('profils', 'ProfilController');
 
 Route::get('/profil/verify/{token}', 'ProfilController@verifyUser')->name('verif_token');
+
+Route::get('/account/verify/{token}', 'Auth\RegisterController@verifyUser')->name('verif_account');
 
 Route::post('/profil/verif_email', 'ProfilController@postEmail')->name('verif_email');
 

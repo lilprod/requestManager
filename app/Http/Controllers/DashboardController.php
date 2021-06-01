@@ -47,6 +47,8 @@ class DashboardController extends Controller
 
         $operators = 0;
 
+        $user_id = '';
+
         $chart_options = [
             'chart_title' => 'Requêtes par mois',
             'report_type' => 'group_by_date',
@@ -81,7 +83,7 @@ class DashboardController extends Controller
 
         }
 
-        if(auth()->user()->role_id == 4){
+        if(auth()->user()->role_id == 4 && auth()->user()->password_changed_at != null){
 
             $today = Carbon::now()->toDateString();
 
@@ -99,8 +101,15 @@ class DashboardController extends Controller
 
             return view('dashboard', compact('chart1', 'todaypendingcomplaints', 'todayproceedcomplaints', 'pendingcomplaints', 'archivedcomplaints', 'admins', 'partners', 'ressources', 'operators'));
 
+        }else{
+
+            $id = Auth()->user()->id;
+
+            Auth()->logout();
+
+            return redirect()->route('change_password', $id)->with('error', 'Veuillez changer votre mot de passe!');
         }
 
-        return view('dashboard', compact('chart1', 'todaypendingcomplaints', 'todayproceedcomplaints', 'pendingcomplaints', 'archivedcomplaints', 'admins', 'partners', 'ressources', 'operators'));
+        //return view('dashboard', compact('chart1', 'todaypendingcomplaints', 'todayproceedcomplaints', 'pendingcomplaints', 'archivedcomplaints', 'admins', 'partners', 'ressources', 'operators'));
     }
 }

@@ -183,7 +183,8 @@
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label class="form-label">Ville <span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" value="{{$user->city}}" name="city" required>
+                                            <input type="text" class="form-control"  id="city" value="{{$user->city}}" name="city" required>
+                                            <div id="city_list"></div> 
                                         </div>
                                     </div>
 
@@ -253,7 +254,7 @@
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label class="form-label">Email <span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" value="{{$user->email}}" name="email" required>
+                                            <input type="email" class="form-control" value="{{$user->email}}" name="email" required>
                                         </div>
                                     </div>
 

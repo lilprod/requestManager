@@ -85,7 +85,8 @@
                       <div class="col-md-4">
                         <div class="form-group">
                             <label>Ville <span class="text-danger">*</span></label>
-                            <input type="text" name="city" class="form-control" placeholder="Ville" value="{{ $staff->city }}" required>
+                            <input type="text" name="city" id="city" class="form-control" placeholder="Ville" value="{{ $staff->city }}" required>
+                            <div id="city_list"></div> 
                         </div>  
                       </div>
 

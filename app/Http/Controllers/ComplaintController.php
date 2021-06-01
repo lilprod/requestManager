@@ -56,7 +56,9 @@ class ComplaintController extends Controller
             ],
 
             $messages = [
-                'required' => 'The :attribute est un champ obligatoire.',
+                'title.required' => 'Le Titre est un champ obligatoire.',
+                'body.required' => 'Le Commentaire est un champ obligatoire.',
+                'incident_date.required' => 'La Date de l\'incident est un champ obligatoire.',
             ]
         );
 
@@ -151,7 +153,9 @@ class ComplaintController extends Controller
             ],
 
             $messages = [
-                'required' => 'The :attribute est un champ obligatoire',
+                'title.required' => 'Le Titre est un champ obligatoire.',
+                'body.required' => 'Le Commentaire est un champ obligatoire.',
+                'incident_date.required' => 'La Date de l\'incident est un champ obligatoire.',
             ]
         );
 

@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SendPassChangeCode;
 use App\Mail\VerifyMail;
+use Carbon\Carbon;
 
 class ProfilController extends Controller
 {
@@ -73,8 +74,11 @@ class ProfilController extends Controller
 
     public function editProfil()
     {
-        return view('profils.edit');
+        //return view('profils.edit');
     }
+
+
+    
 
     /**
      * Store a newly created resource in storage.
@@ -94,7 +98,7 @@ class ProfilController extends Controller
             'name' => 'required|max:120',
             'firstname' => 'nullable|max:120',
             'email' => 'required|email|unique:users,email,'.$user_id,
-            'address' => 'required',
+            //'address' => 'required',
             'phone_number' => 'required',
             'profile_picture' => 'image|nullable',
             'birth_date' => 'nullable',
@@ -102,6 +106,17 @@ class ProfilController extends Controller
             'address' => 'nullable',
             'city' => 'required',
             'postal_code' => 'required',
+        ],
+        $messages = [
+            'name.required' => 'Le champ Nom est obligatoire.',
+            'firstname.required' => 'Le champ Prénom(s) est obligatoire.',
+            'phone_number.required' => 'Le champ  est obligatoire.',
+            'email.required' => 'Le champ Email est obligatoire.',
+            //'birth_date.required' => 'Le champ Date de naissance est obligatoire.',
+            //'gender.required' => 'Le champ Genre est obligatoire.',
+            'address.required' => 'Le champ Adresse est obligatoire.',
+            'city.required' => 'Le champ Ville est obligatoire.',
+            'postal_code.required' => 'Le champ Code postal  est obligatoire.',
         ]);
 
         if ($request->hasfile('profile_picture')) {
@@ -299,6 +314,9 @@ class ProfilController extends Controller
         //Validate email field
         $this->validate($request, [
             'email' => 'required',
+        ],
+        $messages = [
+            'email.required' => 'Le champ Email est obligatoire.',
         ]);
 
         $user = User::where('email', $request->email)->first();
@@ -345,6 +363,13 @@ class ProfilController extends Controller
             'old_password' => 'required',
             'new_password' => 'required|min:6',
             'confirm_password' => 'required|same:new_password',
+        ],
+
+        $messages = [
+            'old_password.required' => 'Le champ Mot de passe actuel est obligatoire.',
+            'new_password.required' => 'Le champ Nouveau mot de passe est obligatoire.',
+            'confirm_password.required' => 'Le champ Confirmation mot de passe est obligatoire.',
+            'confirm_password.same' => 'Les champ Mot de passe et Confirmation mot de passe ne correspondent pas.',
         ]);
 
         $user_id = auth()->user()->id;
@@ -365,7 +390,7 @@ class ProfilController extends Controller
 
             $user->save();
 
-            return redirect('profils')->with('success', 'Password updated successfully.');
+            return redirect('profils')->with('success', 'Mot de passe mise à jour avec succès.');
         }
     }
 

@@ -48,7 +48,9 @@ class EtatController extends Controller
             ],
 
             $messages = [
-                'required' => 'La :attribute est un champ obliagatoire.',
+                'ressource_id.required' => 'La Ressource est un champ obliagatoire.',
+                'from_date.required' => 'La Date de début est un champ obliagatoire.',
+                'to_date.required' => 'La Date de fin est un champ obliagatoire.',
             ]
         );
 
@@ -77,7 +79,7 @@ class EtatController extends Controller
             ],
 
             $messages = [
-                'required' => 'La :attribute est un champ obliagatoire.',
+                'periode.required' => 'La Période est un champ obliagatoire.',
             ]
         );
 

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<title>Request Manager | Réinitialiser Mot de passe</title>
+	<!-- HTML5 Shim and Respond.js IE11 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 11]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	<!-- Meta -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="description" content="Request Manager Application."/>
+	<meta name="keywords" content="Request Manager Application"/>
+	<meta name="author" content="Request Manager"/>
+
+	<!-- Favicon icon -->
+	<link rel="icon" href="{{asset('assets/images/favicon.ico') }}" type="image/x-icon">
+
+	<!-- font css -->
+	<link rel="stylesheet" href="{{asset('assets/fonts/feather.css') }}">
+	<link rel="stylesheet" href="{{asset('assets/fonts/fontawesome.css') }}">
+	<link rel="stylesheet" href="{{asset('assets/fonts/material.css') }}">
+
+	<!-- vendor css -->
+	<link rel="stylesheet" href="{{asset('assets/css/style.css') }}" id="main-style-link">
+	<link rel="stylesheet" href="{{asset('assets/css/customizer.css') }}">
+</head>
+
+<!-- [ signin-img ] start -->
+<div class="auth-wrapper align-items-stretch aut-bg-img">
+	<div class="flex-grow-1">
+		<div class="h-100 d-lg-flex align-items-end auth-side-img">
+			<div class="col-sm-10 auth-content w-auto">
+				<img src="{{asset('assets/images/moovafrica.png') }}" alt="" class="img-fluid">
+				<h1 class="text-white my-4">Changer votre mot de passe en toute sécurité !</h1>
+				<h4 class="text-white font-weight-normal">Modifiez le mot de passe de votre compte pour sécuriser votre compte.</h4>
+			</div>
+        </div>
+
+        <div class="auth-side-form">
+
+            
+
+            <form method="POST" action="{{ route('post_change_password') }}">
+                @csrf
+
+                <div class="auth-content">
+                    @include('inc.messages')
+                    <!--<img src="{{asset('assets/images/moovafrica.png') }}" alt="" class="img-fluid mb-4 d-block d-xl-none d-lg-none">-->
+   
+                    <div class="input-group mb-4">
+                        <h4 class="mb-4 f-w-400">Réinitialisation du mot de passe</h4>
+
+                        <input type="hidden" name="user_id" value="{{ request()->id }}">
+
+                        <div class="input-group mb-2">
+                            <input type="password" class="form-control @error('new_password') is-invalid @enderror" name="new_password" placeholder="Nouveau mot de passe" required autocomplete="new_password" autofocus>
+
+                            @error('new_password')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+
+                        <div class="input-group mb-4">
+                            <input type="password" class="form-control" placeholder="Confirmation du mot de passe" name="confirm_password" required autocomplete="new_password">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-block btn-primary mb-4">Changer mot de passe</button>
+                    <!-- <div class="text-center">
+                        <div class="saprator my-4"><span>OR</span></div>
+                        <button class="btn text-white bg-facebook mb-2 me-2  wid-40 px-0 hei-40 rounded-circle"><i class="fab fa-facebook-f"></i></button>
+                        <button class="btn text-white bg-googleplus mb-2 me-2 wid-40 px-0 hei-40 rounded-circle"><i class="fab fa-google-plus-g"></i></button>
+                        <button class="btn text-white bg-twitter mb-2  wid-40 px-0 hei-40 rounded-circle"><i class="fab fa-twitter"></i></button>
+                        <p class="mb-0 mt-4 text-muted">Don’t have an account? <a href="auth-signup-img-side.html" class="f-w-400">Signup</a></p>
+                    </div>-->
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+<!-- [ signin-img ] end -->
+
+<!-- Required Js -->
+<script src="{{asset('assets/js/vendor-all.min.js') }}"></script>
+<script src="{{asset('assets/js/plugins/bootstrap.min.js') }}"></script>
+<script src="{{asset('assets/js/plugins/feather.min.js') }}"></script>
+<script src="{{asset('assets/js/pcoded.min.js') }}"></script>
+
+<div class="pct-customizer">
+<div class="pct-c-btn">
+    <button class="btn btn-light-danger" id="pct-toggler">
+        <i data-feather="settings"></i>
+    </button>
+    <button class="btn btn-light-primary" data-bs-toggle="tooltip" title="Document" data-placement="left">
+        <i data-feather="book"></i>
+    </button>
+    <button class="btn btn-light-success" data-bs-toggle="tooltip" title="Buy Now" data-placement="left">
+        <i data-feather="shopping-bag"></i>
+    </button>
+    <button class="btn btn-light-info" data-bs-toggle="tooltip" title="Support" data-placement="left">
+        <i data-feather="headphones"></i>
+    </button>
+</div>
+<div class="pct-c-content ">
+    <div class="pct-header bg-primary">
+        <h5 class="mb-0 text-white f-w-500">DashboardKit Customizer</h5>
+    </div>
+    <div class="pct-body">
+        <h6 class="mt-2"><i data-feather="credit-card" class="me-2"></i>Header settings</h6>
+        <hr class="my-2">
+        <div class="theme-color header-color">
+            <a href="#!" class="" data-value="bg-default"><span></span><span></span></a>
+            <a href="#!" class="" data-value="bg-primary"><span></span><span></span></a>
+            <a href="#!" class="" data-value="bg-danger"><span></span><span></span></a>
+            <a href="#!" class="" data-value="bg-warning"><span></span><span></span></a>
+            <a href="#!" class="" data-value="bg-info"><span></span><span></span></a>
+            <a href="#!" class="" data-value="bg-success"><span></span><span></span></a>
+            <a href="#!" class="" data-value="bg-dark"><span></span><span></span></a>
+        </div>
+        <h6 class="mt-4"><i data-feather="layout" class="me-2"></i>Sidebar settings</h6>
+        <hr class="my-2">
+        <div class="form-check form-switch">
+            <input type="checkbox" class="form-check-input" id="cust-sidebar">
+            <label class="form-check-label f-w-600 pl-1" for="cust-sidebar">Light Sidebar</label>
+        </div>
+        <div class="form-check form-switch mt-2">
+            <input type="checkbox" class="form-check-input" id="cust-sidebrand">
+            <label class="form-check-label f-w-600 pl-1" for="cust-sidebrand">Color Brand</label>
+        </div>
+        <div class="theme-color brand-color d-none">
+            <a href="#!" class="active" data-value="bg-primary"><span></span><span></span></a>
+            <a href="#!" class="" data-value="bg-danger"><span></span><span></span></a>
+            <a href="#!" class="" data-value="bg-warning"><span></span><span></span></a>
+            <a href="#!" class="" data-value="bg-info"><span></span><span></span></a>
+            <a href="#!" class="" data-value="bg-success"><span></span><span></span></a>
+            <a href="#!" class="" data-value="bg-dark"><span></span><span></span></a>
+        </div>
+        <h6 class="mt-4"><i data-feather="sun" class="me-2"></i>Layout settings</h6>
+        <hr class="my-2">
+        <div class="form-check form-switch mt-2">
+            <input type="checkbox" class="form-check-input" id="cust-darklayout">
+            <label class="form-check-label f-w-600 pl-1" for="cust-darklayout">Dark Layout</label>
+        </div>
+    </div>
+</div>
+</div>
+
+<script>
+$('#pct-toggler').on('click', function() {
+    $('.pct-customizer').toggleClass('active');
+});
+$('#cust-sidebrand').change(function() {
+    if ($(this).is(":checked")) {
+        $('.theme-color.brand-color').removeClass('d-none');
+        $('.m-header').addClass('bg-dark');
+    } else {
+        $('.m-header').removeClassPrefix('bg-');
+        $('.m-header > .b-brand > .logo-lg').attr('src', '{{asset('assets/images/logo-dark.svg') }}');
+        $('.theme-color.brand-color').addClass('d-none');
+    }
+});
+$('.brand-color > a').on('click', function() {
+    var temp = $(this).attr('data-value');
+    if (temp == "bg-default") {
+        $('.m-header').removeClassPrefix('bg-');
+    } else {
+        $('.m-header').removeClassPrefix('bg-');
+        $('.m-header > .b-brand > .logo-lg').attr('src', '{{asset('assets/images/logo.svg') }}');
+        $('.m-header').addClass(temp);
+    }
+});
+$('.header-color > a').on('click', function() {
+    var temp = $(this).attr('data-value');
+    if (temp == "bg-default") {
+        $('.pc-header').removeClassPrefix('bg-');
+    } else {
+        $('.pc-header').removeClassPrefix('bg-');
+        $('.pc-header').addClass(temp);
+    }
+});
+$('#cust-sidebar').change(function() {
+    if ($(this).is(":checked")) {
+        $('.pc-sidebar').addClass('light-sidebar');
+        $('.pc-horizontal .topbar').addClass('light-sidebar');
+    } else {
+        $('.pc-sidebar').removeClass('light-sidebar');
+        $('.pc-horizontal .topbar').removeClass('light-sidebar');
+    }
+});
+$('#cust-darklayout').change(function() {
+    if ($(this).is(":checked")) {
+        $("#main-style-link").attr("href", "{{asset('assets/css/style-dark.css') }}");
+    } else {
+        $("#main-style-link").attr("href", "{{asset('assets/css/style.css') }}");
+    }
+});
+$.fn.removeClassPrefix = function(prefix) {
+    this.each(function(i, it) {
+        var classes = it.className.split(" ").map(function(item) {
+            return item.indexOf(prefix) === 0 ? "" : item;
+        });
+        it.className = classes.join(" ");
+    });
+    return this;
+};
+</script>
+</body>
+</html>

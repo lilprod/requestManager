@@ -61,6 +61,15 @@ class OperatorController extends Controller
             'city' => 'required',
             'nif' => 'required',
             'postal_code' => 'required',
+        ],
+        $messages = [
+            'name.required' => 'Le champ Nom est obligatoire.',
+            'phone_number.required' => 'Le champ  est obligatoire.',
+            'email.required' => 'Le champ Email est obligatoire.',
+            'nif.required' => 'Le champ NIF est obligatoire.',
+            'address.required' => 'Le champ Adresse est obligatoire.',
+            'city.required' => 'Le champ Ville est obligatoire.',
+            'postal_code.required' => 'Le champ Code postal  est obligatoire.',
         ]);
 
         if ($request->hasfile('profile_picture')) {
@@ -179,6 +188,15 @@ class OperatorController extends Controller
             'city' => 'required',
             'nif' => 'required',
             'postal_code' => 'required',
+        ],
+        $messages = [
+            'name.required' => 'Le champ Nom est obligatoire.',
+            'phone_number.required' => 'Le champ  est obligatoire.',
+            'email.required' => 'Le champ Email est obligatoire.',
+            'nif.required' => 'Le champ NIF est obligatoire.',
+            'address.required' => 'Le champ Adresse est obligatoire.',
+            'city.required' => 'Le champ Ville est obligatoire.',
+            'postal_code.required' => 'Le champ Code postal  est obligatoire.',
         ]);
 
         if ($request->hasfile('profile_picture')) {

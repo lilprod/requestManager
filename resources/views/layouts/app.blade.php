@@ -553,17 +553,19 @@
                // dropdownContainer: document.body,
                // excludeCountries: ["us"],
                // formatOnDisplay: false,
-               // geoIpLookup: function(callback) {
-               //   $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
-               //     var countryCode = (resp && resp.country) ? resp.country : "";
-               //     callback(countryCode);
-               //   });
-               // },
+               initialCountry: "auto",
+               geoIpLookup: function(success, failure) {
+                  $.get("https://ipinfo.io", function() {}, "jsonp").always(function(resp) {
+                  var countryCode = (resp && resp.country) ? resp.country : "tg";
+                  success(countryCode);
+                  });
+               },
                // hiddenInput: "full_number",
                // initialCountry: "auto",
                // localizedCountries: { 'de': 'Deutschland' },
                // nationalMode: false,
                // onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
+               onlyCountries: ['tg'],
                // placeholderNumberType: "MOBILE",
                // preferredCountries: ['cn', 'jp'],
                separateDialCode: true,
@@ -582,7 +584,28 @@
          
          // listen to "keyup", but also "change" to update when the user selects a country
          input.addEventListener('change', handleChange);
-         input.addEventListener('keyup', handleChange); 
+         input.addEventListener('keyup', handleChange);
+
+         $('#phone').on('keyup', function() {
+            limitText(this, 8)
+        });
+
+        function limitText(field, maxChar){
+            var ref = $(field),
+                val = ref.val();
+            if ( val.length >= maxChar ){
+                ref.val(function() {
+                    console.log(val.substr(0, maxChar))
+                    return val.substr(0, maxChar);       
+                });
+            }
+        } 
+
+        $('#phone').keypress(function (e) {    
+            var charCode = (e.which) ? e.which : event.keyCode    
+            if (String.fromCharCode(charCode).match(/[^0-9]/g))    
+                return false;                        
+        }); 
       </script>
 
       <!-- Ckeditor js -->

@@ -108,8 +108,8 @@
                       <div class="col-md-4">
                         <div class="form-group">
                             <label>Ville <span class="text-danger">*</span></label>
-                            <input type="text" name="city" class="form-control @error('city') is-invalid @enderror" placeholder="Ville" value="{{ old('city') }}" required autocomplete="city">
-
+                            <input type="text" id="city" name="city" class="form-control @error('city') is-invalid @enderror" placeholder="Ville" value="{{ old('city') }}" required autocomplete="city">
+                            <div id="city_list"></div> 
                             @error('city')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>

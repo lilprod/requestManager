@@ -62,6 +62,18 @@ class ChiefServiceController extends Controller
             'address' => 'required',
             'city' => 'required',
             'postal_code' => 'required',
+        ],
+
+        $messages = [
+            'name.required' => 'Le champ Nom est obligatoire.',
+            'firstname.required' => 'Le champ Prénom(s) est obligatoire.',
+            'phone_number.required' => 'Le champ  est obligatoire.',
+            'email.required' => 'Le champ Email est obligatoire.',
+            'birth_date.required' => 'Le champ Date de naissance est obligatoire.',
+            'gender.required' => 'Le champ Genre est obligatoire.',
+            'address.required' => 'Le champ Adresse est obligatoire.',
+            'city.required' => 'Le champ Ville est obligatoire.',
+            'postal_code.required' => 'Le champ Code postal  est obligatoire.',
         ]);
 
         if ($request->hasfile('profile_picture')) {
@@ -179,6 +191,18 @@ class ChiefServiceController extends Controller
             'address' => 'required',
             'city' => 'required',
             'postal_code' => 'required',
+        ],
+        
+        $messages = [
+            'name.required' => 'Le champ Nom est obligatoire.',
+            'firstname.required' => 'Le champ Prénom(s) est obligatoire.',
+            'phone_number.required' => 'Le champ  est obligatoire.',
+            'email.required' => 'Le champ Email est obligatoire.',
+            'birth_date.required' => 'Le champ Date de naissance est obligatoire.',
+            'gender.required' => 'Le champ Genre est obligatoire.',
+            'address.required' => 'Le champ Adresse est obligatoire.',
+            'city.required' => 'Le champ Ville est obligatoire.',
+            'postal_code.required' => 'Le champ Code postal  est obligatoire.',
         ]);
 
         if ($request->hasfile('profile_picture')) {

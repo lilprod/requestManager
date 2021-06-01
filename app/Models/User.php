@@ -87,4 +87,9 @@ class User extends Authenticatable
                           ->where('status', 1)
                           ->get();
     }
+
+    public function verifyUser()
+    {
+        return $this->hasOne('App\Models\VerifyUser');
+    }
 }

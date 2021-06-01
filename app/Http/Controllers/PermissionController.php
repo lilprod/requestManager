@@ -50,6 +50,10 @@ class PermissionController extends Controller
     {
         $this->validate($request, [
             'name' => 'required|max:40',
+        ],
+
+        $messages = [
+            'name.required' => 'Le Nom de la permission est un champ obligatoire.',
         ]);
 
         $name = $request['name'];
@@ -108,9 +112,15 @@ class PermissionController extends Controller
     public function update(Request $request, $id)
     {
         $permission = Permission::findOrFail($id);
+
         $this->validate($request, [
             'name' => 'required|max:40',
+        ],
+
+        $messages = [
+            'name.required' => 'Le Nom de la permission est un champ obligatoire.',
         ]);
+
         $input = $request->all();
         $permission->fill($input)->save();
 

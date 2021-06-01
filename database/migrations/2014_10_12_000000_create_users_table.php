@@ -34,6 +34,7 @@ class CreateUsersTable extends Migration
             $table->string('postal_code')->nullable();
             $table->string('country')->nullable();
             $table->string('lang')->nullable();
+            $table->string('token')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

@@ -56,6 +56,16 @@ class AdminController extends Controller
             'phone_number' => 'required',
             'address' => 'nullable',
             'profile_picture' => 'image|nullable',
+        ],
+
+        $messages = [
+            'name.required' => 'Le champ Nom est obligatoire.',
+            'firstname.required' => 'Le champ Prénom(s) est obligatoire.',
+            'phone_number.required' => 'Le champ  est obligatoire.',
+            'email.required' => 'Le champ Email est obligatoire.',
+            'password.required' => 'Le champ Mot de passe est obligatoire.',
+            'password.confirmed' => 'Le champ Mot de passe et Confirmation du mot de passe ne correspondent pas.',
+            'address.required' => 'Le champ Adresse est obligatoire.',
         ]);
 
         if ($request->hasfile('profile_picture')) {

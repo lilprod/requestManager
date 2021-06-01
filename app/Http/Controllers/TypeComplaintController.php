@@ -51,7 +51,7 @@ class TypeComplaintController extends Controller
             ],
 
             $messages = [
-                'required' => 'The :attribute field is required.',
+                'title.required' => 'Le Titre est un champ obligatoire.',
             ]
         );
 
@@ -111,7 +111,7 @@ class TypeComplaintController extends Controller
             ],
 
             $messages = [
-                'required' => 'The :attribute field is required.',
+                'title.required' => 'Le Titre est un champ obligatoire.',
             ]
         );
 
