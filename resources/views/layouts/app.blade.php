@@ -18,6 +18,7 @@
       <meta name="author" content="Request Manager"/>
       <!-- Favicon icon -->
       <link rel="icon" href="{{asset('assets/images/favicon.ico') }}" type="image/x-icon">
+      <link rel="stylesheet" href="{{asset('assets/css/plugins/bootstrap-datepicker3.min.css') }}">
       <!-- data tables css -->
       <link rel="stylesheet" href="{{asset('assets/css/plugins/dataTables.bootstrap4.min.css') }}">
       <link rel="stylesheet" href="{{asset('assets/fonts/cryptofont.css') }}">
@@ -437,6 +438,66 @@
       <script src="{{asset('assets/js/vendor-all.min.js') }}"></script> 
 
       <script>
+         /*$(document).on('click', function(e) {
+            if ( e.target.id != 'birth_date' ) {
+               // you clicked something else
+               var ptag = $('#birth_date').val();
+               var birthdate = new Date(ptag);
+               var cur = new Date();
+               var diff = cur-birthdate;
+               var age = Math.floor(diff/31536000000);
+
+               if(age > 15){
+                  console.log('good');
+                  $('#message').text("");
+                  
+               }else{
+                  //console.log('bad');
+                  $('#message').text("La date de naissance choisie n'est pas valide (Age < 15)! Veuillez en choisir une autre svp.");
+                 // $('#birth_date').focus();
+               }
+               
+            }
+         });*/
+
+         $('#birth_date').change(function() {
+               var ptag = $('#birth_date').val();
+               var birthdate = new Date(ptag);
+               var cur = new Date();
+               var diff = cur-birthdate;
+               var age = Math.floor(diff/31536000000);
+
+               if(age > 15){
+                  //console.log('good');
+                  $('#message').text("");
+                  $('#submit').attr('disabled',false);
+                  
+               }else{
+                  //console.log('bad');
+                  $('#message').text("La date de naissance choisie n'est pas valide (Age < 15)! Veuillez en choisir une autre svp.");
+                  $('#submit').attr('disabled',true);
+                 //$('#birth_date').focus();
+               }
+         });
+         </script>
+
+      <!-- bootstrap-datepicker -->
+      {{-- <script src="{{asset('assets/js/plugins/bootstrap-datepicker.min.js') }}"></script>
+
+      <script>
+         arrows = {
+             leftArrow: '<i class="feather icon-chevron-left"></i>',
+             rightArrow: '<i class="feather icon-chevron-right"></i>'
+         }
+         // minimum setup
+         $('#pc-datepicker-1').datepicker({
+            todayHighlight: true,
+            orientation: "bottom left",
+            templates: arrows,
+         });
+      </script> --}}
+
+      <script>
          /* // CSRF Token
          var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
 
@@ -479,7 +540,7 @@
             if(query ==''){
 
                $('#city_list').html("");
-               $('#city').val() = '';
+               $('#city').val("");
             }else{
 
                $.ajax({
@@ -541,9 +602,9 @@
       <script src="{{asset('assets/js/plugins/bootstrap.min.js') }}"></script>
       <script src="{{asset('assets/js/plugins/feather.min.js') }}"></script>
       <script src="{{asset('assets/js/pcoded.min.js') }}"></script>
-
       <script src="{{asset('js/intlTelInput.js') }}"></script>
       <script>
+        
          var input = document.querySelector("#phone");
          output = document.querySelector("#output");
          var iti = window.intlTelInput(input, {

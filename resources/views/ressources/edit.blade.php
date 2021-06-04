@@ -57,6 +57,7 @@
                         <div class="form-group">
                             <label for="birth_date">Date de naissance <span class="text-danger">*</span></label>
                             <input type="date" name="birth_date" id="birth_date" class="form-control" value="{{ $staff->birth_date }}" required>
+                            <span id="message" class="text-danger"></span>
                         </div>
                       </div>
 

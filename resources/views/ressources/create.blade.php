@@ -68,7 +68,8 @@
                         <div class="form-group">
                             <label for="birth_date">Date de naissance <span class="text-danger">*</span></label>
                             <input type="date" name="birth_date" id="birth_date" class="form-control @error('birth_date') is-invalid @enderror" value="{{ old('birth_date') }}" required autocomplete="birth_date">
-
+                            {{-- <input type="text" class="form-control" id="pc-datepicker-1" placeholder="Select date"> --}}
+                            <span id="message" class="text-danger" role="alert"></span>
                             @error('birth_date')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
