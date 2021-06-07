@@ -43,16 +43,18 @@
 
         <div class="auth-side-form">
 
-            @if (session('status'))
-                <div class="alert alert-success" role="alert">
-                    {{ session('status') }}
-                </div>
-            @endif
+            
 
             <form method="POST" action="{{ route('password.email') }}">
                 @csrf
 
                 <div class=" auth-content">
+
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
                     <!--<img src="{{asset('assets/images/moovafrica.png') }}" alt="" class="img-fluid mb-4 d-block d-xl-none d-lg-none">-->
                     <h4 class="mb-3 f-w-400">Réinitialisation du mot de passe</h4>
 

@@ -56,7 +56,7 @@ class ChiefServiceController extends Controller
             'name' => 'required|string|max:255',
             'firstname' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'phone_number' => 'required|string|min:8',
+            'phone_number' => 'required|string|min:8|unique:users',
             'birth_date' => 'required',
             'gender' => 'required',
             'address' => 'required',
@@ -74,6 +74,8 @@ class ChiefServiceController extends Controller
             'address.required' => 'Le champ Adresse est obligatoire.',
             'city.required' => 'Le champ Ville est obligatoire.',
             'postal_code.required' => 'Le champ Code postal  est obligatoire.',
+            'phone_number.unique' => 'Ce numéro de téléphone existe déjà!',
+            'email.unique' => 'Cette adresse email existe déjà!.',
         ]);
 
         if ($request->hasfile('profile_picture')) {
@@ -185,7 +187,7 @@ class ChiefServiceController extends Controller
             'name' => 'required|string|max:255',
             'firstname' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email,'.$staff->user_id,
-            'phone_number' => 'nullable|string|min:8',
+            'phone_number' => 'nullable|string|min:8|unique:users,phone_number,'.$staff->user_id,
             'birth_date' => 'required',
             'gender' => 'required',
             'address' => 'required',
@@ -203,6 +205,8 @@ class ChiefServiceController extends Controller
             'address.required' => 'Le champ Adresse est obligatoire.',
             'city.required' => 'Le champ Ville est obligatoire.',
             'postal_code.required' => 'Le champ Code postal  est obligatoire.',
+            'phone_number.unique' => 'Ce numéro de téléphone existe déjà!',
+            'email.unique' => 'Cette adresse email existe déjà!.',
         ]);
 
         if ($request->hasfile('profile_picture')) {

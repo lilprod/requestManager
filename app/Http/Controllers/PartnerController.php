@@ -56,7 +56,7 @@ class PartnerController extends Controller
         $this->validate($request, [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'phone_number' => 'required|string|min:8',
+            'phone_number' => 'required|string|min:8|unique:users',
             'address' => 'required',
             'city' => 'required',
             'nif' => 'required',
@@ -70,6 +70,8 @@ class PartnerController extends Controller
             'address.required' => 'Le champ Adresse est obligatoire.',
             'city.required' => 'Le champ Ville est obligatoire.',
             'postal_code.required' => 'Le champ Code postal  est obligatoire.',
+            'phone_number.unique' => 'Ce numéro de téléphone existe déjà!',
+            'email.unique' => 'Cette adresse email existe déjà!.',
         ]);
 
         if ($request->hasfile('profile_picture')) {
@@ -182,8 +184,8 @@ class PartnerController extends Controller
         //Validate these fields
         $this->validate($request, [
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'phone_number' => 'nullable|string|min:8',
+            'email' => 'required|email|unique:users,email,'.$institution->user_id,
+            'phone_number' => 'nullable|string|min:8|unique:users,phone_number,'.$institution->user_id,
             'address' => 'required',
             'city' => 'required',
             'nif' => 'required',
@@ -197,6 +199,8 @@ class PartnerController extends Controller
             'address.required' => 'Le champ Adresse est obligatoire.',
             'city.required' => 'Le champ Ville est obligatoire.',
             'postal_code.required' => 'Le champ Code postal  est obligatoire.',
+            'phone_number.unique' => 'Ce numéro de téléphone existe déjà!',
+            'email.unique' => 'Cette adresse email existe déjà!.',
         ]);
 
         if ($request->hasfile('profile_picture')) {

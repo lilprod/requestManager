@@ -53,7 +53,7 @@ class AdminController extends Controller
             'firstname' => 'required|max:120',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6|confirmed',
-            'phone_number' => 'required',
+            'phone_number' => 'required|unique:users',
             'address' => 'nullable',
             'profile_picture' => 'image|nullable',
         ],
@@ -66,6 +66,8 @@ class AdminController extends Controller
             'password.required' => 'Le champ Mot de passe est obligatoire.',
             'password.confirmed' => 'Le champ Mot de passe et Confirmation du mot de passe ne correspondent pas.',
             'address.required' => 'Le champ Adresse est obligatoire.',
+            'phone_number.unique' => 'Ce numéro de téléphone existe déjà!',
+            'email.unique' => 'Cette adresse email existe déjà!.',
         ]);
 
         if ($request->hasfile('profile_picture')) {
@@ -156,9 +158,19 @@ class AdminController extends Controller
             'firstname' => 'required|max:120',
             'email' => 'required|email|unique:users,email,'.$id,
             //'password' => 'required|min:6|confirmed',
-            'phone_number' => 'nullable',
+            'phone_number' => 'nullable|unique:users,phone_number,'.$id,
             'address' => 'nullable',
             'profile_picture' => 'image|nullable',
+        ],
+
+        $messages = [
+            'name.required' => 'Le champ Nom est obligatoire.',
+            'firstname.required' => 'Le champ Prénom(s) est obligatoire.',
+            'phone_number.required' => 'Le champ  est obligatoire.',
+            'email.required' => 'Le champ Email est obligatoire.',
+            'address.required' => 'Le champ Adresse est obligatoire.',
+            'phone_number.unique' => 'Ce numéro de téléphone existe déjà!',
+            'email.unique' => 'Cette adresse email existe déjà!.',
         ]);
 
         if ($request->hasfile('profile_picture')) {
